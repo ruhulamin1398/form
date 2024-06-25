@@ -13,10 +13,8 @@ const Navbar = () => {
 
 
   const menuItems = {
-    Home: "#",
-    Donate: "#",
-    Services: "#services",
-    "Latest Donations": "#donations",
+     
+    "Call for more information +123456": "#donations",
   };
   const menuArray = Object.entries(menuItems);
 
@@ -33,9 +31,9 @@ const Navbar = () => {
        
           <NavBarItem key={key + index} title={key} menuLink={value} />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+        {/* <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
           Login
-        </li>
+        </li> */}
       </ul>
       <div className="flex relative">
         {!toggleMenu && (
