@@ -7,8 +7,10 @@ import { TransactionContext } from "../context/TransactionContext";
 import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
 import '../utils/style.css'
+import "./Tooltips-form"
 
 import YesNoRadio from './YesNoRadio';
+import Tooltip from "./Tooltips-form";
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -127,23 +129,59 @@ const Welcome = () => {
               </div>
             </div>
 
-            <Input
-              placeholder="?נייד"
-              name="message"
-              type="text"
-
-              className="text-right"
-            />
-            
-            <Input
-              placeholder="קוד אינטרנט?   [נדרש]"
-              name="message"
-              type="text"
 
 
-              className="text-right"
-            />
 
+
+            <div className="flex w-full justify-end items-end">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
+
+
+                <h4 className="text-right  ml-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                  <div class="rtl-text">
+
+                    נייד
+                  </div>
+
+                </h4>
+ 
+
+                <Input
+                  name="message"
+                  type="text"
+
+                  className="text-right flex-auto"
+                />
+              </div>
+            </div>
+
+
+
+
+            <div className="flex w-full justify-end items-end">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
+
+
+                <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                  <div class="rtl-text text-nowrap  ">
+                  קוד&nbsp;אינטרנט
+
+                  </div>
+                   
+
+                </h4>
+              
+ 
+<Tooltip/>
+
+                <Input
+                  name="message"
+                  type="text"
+
+                  className="text-right      flex-auto"
+                />
+              </div>
+            </div>
 
 
 
@@ -321,14 +359,14 @@ const Welcome = () => {
               </div>
             </div>
 
- 
-            
+
+
             <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
 
-            האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
+              האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
 
-</h4>
-          
+            </h4>
+
 
 
             <Input
@@ -341,8 +379,8 @@ const Welcome = () => {
 
 
             <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
-            האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת ? 
-            האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע ? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:
+              האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת ?
+              האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע ? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:
             </h4>
 
             <Input
@@ -356,16 +394,16 @@ const Welcome = () => {
 
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[40%]  ">
-  
-  
- 
-            
-          
+
+
+
+
+
 
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text">
-                
-האם החברה מבוטחת כיום כן/לא? או בעבר? 
+
+                    האם החברה מבוטחת כיום כן/לא? או בעבר?
                   </div>
 
                 </h4>
@@ -412,11 +450,11 @@ const Welcome = () => {
             </div>
 
             <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
-            <div class="rtl-text">
-            האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
-            אם כן, פרט: 
+              <div class="rtl-text">
+                האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
+                אם כן, פרט:
 
-            </div>
+              </div>
             </h4>
 
             <Input
@@ -428,9 +466,9 @@ const Welcome = () => {
             />
 
             <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
-            <div class="rtl-text">
-              התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
-              פרט:
+              <div class="rtl-text">
+                התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
+                פרט:
               </div>
             </h4>
 
@@ -446,18 +484,18 @@ const Welcome = () => {
 
 
 
-            <div class="rtl-text">
-            אנו מצהירים בזאת כי הנתונים והתשובות המפורטים בבקשתנו לביטוח זו נכונים ושלמים.
-                          <br />
-                          ידוע לנו כי אלה מהווים, בין היתר, בסיס להצעת הבטוח שתתנו לנו.
-                          
-                                        <br />
-                                        אנו מתחייבים לעדכן אתכם, לאחר חתימתנו על הצעת ביטוח זו ועד להוצאת הפוליסה על ידכם, מיד              
-              <br />
-              
+              <div class="rtl-text">
+                אנו מצהירים בזאת כי הנתונים והתשובות המפורטים בבקשתנו לביטוח זו נכונים ושלמים.
+                <br />
+                ידוע לנו כי אלה מהווים, בין היתר, בסיס להצעת הבטוח שתתנו לנו.
 
-              לאחר שיודע לנו כי מי מהנתונים והתשובות כאמור אינם נכונים או שלמים. 
-</div>
+                <br />
+                אנו מתחייבים לעדכן אתכם, לאחר חתימתנו על הצעת ביטוח זו ועד להוצאת הפוליסה על ידכם, מיד
+                <br />
+
+
+                לאחר שיודע לנו כי מי מהנתונים והתשובות כאמור אינם נכונים או שלמים.
+              </div>
 
             </h4>
 
