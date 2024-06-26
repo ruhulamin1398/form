@@ -40,6 +40,7 @@ const Welcome = () => {
     if (!amount || !message) return;
 
     // sendTransaction();
+    
   };
 
   return (
