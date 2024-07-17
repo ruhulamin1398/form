@@ -309,24 +309,21 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
 
 
+    
+
     try {
         await sentEMail({
             "body": emailBodyHtml,
-            "to": "ruhul.ok8@gmail.com",
+            "to":  "ruhul.ok8@gmail.com",
             "subject": "Verification Email",
-            attachments: [
-                {
-                    filename: 'image.png',
-                    path: 'path/to/your/image.png',
-                    cid: 'unique@nodemailer.com' // Same as in the html img src
-                }
-            ]
+       
 
         })
     }
     catch (err) {
         console.log(err)
     }
+
 
 })
 
@@ -338,8 +335,8 @@ const sentEMail = expressAsyncHandler(async (data) => {
         secure: false,
 
         auth: {
-            user: "ruhul.ok8@gmail.com",
-            pass: "hzqe uxvw dewu vffc",
+            user:  "ruhul.ok8@gmail.com",
+            pass: 'hzqe uxvw dewu vffc',
         }
     })
     // console.log(tranporter)

@@ -10,7 +10,7 @@ const YesNoRadio = ({ name, value, title,  handleChange }) => {
           type="radio"
           name={name}
           value="yes" 
-          onChange={(e) => handleChange(e, name, "yes", title, "radio")}
+          onChange={(e) => handleChange(e, name, "כן", title, "radio")}
           className="mr-2 cursor-pointer"
         />
         <span className="ml-1">כן</span> {/* Level text */}
@@ -21,7 +21,7 @@ const YesNoRadio = ({ name, value, title,  handleChange }) => {
           type="radio"
           name={name}
           value="no" 
-          onChange={(e) => handleChange(e, name, "no", title, "radio")}
+          onChange={(e) => handleChange(e, name, "לא", title, "radio")}
           
           className="mr-2 cursor-pointer"
         />

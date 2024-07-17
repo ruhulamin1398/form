@@ -20,7 +20,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange }) => (
     type={type}
     name={name}
     title={title}
-    value={value}
+    // value={value}
     onChange={(e) => handleChange(e, name, value, title, type)}
     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
   />
@@ -56,21 +56,15 @@ const Welcome = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const inputs = document.querySelectorAll('.form-input');
-    inputs.forEach((input) => {
-      handleChange(
-        { target: { value: input.value } },
-        input.name,
-        input.value,
-        input.getAttribute('title'),
-        input.type
-      );
-    });
-
+   
 
     
     try {
-      const response = await fetch('http://localhost:5000/record', {
+      const localUrl = "http://localhost:5000/record"
+      const serverUrl= "https://server-form.ruhul.info/record"
+      const SubmitUrl= localUrl
+
+      const response = await fetch(SubmitUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -84,6 +78,7 @@ const Welcome = () => {
 
       const data = await response.json();
       console.log('Success:', data);
+      alert("Success !!!!")
       // Handle successful submission (e.g., show a success message, clear the form, etc.)
     } catch (error) {
       console.error('Error:', error);

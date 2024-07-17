@@ -14,7 +14,7 @@
   }
 
   .mTable{
-    /* display: none; */
+    display: none;
   }
 
   @media (max-width: 600px) {
