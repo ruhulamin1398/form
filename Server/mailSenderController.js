@@ -3,7 +3,7 @@ const expressAsyncHandler = require("express-async-handler")
 
 const nodemailer = require("nodemailer")
 
-const prepareEmail = expressAsyncHandler(async(data)=>{
+const prepareEmail = expressAsyncHandler(async (data) => {
 
     const dataJson = JSON.stringify(data)
 
@@ -21,8 +21,7 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f4f4f4;
-            direction: rtl !important;
+            background-color: #f4f4f4; 
         }
         .container {
             max-width: 600px;
@@ -31,44 +30,53 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          
         }
         h2 {
             color: #333;
+            
         }
         .field {
             margin-bottom: 15px;
+            
         }
         .field label {
             font-weight: bold;
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 5px;  direction: rtl ;
+            
         }
         .field p {
             margin: 0;
             padding: 10px;
             background: #f9f9f9;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 4px;  direction: rtl ;
+            
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 20px; 
         }
         table, th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #ddd;   
         }
         th, td {
             padding: 10px;
-            text-align: left;
+            text-align: left;   
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #f2f2f2;   
         }
+            .rtl, td{
+              direction: rtl ;
+              text-align:right;
+              }
         .footer {
             text-align: center;
             margin-top: 20px;
-            color: #777;
+            color: #777; 
         }
     </style>
 </head>
@@ -132,9 +140,9 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
             <p id="name">${data['f10'].value}</p>
         </div>
 
+<br>
 
-
-
+ <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
 
         <table class="min-w-full bg-transparent text-white">
@@ -176,30 +184,44 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
                 </tr>
             </tbody>
         </table>
+
+
+
+<br> 
+        <h4 class="rtl">
+
+        רשימת חייבים לבדיקה
+
+
+      </h4>
+
+
+
          <table>
             <tr>
-                <td>${data['f25'].title}</td>
+
                 <td>${data['f25'].value}</td>
+                <td>${data['f25'].title}</td>
             </tr>
             <tr>
+            <td>${data['f26'].value}</td>
                 <td>${data['f26'].title}</td>
-                <td>${data['f26'].value}</td>
             </tr>
             <tr>
+            <td>${data['f27'].value}</td>
                 <td>${data['f27'].title}</td>
-                <td>${data['f27'].value}</td>
             </tr>
             <tr>
+            <td>${data['f28'].value}</td>
                 <td>${data['f28'].title}</td>
-                <td>${data['f28'].value}</td>
             </tr>
             <tr>
+            <td>${data['f29'].value}</td>
                 <td>${data['f29'].title}</td>
-                <td>${data['f29'].value}</td>
             </tr>
             <tr>
+            <td>${data['f30'].value}</td>
                 <td>${data['f30'].title}</td>
-                <td>${data['f30'].value}</td>
             </tr>
              
            
@@ -208,7 +230,7 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
 
 
 
-             <div class="field">
+             <div class="field ">
             <label for="name">${data['f31'].title}</label>
             <p id="name">${data['f31'].value}</p>
         </div>
@@ -218,6 +240,27 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
             <label for="name">${data['f32'].title}</label>
             <p id="name">${data['f32'].value}</p>
         </div>
+
+
+             <div class="field">
+            <label for="name">${data['yesNoOption'].title}</label>
+            <p  >${data['yesNoOption'].value}</p>
+        </div>
+
+
+
+        <div class="field">
+        <label for="name">${data['yesNoOption2'].title}</label>
+        <p  >${data['yesNoOption2'].value}</p>
+    </div>
+
+
+
+    <div class="field">
+    <label for="name">${data['yesNoOption3'].title}</label>
+    <p  >${data['yesNoOption3'].value}</p>
+</div>
+
 
 
              <div class="field">
@@ -232,38 +275,30 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
         </div>
 
 
-        
+    <br> 
+     <br>
 
-        <div class="field">
-            <label for="message">Message:</label>
-            <p id="message">This is a sample message.</p>
-        </div>
 
-        <h3>Form Details</h3>
-        <table>
-            <tr>
-                <th>Field Name</th>
-                <th>Value</th>
-            </tr>
-            <!-- Example row, replace with actual form field names and values -->
-            <tr>
-                <td>Name</td>
-                <td>John Doe</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>john.doe@example.com</td>
-            </tr>
-            <tr>
-                <td>Message</td>
-                <td>This is a sample message.</td>
-            </tr>
-            <!-- Repeat above block for additional form fields -->
-        </table>
+    <div class="field">
+    <label for="name">${data['date'].title}</label>
+    <p id="name">${data['date'].value}</p>
+</div>
 
-        <div class="footer">
-            <p>&copy; 2024 Your Company. All rights reserved.</p>
-        </div>
+
+ 
+
+
+
+           
+
+
+
+
+
+
+ 
+
+       
     </div>
 </body>
 </html>
@@ -277,8 +312,15 @@ const prepareEmail = expressAsyncHandler(async(data)=>{
     try {
         await sentEMail({
             "body": emailBodyHtml,
-            "to": "ruhul.ok@gmail.com",
+            "to": "ruhul.ok8@gmail.com",
             "subject": "Verification Email",
+            attachments: [
+                {
+                    filename: 'image.png',
+                    path: 'path/to/your/image.png',
+                    cid: 'unique@nodemailer.com' // Same as in the html img src
+                }
+            ]
 
         })
     }
@@ -321,4 +363,4 @@ const sentEMail = expressAsyncHandler(async (data) => {
 })
 
 
-module.exports= {sentEMail, prepareEmail}
+module.exports = { sentEMail, prepareEmail }

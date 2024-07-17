@@ -1,12 +1,7 @@
 import { useState } from 'react';
 
-const YesNoRadio = ({ name, value, handleChange }) => {
-  const [selectedOption, setSelectedOption] = useState(value);
+const YesNoRadio = ({ name, value, title,  handleChange }) => {
 
-  const handleOptionChange = (option) => {
-    setSelectedOption(option);
-    handleChange(option, name);
-  };
 
   return (
     <div className="flex items-center mb-4">
@@ -14,9 +9,8 @@ const YesNoRadio = ({ name, value, handleChange }) => {
         <input
           type="radio"
           name={name}
-          value="yes"
-          checked={selectedOption === 'yes'}
-          onChange={() => handleOptionChange('yes')}
+          value="yes" 
+          onChange={(e) => handleChange(e, name, "yes", title, "radio")}
           className="mr-2 cursor-pointer"
         />
         <span className="ml-1">כן</span> {/* Level text */}
@@ -26,10 +20,10 @@ const YesNoRadio = ({ name, value, handleChange }) => {
         <input
           type="radio"
           name={name}
-          value="no"
-          checked={selectedOption === 'no'}
-          onChange={() => handleOptionChange('no')}
-          className="mr-2 cursor-pointer "
+          value="no" 
+          onChange={(e) => handleChange(e, name, "no", title, "radio")}
+          
+          className="mr-2 cursor-pointer"
         />
         <span className="ml-1">לא</span> {/* Level text */}
         

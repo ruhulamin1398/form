@@ -35,22 +35,22 @@ const Welcome = () => {
 
   
 
-  useEffect(() => {
-    // Target all input fields by name attribute on component mount
-    const inputNames = Object.keys(formData);
-    inputNames.forEach((name) => {
-      const input = document.querySelector(`input[name="${name}"]`);
-      if (input) {
-        handleChange(
-          { target: { value: input.value } },
-          name,
-          input.value,
-          input.getAttribute('title'),
-          input.type
-        );
-      }
-    });
-  }, []); // Empty dependency array ensures this runs only once on mount
+  // useEffect(() => {
+  //   // Target all input fields by name attribute on component mount
+  //   const inputNames = Object.keys(formData);
+  //   inputNames.forEach((name) => {
+  //     const input = document.querySelector(`input[name="${name}"]`);
+  //     if (input) {
+  //       handleChange(
+  //         { target: { value: input.value } },
+  //         name,
+  //         input.value,
+  //         input.getAttribute('title'),
+  //         input.type
+  //       );
+  //     }
+  //   });
+  // }, []); // Empty dependency array ensures this runs only once on mount
 
 
 
@@ -914,10 +914,10 @@ const Welcome = () => {
                 </h4>
 
                 <YesNoRadio
-                  name="yesNoOption2"
-                  value={formData.yesNoOption2}
+                  name="yesNoOption" 
+                  title="האם החברה מבוטחת כיום כן/לא? או בעבר?"
+              handleChange={handleChange}
                   
-
                 />
               </div>
             </div>
@@ -932,9 +932,9 @@ const Welcome = () => {
 
                 </h4>
                 <YesNoRadio
-                  name="yesNoOption3"
-                  value={formData.yesNoOption3}
-
+                  name="yesNoOption2"       
+                  title=  " האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class='ltr-symbol'>?</bdi>"
+              handleChange={handleChange}
                 />
               </div>
             </div>
@@ -948,8 +948,10 @@ const Welcome = () => {
                   </div>
                 </h4>
                 <YesNoRadio
-                  name="yesNoOption"
-                  value={formData.yesNoOption}
+                  name="yesNoOption3"
+                  title='   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>'
+              handleChange={handleChange}
+                  
 
                 />
               </div>
@@ -1063,6 +1065,7 @@ const Welcome = () => {
                     title="חתימה&nbsp;וחותמת&nbsp;החברה"
 
                     name="sign"
+                    accept="image/*" 
                     type="file"
                     className="flex-1 text-right py-2 px-3 rounded-lg bg-gray-200"
                   />

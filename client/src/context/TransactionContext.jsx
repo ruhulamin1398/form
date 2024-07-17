@@ -154,6 +154,28 @@ export const TransactionsProvider = ({ children }) => {
           "value": "",
           "title": "  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב פרט:"
       },
+
+
+      "yesNoOption": {
+        "value": "",
+        "title": " האם החברה מבוטחת כיום כן/לא? או בעבר?"
+    },
+
+
+    "yesNoOption2": {
+      "value": "",
+      "title":  ' האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>'
+  },
+
+
+  "yesNoOption3": {
+    "value": "",
+    "title": '   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>'
+},
+
+
+
+
       "date": {
           "value": "",
           "title": "תאריך"
@@ -170,8 +192,31 @@ export const TransactionsProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   const handleChange = (e,name, value, title , type ) => {
-    setformData((prevState) => ({ ...prevState, [name]: {"value": e.target.value,"title":title} }));
-    console.log(formData); 
+    if(type =="text"){
+      setformData((prevState) => ({ ...prevState, [name]: {"value": e.target.value,"title":title} }));
+ 
+      console.log(formData); 
+    }
+    if(  type == "radio"){
+      console.log(name , "   " , value)
+      setformData((prevState) => ({ ...prevState, [name]: {"value":value ,"title":title} }));
+ 
+    }
+
+    if(  type == "date"){
+      console.log(name , "   " , e.target.value)
+      setformData((prevState) => ({ ...prevState, [name]: {"value":e.target.value ,"title":title} }));
+ 
+    }
+
+    if(  type == "file"){ 
+      setformData((prevState) => ({ ...prevState, [name]: {"file":e.target.files[0] ,"title":title} }));
+ 
+    }
+
+
+ 
+ 
   };
 
   const getAllTransactions = async () => {
