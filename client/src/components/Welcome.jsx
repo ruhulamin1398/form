@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
@@ -8,6 +8,7 @@ import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
 import '../utils/style.css'
 import "./Tooltips-form"
+import ImageUpload from "./ImageUpload";
 
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
@@ -34,27 +35,11 @@ const Welcome = () => {
   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
 
   
-
-  // useEffect(() => {
-  //   // Target all input fields by name attribute on component mount
-  //   const inputNames = Object.keys(formData);
-  //   inputNames.forEach((name) => {
-  //     const input = document.querySelector(`input[name="${name}"]`);
-  //     if (input) {
-  //       handleChange(
-  //         { target: { value: input.value } },
-  //         name,
-  //         input.value,
-  //         input.getAttribute('title'),
-  //         input.type
-  //       );
-  //     }
-  //   });
-  // }, []); // Empty dependency array ensures this runs only once on mount
-
+ const [submitLoading, setSubmitLoading] = useState(false)
 
 
   const handleSubmit = async (e) => {
+    setSubmitLoading(true)
     e.preventDefault();
    
 
@@ -62,7 +47,7 @@ const Welcome = () => {
     try {
       const localUrl = "http://localhost:5000/record"
       const serverUrl= "https://server-form.ruhul.info/record"
-      const SubmitUrl= localUrl
+      const SubmitUrl= serverUrl
 
       const response = await fetch(SubmitUrl, {
         method: 'POST',
@@ -79,13 +64,16 @@ const Welcome = () => {
       const data = await response.json();
       console.log('Success:', data);
       alert("Success !!!!")
+      window.location.reload();
       // Handle successful submission (e.g., show a success message, clear the form, etc.)
     } catch (error) {
       console.error('Error:', error);
       // Handle error (e.g., show an error message)
     }
+
+    setSubmitLoading(false)
   };
-  
+
 
 
 
@@ -909,10 +897,10 @@ const Welcome = () => {
                 </h4>
 
                 <YesNoRadio
-                  name="yesNoOption" 
+                  name="yesNoOption"
                   title="האם החברה מבוטחת כיום כן/לא? או בעבר?"
-              handleChange={handleChange}
-                  
+                  handleChange={handleChange}
+
                 />
               </div>
             </div>
@@ -927,9 +915,9 @@ const Welcome = () => {
 
                 </h4>
                 <YesNoRadio
-                  name="yesNoOption2"       
-                  title=  " האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class='ltr-symbol'>?</bdi>"
-              handleChange={handleChange}
+                  name="yesNoOption2"
+                  title=" האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class='ltr-symbol'>?</bdi>"
+                  handleChange={handleChange}
                 />
               </div>
             </div>
@@ -945,8 +933,8 @@ const Welcome = () => {
                 <YesNoRadio
                   name="yesNoOption3"
                   title='   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>'
-              handleChange={handleChange}
-                  
+                  handleChange={handleChange}
+
 
                 />
               </div>
@@ -966,7 +954,7 @@ const Welcome = () => {
               title=" האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
                 אם כן, פרט:"
               handleChange={handleChange}
-
+              body
               name="f33"
               value="f33"
               type="text"
@@ -1051,25 +1039,18 @@ const Welcome = () => {
 
 
 
-
                 <div className="flex items-center ">
 
-                  <Input
+                  <div>
 
-                    handleChange={handleChange}
-                    title="חתימה&nbsp;וחותמת&nbsp;החברה"
+                  <ImageUpload/>
 
-                    name="sign"
-                    accept="image/*" 
-                    type="file"
-                    className="flex-1 text-right py-2 px-3 rounded-lg bg-gray-200"
-                  />
-
-
-                  <h4 className=" flex-1 pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-white">
+                  </div>
+                  <h4 className=" flex-1 pr-4 mb-[0px] mt-auto  ml-[30px]  font-bold text-white">
                     חתימה&nbsp;וחותמת&nbsp;החברה
 
                   </h4>
+
 
 
                 </div>
@@ -1085,7 +1066,7 @@ const Welcome = () => {
 
 
 
-            {isLoading ? <Loader /> : (
+            {submitLoading ? <Loader /> : (
               <button
                 type="button"
                 onClick={handleSubmit}

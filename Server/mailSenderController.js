@@ -3,6 +3,8 @@ const expressAsyncHandler = require("express-async-handler")
 
 const nodemailer = require("nodemailer")
 
+const path = require('path');
+
 const prepareEmail = expressAsyncHandler(async (data) => {
 
     const dataJson = JSON.stringify(data)
@@ -285,6 +287,19 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 </div>
 
 
+
+
+
+<div class="field">
+<label for="name">${data['sign'].title}</label>
+<p id="name">
+
+<img className="text-left " src="cid:unique@nodemailer.com" alt="sign" height="50px" />
+
+</p>
+</div>
+
+
  
 
 
@@ -309,55 +324,54 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
 
 
-    
+    // Configure Nodemailer transporter
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    secure: false,
+
+    auth: {
+        user:  "ruhul.ok8@gmail.com",
+        pass: 'hzqe uxvw dewu vffc',
+    }
+})
+
+
 
     try {
-        await sentEMail({
-            "body": emailBodyHtml,
-            "to":  "ruhul.ok8@gmail.com",
-            "subject": "Verification Email",
-       
-
-        })
-    }
-    catch (err) {
-        console.log(err)
-    }
+      
+    
+        // Email options
+        const mailOptions = {
+          from: 'ruhul.ok8@gmail.com',
+          to: 'ruhul.ok8@gmail.com',
+          subject: 'Submission Report',
+          html: emailBodyHtml,
+          attachments: [
+            {
+              filename: 'sign.png',
+              path: path.join(__dirname, data['sign'].value),  
+              cid: 'unique@nodemailer.com'
+            },
+            {
+                filename: 'sign.png',
+                path: path.join(__dirname, data['sign'].value),  
+                cid: 'uniquedfdf@nodemailer.com'
+              }
+    
+          ]
+        };
+    
+        // Send email
+        const info = await transporter.sendMail(mailOptions);
+        console.log('Email sent: ' + info.response);
+      } catch (error) {
+        console.error('Error sending email:', error);
+      }
 
 
 })
 
-const sentEMail = expressAsyncHandler(async (data) => {
-    console.log("data :  ", data)
-
-    const tranporter = nodemailer.createTransport({
-        service: 'gmail',
-        secure: false,
-
-        auth: {
-            user:  "ruhul.ok8@gmail.com",
-            pass: 'hzqe uxvw dewu vffc',
-        }
-    })
-    // console.log(tranporter)
+ 
 
 
-    const mailOptions = {
-        from: process.env.SMTP_USER,
-        to: data.to,
-        subject: data.subject,
-        html: data.body
-    }
-    tranporter.sendMail(mailOptions, function (err, info) {
-        if (err) {
-            console.log(err)
-        }
-        else {
-            console.log("email has been send", info.response)
-        }
-    })
-
-})
-
-
-module.exports = { sentEMail, prepareEmail }
+module.exports = {  prepareEmail }

@@ -209,10 +209,13 @@ export const TransactionsProvider = ({ children }) => {
  
     }
 
-    // if(  type == "file"){ 
-    //   setformData((prevState) => ({ ...prevState, [name]: {"file":e.target.files[0] ,"title":title} }));
+    if(  type == "file"){ 
+      setformData((prevState) => ({ ...prevState, [name]: {"value":value ,"title":title} }));
+
+      console.log(name , " -  ", value)
+      console.log(formData)
  
-    // }
+    }
 
 
  
