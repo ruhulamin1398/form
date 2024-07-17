@@ -11,6 +11,8 @@ import "./Tooltips-form"
 
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
+
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -40,22 +42,17 @@ const Welcome = () => {
     if (!amount || !message) return;
 
     // sendTransaction();
-
+    
   };
-
-
-  const title32 = `האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת?
-האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:`;
-
 
   return (
 
 
 
-    <div className="flex w-full justify-center items-center pb-[100px] px-[0px] ">
-      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-12 px-md-4">
+    <div className="flex w-full justify-center items-center pb-[100px] px-[50px]">
+      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-12 px-4">
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
-          <div className="flex justify-between flex-col w-full h-full pt-12">
+          <div className="flex justify-between flex-col w-full h-full pt-32">
             <h1 className="text-3xl sm:text-5xl text-white text-gradient my-10 text-center">
               טופס הצעת ביטוח אשראי בישראל
               <br />
@@ -69,51 +66,30 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
                 <Input
                   placeholder="שם החברה"
-                  name="f1"
-                  value="f1"
-
-
-                  title="שם החברה"
-                  handleChange={handleChange}
-
+                  name="amount"
                   type="text"
 
                   className="text-right"
                 />
                 <Input
                   placeholder="מספר ח.פ"
-                  name="f2"
-                  value="f2"
+                  name="message"
                   type="text"
-
-                  title="מספר ח.פ"
-                  handleChange={handleChange}
-
                   className="text-right"
                 />
               </div>
             </div>
             <Input
               placeholder="כתובת"
-              name="f3"
-              value="f3"
+              name="amount"
               type="text"
-
-              title="כתובת"
-              handleChange={handleChange}
 
               className="text-right"
             />
             <Input
               placeholder="תחום עיסוק"
-
-              name="f4"
-              value="f4"
-
+              name="message"
               type="text"
-
-              title="תחום עיסוק"
-              handleChange={handleChange}
 
               className="text-right"
             />
@@ -122,29 +98,14 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
                 <Input
                   placeholder="שם מלא של איש הקשר"
-
-
-                  name="f5"
-                  value="f5"
-
-
+                  name="amount"
                   type="text"
-                  title="שם מלא של איש הקשר"
-                  handleChange={handleChange}
 
                   className="text-right"
                 />
                 <Input
                   placeholder="תפקיד"
-
-                  title="תפקיד"
-                  handleChange={handleChange}
-
-
-                  name="f6"
-                  value="f6"
-
-
+                  name="message"
                   type="text"
 
                   className="text-right"
@@ -156,30 +117,14 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
                 <Input
                   placeholder='דוא"ל'
-
-                  title='דוא"ל'
-                  handleChange={handleChange}
-
-
-
-                  name="f7"
-                  value="f7"
-
-
+                  name="amount"
                   type="text"
 
                   className="text-right"
                 />
                 <Input
                   placeholder="טלפון"
-
-
-                  title="טלפון"
-                  handleChange={handleChange}
-
-
-                  name="f8"
-                  value="f8"
+                  name="message"
                   type="text"
 
                   className="text-right"
@@ -195,23 +140,17 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
 
 
-                <h4 className="text-right  mx-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text">
+                <h4 className="text-right  ml-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                  <div className="rtl-text">
 
                     נייד
                   </div>
 
                 </h4>
-
+ 
 
                 <Input
-
-
-                  title="נייד"
-                  handleChange={handleChange}
-
-                  name="f9"
-                  value="f9"
+                  name="message"
                   type="text"
 
                   className="text-right flex-auto"
@@ -228,26 +167,18 @@ const Welcome = () => {
 
                 <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text text-nowrap  ">
-                    קוד&nbsp;אינטרנט
+                  קוד&nbsp;אינטרנט
 
                   </div>
-
+                   
 
                 </h4>
-
-
-                <Tooltip />
+              
+ 
+<Tooltip/>
 
                 <Input
-
-
-                  title="קוד&nbsp;אינטרנט"
-                  handleChange={handleChange}
-
-                  name="f10"
-                  value="f10"
-
-
+                  name="message"
                   type="text"
 
                   className="text-right      flex-auto"
@@ -264,7 +195,7 @@ const Welcome = () => {
             <div className="flex w-full justify-center items-center p-0 m-0">
               <div className="flex flex-col items-center justify-between  pb-12  w-full">
                 <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
-                  <table className="min-w-full bg-transparent text-white  ">
+                  <table className="min-w-full bg-transparent text-white">
                     <thead>
                       <tr>
                         <th className="px-4 py-2">צפי מכירות לשנת 2024            </th>
@@ -279,13 +210,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-
-                            name="f11"
-                            value="f11"
+                            name="message"
                             type="text"
 
                             className="text-right"
@@ -295,13 +220,7 @@ const Welcome = () => {
 
 
                           <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f12"
-                            value="f12"
-
+                            name="message"
                             type="text"
 
                             className="text-right"
@@ -312,27 +231,14 @@ const Welcome = () => {
                         </td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f13"
-                          value="f13"
+                          name="message"
                           type="text"
 
                           className="text-right"
                         /></td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-
-                          title=""
-                          handleChange={handleChange}
-                          name="f14"
-                          value="f14"
-
-
-
+                          name="message"
                           type="text"
 
                           className="text-right"
@@ -342,50 +248,28 @@ const Welcome = () => {
                       <tr>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-                          title=""
-                          handleChange={handleChange}
-
-
-                          name="f15"
-                          value="f15"
+                          name="message"
                           type="text"
 
                           className="text-right"
                         /></td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f16"
-                          value="f16"
-
+                          name="message"
                           type="text"
 
                           className="text-right"
                         /></td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f17"
-                          value="f17"
+                          name="message"
                           type="text"
 
                           className="text-right"
                         /></td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-                          title=""
-                          handleChange={handleChange}
-                          name="f18"
-                          value="f18"
+                          name="message"
                           type="text"
 
                           className="text-right"
@@ -396,13 +280,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
 
                           <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f19"
-                            value="f19"
+                            name="message"
                             type="text"
                             placeholder="סכום"
 
@@ -414,15 +292,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
 
                           <Input
-
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f20"
-                            value="f20"
-
+                            name="message"
                             type="text"
                             placeholder="שנה"
 
@@ -433,11 +303,7 @@ const Welcome = () => {
                         </td>
                         <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
                           <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f21"
-                            value="f21"
+                            name="message"
                             type="text"
                             placeholder="שם חייב/מדינה"
 
@@ -451,11 +317,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
 
                           <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f22"
-                            value="f22"
+                            name="message"
                             type="text"
                             placeholder="מה נעשה בנידון"
 
@@ -469,12 +331,7 @@ const Welcome = () => {
 
 
                           <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f23"
-                            value="f23"
-
+                            name="message"
                             type="text"
                             placeholder="סכום"
 
@@ -486,12 +343,7 @@ const Welcome = () => {
                         </td>
                         <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
                           <Input
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f24"
-                            value="f24"
+                            name="message"
                             type="text"
                             placeholder="שם חייב/מדינה"
 
@@ -512,289 +364,6 @@ const Welcome = () => {
 
 
 
-
-
-
-            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
-
-              רשימת חייבים לבדיקה
-
-
-            </h4>
-
-
-            <div className="flex w-full justify-center items-center p-0 m-0">
-              <div className="flex flex-col items-center justify-between  pb-12  w-full">
-                <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
-                  <table className="min-w-full bg-transparent text-white pcTable">
-                    <thead>
-                      <tr>
-                        <th className="px-4 py-2">מחזור מכירות שנתי צפוי
-                          (באלפי ₪)</th>
-                        <th className="px-4 py-2">וותק וניסיון מסחרי עם החייב (בשנים) </th>
-                        <th className="px-4 py-2">תנאי אשראי (בימים)</th>
-                        <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי ₪)</th>
-                        <th className="px-4 py-2">ח.פ. (חובה למלא)</th>
-                        <th className="px-4 py-2">שם מלא </th>
-                      </tr>
-                    </thead>
-                    <tbody className="table-border-gray">
-                      <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f25"
-                            value="f25"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f26"
-                            value="f26"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f27"
-                            value="f27"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f28"
-                            value="f28"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-
-                            name="f29"
-                            value="f29"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f30"
-                            value="f30"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                      </tr>
-
-
-                    </tbody>
-                  </table>
-
-
-                  <table className="min-w-full bg-transparent text-white mTable">
-
-                    <tbody className="table-border-gray">
-                      <tr>
-
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f25"
-                            value="f25"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <th className="px-4 py-2">מחזור מכירות שנתי צפוי
-                          (באלפי ₪)</th>
-
-
-                      </tr>
-
-
-                      <tr>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f26"
-                            value="f26"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <th className="px-4 py-2">וותק וניסיון מסחרי עם החייב (בשנים) </th>
-
-                      </tr>
-
-
-
-
-                      <tr>
-
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f27"
-                            value="f27"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <th className="px-4 py-2">תנאי אשראי (בימים)</th>
-
-                      </tr>
-
-
-
-
-                      <tr>
-
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f28"
-                            value="f28"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-
-                        <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי ₪)</th>
-                      </tr>
-
-
-
-
-                      <tr>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-
-                            title=""
-                            handleChange={handleChange}
-
-
-                            name="f29"
-                            value="f29"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <th className="px-4 py-2">ח.פ. (חובה למלא)</th>
-
-                      </tr>
-
-
-
-
-                      <tr>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f30"
-                            value="f30"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <th className="px-4 py-2">שם מלא </th>
-
-
-                      </tr>
-
-
-                    </tbody>
-                  </table>
-
-
-
-
-
-                </div>
-              </div>
-            </div>
-
-
-
-
-
-
-
-
             <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
 
               האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
@@ -804,15 +373,7 @@ const Welcome = () => {
 
 
             <Input
-
-
-              title="              האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
-"
-              handleChange={handleChange}
-
-
-              name="f31"
-              value="f31"
+              name="message"
               type="text"
               placeholder="פרט"
 
@@ -826,18 +387,7 @@ const Welcome = () => {
             </h4>
 
             <Input
-
-
-              title={title32}
-
-              handleChange={handleChange}
-
-
-
-              name="f32"
-              value="f32"
-
-
+              name="message"
               type="text"
               placeholder="פרט"
 
@@ -854,7 +404,7 @@ const Welcome = () => {
 
 
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text">
+                  <div className="rtl-text">
 
                     האם החברה מבוטחת כיום כן/לא? או בעבר?
                   </div>
@@ -873,7 +423,7 @@ const Welcome = () => {
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[40%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text">
+                  <div className="rtl-text">
                     האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>
                   </div>
 
@@ -890,7 +440,7 @@ const Welcome = () => {
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[50%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text">
+                  <div className="rtl-text">
                     האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>
                   </div>
                 </h4>
@@ -903,7 +453,7 @@ const Welcome = () => {
             </div>
 
             <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
-              <div class="rtl-text">
+              <div className="rtl-text">
                 האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
                 אם כן, פרט:
 
@@ -911,14 +461,7 @@ const Welcome = () => {
             </h4>
 
             <Input
-
-
-              title=" האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
-                אם כן, פרט:"
-              handleChange={handleChange}
-
-              name="f33"
-              value="f33"
+              name="message"
               type="text"
               placeholder="פרט"
 
@@ -926,27 +469,14 @@ const Welcome = () => {
             />
 
             <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
-              <div class="rtl-text">
+              <div className="rtl-text">
                 התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
                 פרט:
               </div>
             </h4>
 
             <Input
-
-
-
-
-              title="  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
-                פרט:"
-              handleChange={handleChange}
-
-
-
-              name="f34"
-              value="f34"
-
-
+              name="message"
               type="text"
               placeholder="פרט"
 
@@ -957,7 +487,7 @@ const Welcome = () => {
 
 
 
-              <div class="rtl-text">
+              <div className="rtl-text">
                 אנו מצהירים בזאת כי הנתונים והתשובות המפורטים בבקשתנו לביטוח זו נכונים ושלמים.
                 <br />
                 ידוע לנו כי אלה מהווים, בין היתר, בסיס להצעת הבטוח שתתנו לנו.

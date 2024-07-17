@@ -43,11 +43,6 @@ const Welcome = () => {
 
   };
 
-
-  const title32 = `האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת?
-האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:`;
-
-
   return (
 
 
@@ -72,10 +67,6 @@ const Welcome = () => {
                   name="f1"
                   value="f1"
 
-
-                  title="שם החברה"
-                  handleChange={handleChange}
-
                   type="text"
 
                   className="text-right"
@@ -85,10 +76,6 @@ const Welcome = () => {
                   name="f2"
                   value="f2"
                   type="text"
-
-                  title="מספר ח.פ"
-                  handleChange={handleChange}
-
                   className="text-right"
                 />
               </div>
@@ -99,9 +86,6 @@ const Welcome = () => {
               value="f3"
               type="text"
 
-              title="כתובת"
-              handleChange={handleChange}
-
               className="text-right"
             />
             <Input
@@ -111,9 +95,6 @@ const Welcome = () => {
               value="f4"
 
               type="text"
-
-              title="תחום עיסוק"
-              handleChange={handleChange}
 
               className="text-right"
             />
@@ -129,17 +110,11 @@ const Welcome = () => {
 
 
                   type="text"
-                  title="שם מלא של איש הקשר"
-                  handleChange={handleChange}
 
                   className="text-right"
                 />
                 <Input
                   placeholder="תפקיד"
-
-                  title="תפקיד"
-                  handleChange={handleChange}
-
 
                   name="f6"
                   value="f6"
@@ -157,10 +132,6 @@ const Welcome = () => {
                 <Input
                   placeholder='דוא"ל'
 
-                  title='דוא"ל'
-                  handleChange={handleChange}
-
-
 
                   name="f7"
                   value="f7"
@@ -172,12 +143,6 @@ const Welcome = () => {
                 />
                 <Input
                   placeholder="טלפון"
-
-
-                  title="טלפון"
-                  handleChange={handleChange}
-
-
                   name="f8"
                   value="f8"
                   type="text"
@@ -207,11 +172,8 @@ const Welcome = () => {
                 <Input
 
 
-                  title="נייד"
-                  handleChange={handleChange}
-
                   name="f9"
-                  value="f9"
+                  value="f10"
                   type="text"
 
                   className="text-right flex-auto"
@@ -240,9 +202,6 @@ const Welcome = () => {
 
                 <Input
 
-
-                  title="קוד&nbsp;אינטרנט"
-                  handleChange={handleChange}
 
                   name="f10"
                   value="f10"
@@ -279,11 +238,6 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-
                             name="f11"
                             value="f11"
                             type="text"
@@ -297,8 +251,6 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
-                            handleChange={handleChange}
                             name="f12"
                             value="f12"
 
@@ -312,10 +264,6 @@ const Welcome = () => {
                         </td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-
-                          title=""
-                          handleChange={handleChange}
-
                           name="f13"
                           value="f13"
                           type="text"
@@ -326,8 +274,6 @@ const Welcome = () => {
 
 
 
-                          title=""
-                          handleChange={handleChange}
                           name="f14"
                           value="f14"
 
@@ -342,8 +288,6 @@ const Welcome = () => {
                       <tr>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-                          title=""
-                          handleChange={handleChange}
 
 
                           name="f15"
@@ -353,11 +297,6 @@ const Welcome = () => {
                           className="text-right"
                         /></td>
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-
-                          title=""
-                          handleChange={handleChange}
 
                           name="f16"
                           value="f16"
@@ -370,8 +309,6 @@ const Welcome = () => {
 
 
 
-                          title=""
-                          handleChange={handleChange}
 
                           name="f17"
                           value="f17"
@@ -382,8 +319,6 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
 
-                          title=""
-                          handleChange={handleChange}
                           name="f18"
                           value="f18"
                           type="text"
@@ -396,10 +331,6 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
 
                           <Input
-
-
-                            title=""
-                            handleChange={handleChange}
 
                             name="f19"
                             value="f19"
@@ -417,8 +348,6 @@ const Welcome = () => {
 
 
 
-                            title=""
-                            handleChange={handleChange}
 
                             name="f20"
                             value="f20"
@@ -434,8 +363,6 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
                             name="f21"
                             value="f21"
                             type="text"
@@ -452,8 +379,6 @@ const Welcome = () => {
 
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
                             name="f22"
                             value="f22"
                             type="text"
@@ -470,10 +395,8 @@ const Welcome = () => {
 
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f23"
-                            value="f23"
+                            name="f22"
+                            value="f22"
 
                             type="text"
                             placeholder="סכום"
@@ -487,11 +410,9 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
 
-                            name="f24"
-                            value="f24"
+                            name="f23"
+                            value="f23"
                             type="text"
                             placeholder="שם חייב/מדינה"
 
@@ -543,87 +464,79 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f25"
-                            value="f25"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
                           />
                         </td>
                         <td className="border px-4 py-2 text-right table-border-gray">
+
+
                           <Input
 
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f26"
-                            value="f26"
+                            name="f12"
+                            value="f12"
+
                             type="text"
 
                             className="text-right"
                           />
+
+
+
                         </td>
+                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
+                          name="f13"
+                          value="f13"
+                          type="text"
 
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f27"
-                            value="f27"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
-
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f28"
-                            value="f28"
-                            type="text"
-
-                            className="text-right"
-                          />
-                        </td>
+                          className="text-right"
+                        /></td>
+                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
+
+                          name="f14"
+                          value="f14"
 
 
-                            title=""
-                            handleChange={handleChange}
+
+                          type="text"
+
+                          className="text-right"
+                        /></td>
+
+                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
 
 
-                            name="f29"
-                            value="f29"
-                            type="text"
 
-                            className="text-right"
-                          />
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
+                          name="f14"
+                          value="f14"
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f30"
-                            value="f30"
-                            type="text"
 
-                            className="text-right"
-                          />
-                        </td>
+
+                          type="text"
+
+                          className="text-right"
+                        /></td>
+
+                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
+
+
+
+                          name="f14"
+                          value="f14"
+
+
+
+                          type="text"
+
+                          className="text-right"
+                        /></td>
 
                       </tr>
 
@@ -633,7 +546,7 @@ const Welcome = () => {
 
 
                   <table className="min-w-full bg-transparent text-white mTable">
-
+                    
                     <tbody className="table-border-gray">
                       <tr>
 
@@ -641,12 +554,8 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f25"
-                            value="f25"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
@@ -661,15 +570,12 @@ const Welcome = () => {
 
 
                       <tr>
-
+ 
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f26"
-                            value="f26"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
@@ -685,16 +591,12 @@ const Welcome = () => {
 
                       <tr>
 
-
+ 
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f27"
-                            value="f27"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
@@ -710,14 +612,12 @@ const Welcome = () => {
 
                       <tr>
 
-
+ 
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f28"
-                            value="f28"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
@@ -732,17 +632,12 @@ const Welcome = () => {
 
 
                       <tr>
-
+ 
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-
-                            title=""
-                            handleChange={handleChange}
-
-
-                            name="f29"
-                            value="f29"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
@@ -757,21 +652,19 @@ const Welcome = () => {
 
 
                       <tr>
-
+ 
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f30"
-                            value="f30"
+                            name="f11"
+                            value="f11"
                             type="text"
 
                             className="text-right"
                           />
                         </td>
 
-                        <th className="px-4 py-2">שם מלא </th>
+                      <th className="px-4 py-2">שם מלא </th>  
 
 
                       </tr>
@@ -804,15 +697,8 @@ const Welcome = () => {
 
 
             <Input
-
-
-              title="              האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
-"
-              handleChange={handleChange}
-
-
-              name="f31"
-              value="f31"
+              name="f24"
+              value="f24"
               type="text"
               placeholder="פרט"
 
@@ -827,15 +713,8 @@ const Welcome = () => {
 
             <Input
 
-
-              title={title32}
-
-              handleChange={handleChange}
-
-
-
-              name="f32"
-              value="f32"
+              name="f25"
+              value="f25"
 
 
               type="text"
@@ -912,13 +791,8 @@ const Welcome = () => {
 
             <Input
 
-
-              title=" האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
-                אם כן, פרט:"
-              handleChange={handleChange}
-
-              name="f33"
-              value="f33"
+              name="f26"
+              value="f26"
               type="text"
               placeholder="פרט"
 
@@ -934,17 +808,8 @@ const Welcome = () => {
 
             <Input
 
-
-
-
-              title="  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
-                פרט:"
-              handleChange={handleChange}
-
-
-
-              name="f34"
-              value="f34"
+              name="f27"
+              value="f27"
 
 
               type="text"

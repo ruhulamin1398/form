@@ -12,3 +12,29 @@
     direction: ltr;
     unicode-bidi: isolate;
   }
+
+  .mTable{
+    /* display: none; */
+  }
+
+  @media (max-width: 600px) {
+
+    .MainContentid{
+      font-size: 70%;
+    }
+ 
+    .mTable{
+      display: block;
+    }
+
+
+  .pcTable{
+
+    display: none;
+  }
+
+
+
+  }
+
+  
