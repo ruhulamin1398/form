@@ -29,7 +29,7 @@ const YesNoRadio = ({ name, value, handleChange }) => {
           value="no"
           checked={selectedOption === 'no'}
           onChange={() => handleOptionChange('no')}
-          className="mr-2 cursor-pointer"
+          className="mr-2 cursor-pointer "
         />
         <span className="ml-1">לא</span> {/* Level text */}
         

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
@@ -14,14 +14,15 @@ import Tooltip from "./Tooltips-form";
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({ placeholder, name, type, value, handleChange }) => (
+const Input = ({ placeholder, name, type, value, title, handleChange }) => (
   <input
     placeholder={placeholder}
     type={type}
-    step="0.0001"
+    name={name}
+    title={title}
     value={value}
-    onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
+    onChange={(e) => handleChange(e, name, value, title, type)}
+    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
   />
 );
 
@@ -32,16 +33,65 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 const Welcome = () => {
   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
 
-  const handleSubmit = (e) => {
-    const { amount, message } = formData;
+  
 
+  useEffect(() => {
+    // Target all input fields by name attribute on component mount
+    const inputNames = Object.keys(formData);
+    inputNames.forEach((name) => {
+      const input = document.querySelector(`input[name="${name}"]`);
+      if (input) {
+        handleChange(
+          { target: { value: input.value } },
+          name,
+          input.value,
+          input.getAttribute('title'),
+          input.type
+        );
+      }
+    });
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const inputs = document.querySelectorAll('.form-input');
+    inputs.forEach((input) => {
+      handleChange(
+        { target: { value: input.value } },
+        input.name,
+        input.value,
+        input.getAttribute('title'),
+        input.type
+      );
+    });
 
-    if (!amount || !message) return;
 
-    // sendTransaction();
+    
+    try {
+      const response = await fetch('http://localhost:5000/record', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log('Success:', data);
+      // Handle successful submission (e.g., show a success message, clear the form, etc.)
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error (e.g., show an error message)
+    }
   };
+  
+
 
 
   const title32 = `האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת?
@@ -544,7 +594,8 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="מחזור מכירות שנתי צפוי
+ (באלפי ₪)"
                             handleChange={handleChange}
 
                             name="f25"
@@ -558,7 +609,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="וותק וניסיון מסחרי עם החייב (בשנים)"
                             handleChange={handleChange}
                             name="f26"
                             value="f26"
@@ -572,7 +623,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="תנאי אשראי (בימים)"
                             handleChange={handleChange}
 
                             name="f27"
@@ -586,7 +637,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
+                            title="תקרת אשראי נדרשת (באלפי ₪)"
                             handleChange={handleChange}
                             name="f28"
                             value="f28"
@@ -601,7 +652,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="ח.פ. (חובה למלא)"
                             handleChange={handleChange}
 
 
@@ -615,7 +666,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
+                            title="שם מלא "
                             handleChange={handleChange}
                             name="f30"
                             value="f30"
@@ -642,7 +693,8 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="מחזור מכירות שנתי צפוי
+ (באלפי ₪)"
                             handleChange={handleChange}
 
                             name="f25"
@@ -666,7 +718,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="וותק וניסיון מסחרי עם החייב (בשנים)"
                             handleChange={handleChange}
                             name="f26"
                             value="f26"
@@ -690,7 +742,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="תנאי אשראי (בימים)"
                             handleChange={handleChange}
 
                             name="f27"
@@ -714,7 +766,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
+                            title="תקרת אשראי נדרשת (באלפי ₪)"
                             handleChange={handleChange}
                             name="f28"
                             value="f28"
@@ -737,7 +789,7 @@ const Welcome = () => {
                           <Input
 
 
-                            title=""
+                            title="ח.פ. (חובה למלא)"
                             handleChange={handleChange}
 
 
@@ -761,7 +813,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title=""
+                            title="שם מלא "
                             handleChange={handleChange}
                             name="f30"
                             value="f30"
@@ -863,7 +915,8 @@ const Welcome = () => {
 
                 <YesNoRadio
                   name="yesNoOption2"
-                  value={formData.yesNoOption}
+                  value={formData.yesNoOption2}
+                  
 
                 />
               </div>
@@ -880,7 +933,7 @@ const Welcome = () => {
                 </h4>
                 <YesNoRadio
                   name="yesNoOption3"
-                  value={formData.yesNoOption}
+                  value={formData.yesNoOption3}
 
                 />
               </div>
@@ -983,6 +1036,11 @@ const Welcome = () => {
 
                   <Input
                     type="date"
+
+                    handleChange={handleChange}
+                    title="תאריך"
+                    name="date"
+
                     className="flex-1 text-right py-2 px-3 rounded-lg bg-gray-200"
                   />
 
@@ -1000,7 +1058,11 @@ const Welcome = () => {
                 <div className="flex items-center ">
 
                   <Input
-                    name="message"
+
+                    handleChange={handleChange}
+                    title="חתימה&nbsp;וחותמת&nbsp;החברה"
+
+                    name="sign"
                     type="file"
                     className="flex-1 text-right py-2 px-3 rounded-lg bg-gray-200"
                   />

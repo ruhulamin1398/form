@@ -16,14 +16,161 @@ const createEthereumContract = () => {
 };
 
 export const TransactionsProvider = ({ children }) => {
-  const [formData, setformData] = useState({ addressTo: "", amount: "", keyword: "", message: "" });
+  const [formData, setformData] = useState(
+    {
+      "f1": {
+          "value": "",
+          "title": "שם החברה"
+      },
+      "f2": {
+          "value": "",
+          "title": "מספר ח.פ"
+      },
+      "f3": {
+          "value": "",
+          "title": "כתובת"
+      },
+      "f4": {
+          "value": "",
+          "title": "תחום עיסוק"
+      },
+      "f5": {
+          "value": "",
+          "title": "שם מלא של איש הקשר"
+      },
+      "f6": {
+          "value": "",
+          "title": "תפקיד"
+      },
+      "f8": {
+          "value": "",
+          "title": "טלפון"
+      },
+      "f7": {
+          "value": "",
+          "title": "דוא\"ל"
+      },
+      "f9": {
+          "value": "",
+          "title": "נייד"
+      },
+      "f10": {
+          "value": "",
+          "title": "קוד אינטרנט"
+      },
+      "f14": {
+          "value": "",
+          "title": ""
+      },
+      "f13": {
+          "value": "",
+          "title": ""
+      },
+      "f12": {
+          "value": "",
+          "title": ""
+      },
+      "f16": {
+          "value": "",
+          "title": ""
+      },
+      "f17": {
+          "value": "",
+          "title": ""
+      },
+      "f18": {
+          "value": "",
+          "title": ""
+      },
+      "f11": {
+          "value": "",
+          "title": ""
+      },
+      "f15": {
+          "value": "",
+          "title": ""
+      },
+      "f19": {
+          "value": "",
+          "title": ""
+      },
+      "f20": {
+          "value": "",
+          "title": ""
+      },
+      "f21": {
+          "value": "",
+          "title": ""
+      },
+      "f24": {
+          "value": "",
+          "title": ""
+      },
+      "f23": {
+          "value": "",
+          "title": ""
+      },
+      "f22": {
+          "value": "",
+          "title": ""
+      },
+      "f27": {
+          "value": "",
+          "title": "תנאי אשראי (בימים)"
+      },
+      "f26": {
+          "value": "",
+          "title": "וותק וניסיון מסחרי עם החייב (בשנים)"
+      },
+      "f25": {
+          "value": "",
+          "title": "מחזור מכירות שנתי צפוי (באלפי ₪)"
+      },
+      "f28": {
+          "value": "",
+          "title": "תקרת אשראי נדרשת (באלפי ₪)"
+      },
+      "f29": {
+          "value": "",
+          "title": "ח.פ. (חובה למלא)"
+      },
+      "f30": {
+          "value": "",
+          "title": "שם מלא "
+      },
+      "f31": {
+          "value": "",
+          "title": "              האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:\n"
+      },
+      "f32": {
+          "value": "",
+          "title": "האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת?\nהאם נעשה שימוש לצורך בדיקת החייבים ע\"י חברות מידע? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:"
+      },
+      "f33": {
+          "value": "",
+          "title": " האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא. אם כן, פרט:"
+      },
+      "f34": {
+          "value": "",
+          "title": "  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב פרט:"
+      },
+      "date": {
+          "value": "",
+          "title": "תאריך"
+      },
+      "sign": {
+          "value": "",
+          "title": "חתימה וחותמת החברה"
+      }
+  }
+  );
   const [currentAccount, setCurrentAccount] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
   const [transactions, setTransactions] = useState([]);
 
-  const handleChange = (e, name) => {
-    setformData((prevState) => ({ ...prevState, [name]: e.target.value }));
+  const handleChange = (e,name, value, title , type ) => {
+    setformData((prevState) => ({ ...prevState, [name]: {"value": e.target.value,"title":title} }));
     console.log(formData); 
   };
 
