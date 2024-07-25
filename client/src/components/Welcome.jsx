@@ -162,7 +162,7 @@ const Welcome = () => {
                   handleChange={handleChange}
 
                   className="text-right"
-                />
+                />נייד
               </div>
             </div>
             <Input
@@ -1050,7 +1050,7 @@ const Welcome = () => {
 
 
 
-                <div className="flex items-center">
+                <div className="flex items-center text-right w-full md:w-auto">
 
                   <Input
                     type="date"
