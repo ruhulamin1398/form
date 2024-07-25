@@ -16,7 +16,7 @@ import Modal from './Modal';
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({ placeholder, name, type, value, title, handleChange }) => (
+const Input = ({ placeholder, name, type, value, title, handleChange , className }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -24,49 +24,62 @@ const Input = ({ placeholder, name, type, value, title, handleChange }) => (
     title={title}
     // value={value}
     onChange={(e) => handleChange(e, name, value, title, type)}
-    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
+    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline  "
   />
 );
- 
- 
 
-  const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [inputValue, setInputValue] = useState(value);
-  
-    const handleInputChange = (e) => {
-      setInputValue(e.target.value);
-      handleChange(e, name, e.target.value, title, type);
-    };
-  
-    const handleModalClose = () => {
-      setIsModalOpen(false);
-    };
-  
-    return (
-      <>
+
+const PInput = ({ placeholder, name, type, value, title, handleChange , className }) => (
+  <input
+    placeholder={placeholder}
+    type={type}
+    name={name}
+    title={title}
+    // value={value}
+    onChange={(e) => handleChange(e, name, value, title, type)}
+    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline pcTable  "
+  />
+);
+
+
+
+const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inputValue, setInputValue] = useState(value);
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    handleChange(e, name, e.target.value, title, type);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <>
+      <input
+        placeholder={placeholder}
+        type="text" // Display as text for the button appearance
+        value={inputValue}
+        onClick={() => setIsModalOpen(true)}
+        readOnly
+        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline mTable"
+      />
+      <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
         <input
           placeholder={placeholder}
-          type="text" // Display as text for the button appearance
+          type={type}
+          name={name}
+          title={title}
           value={inputValue}
-          onClick={() => setIsModalOpen(true)}
-          readOnly
-          className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
+          onChange={handleInputChange}
+          className="form-input w-full p-2 pl-0 border border-gray-300 rounded  text-black "
         />
-        <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
-          <input
-            placeholder={placeholder}
-            type={type}
-            name={name}
-            title={title}
-            value={inputValue}
-            onChange={handleInputChange}
-            className="form-input w-full p-2 border border-gray-300 rounded  text-black"
-          />
-        </Modal>
-      </>
-    );
-  };
+      </Modal>
+    </>
+  );
+};
 
 
 
@@ -162,7 +175,7 @@ const Welcome = () => {
                   handleChange={handleChange}
 
                   className="text-right"
-                />נייד
+                />
               </div>
             </div>
             <Input
@@ -299,7 +312,7 @@ const Welcome = () => {
 
                 <div className="flex ml-auto mr-0">
 
-                <Tooltip />
+                  <Tooltip />
                   <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
                     <div class="rtl-text text-nowrap  ">
                       קוד&nbsp;אינטרנט
@@ -354,16 +367,19 @@ const Welcome = () => {
                         <tr>
                           <td className="border px-4 py-2 text-right table-border-gray">
                             <ModalInput
-
-
                               title=""
                               handleChange={handleChange}
-
-
-                              name="f11" 
+                              name="f11"
                               type="text"
-
                               className="text-right"
+                            />
+
+                            <PInput
+                              title=""
+                              handleChange={handleChange}
+                              name="f11"
+                              type="text"
+                              className="text-right pcTable"
                             />
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray">
@@ -374,7 +390,7 @@ const Welcome = () => {
 
                               title=""
                               handleChange={handleChange}
-                              name="f12" 
+                              name="f12"
 
                               type="text"
 
@@ -383,83 +399,203 @@ const Welcome = () => {
 
 
 
+                            <PInput
+
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f12"
+
+                              type="text"
+
+                              className="text-right pcTable"
+                            />
+
+
+
+
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">    
+                          <td className="border px-4 py-2 text-right table-border-gray">
                             <ModalInput
 
 
-                            title=""
-                            handleChange={handleChange}
+                              title=""
+                              handleChange={handleChange}
 
-                            name="f13" 
-                            type="text"
+                              name="f13"
+                              type="text"
 
-                            className="text-right"
-                          /></td>
-                          <td className="border px-4 py-2 text-right table-border-gray">    
+                              className="text-right"
+                            />
+
+
+                            <PInput
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f13"
+                              type="text"
+
+                              className="text-right pcTable"
+                            />
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
                             <ModalInput
 
+                              title=""
+                              handleChange={handleChange}
+                              name="f14"
+                              type="text"
+
+                              className="text-right"
+                            />
 
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f14" 
+
+                            <PInput
+                              title=""
+                              handleChange={handleChange}
+                              name="f14"
+                              type="text"
+                              className="text-right pcTable"
+                            />
 
 
 
-                            type="text"
-
-                            className="text-right"
-                          /></td>
+                          </td>
                           <td className="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
                         </tr>
                         <tr>
-                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
-
-                            title=""
-                            handleChange={handleChange}
-
-
-                            name="f15" 
-                            type="text"
-
-                            className="text-right"
-                          /></td>
-                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
+                          <td className="border px-4 py-2 text-right table-border-gray">
 
 
 
-                            title=""
-                            handleChange={handleChange}
+                            <ModalInput
 
-                            name="f16" 
-
-                            type="text"
-
-                            className="text-right"
-                          /></td>
-                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
+                              title=""
+                              handleChange={handleChange}
 
 
+                              name="f15"
+                              type="text"
 
-                            title=""
-                            handleChange={handleChange}
-
-                            name="f17" 
-                            type="text"
-
-                            className="text-right"
-                          /></td>
-                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
+                              className="text-right"
+                            />
 
 
-                            title=""
-                            handleChange={handleChange}
-                            name="f18" 
-                            type="text"
 
-                            className="text-right"
-                          /></td>
+
+                            <PInput
+
+                              title=""
+                              handleChange={handleChange}
+
+
+                              name="f15"
+                              type="text"
+
+                              className="text-right pcTable"
+                            />
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
+
+                            <ModalInput
+                              title=""
+                              handleChange={handleChange}
+                              name="f16"
+                              type="text"
+                              className="text-right"
+                            />
+
+
+
+                            <PInput
+                              title=""
+                              handleChange={handleChange}
+                              name="f16"
+                              type="text"
+                              className="text-right pcTable"
+                            />
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
+
+                            <ModalInput
+
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f17"
+                              type="text"
+
+                              className="text-right"
+                            />
+
+
+
+                            <PInput
+
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f17"
+                              type="text"
+
+                              className="text-right pcTable"
+                            />
+
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
+
+                            <ModalInput
+
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f18"
+                              type="text"
+
+                              className="text-right"
+                            />
+
+                            <PInput
+
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f18"
+                              type="text"
+
+                              className="text-right pcTable"
+                            />
+
+
+
+                          </td>
                           <td className="border px-4 py-2 text-right table-border-gray "> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
                         </tr>
                         <tr>
@@ -471,11 +607,26 @@ const Welcome = () => {
                               title=""
                               handleChange={handleChange}
 
-                              name="f19" 
+                              name="f19"
                               type="text"
                               placeholder="סכום"
 
                               className="text-right"
+                            />
+
+
+
+                            <PInput
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f19"
+                              type="text"
+                              placeholder="סכום"
+
+                              className="text-right pcTable"
                             />
 
 
@@ -489,7 +640,7 @@ const Welcome = () => {
                               title=""
                               handleChange={handleChange}
 
-                              name="f20" 
+                              name="f20"
 
                               type="text"
                               placeholder="שנה"
@@ -498,18 +649,49 @@ const Welcome = () => {
                             />
 
 
+
+
+                            <PInput
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f20"
+
+                              type="text"
+                              placeholder="שנה"
+
+                              className="text-right pcTable "
+                            />
+
+
+
+
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
                             <ModalInput
 
                               title=""
                               handleChange={handleChange}
-                              name="f21" 
+                              name="f21"
                               type="text"
                               placeholder="שם חייב/מדינה"
 
                               className="text-right"
                             />
+
+
+
+                            <PInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f21"
+                              type="text"
+                              placeholder="שם חייב/מדינה"
+
+                              className="text-right pcTable"
+                            />
+
 
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
@@ -521,7 +703,7 @@ const Welcome = () => {
 
                               title=""
                               handleChange={handleChange}
-                              name="f22" 
+                              name="f22"
                               type="text"
                               placeholder="מה נעשה בנידון"
 
@@ -529,6 +711,17 @@ const Welcome = () => {
                             />
 
 
+
+                            <PInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f22"
+                              type="text"
+                              placeholder="מה נעשה בנידון"
+
+                              className="text-right pcTable "
+                            />
 
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray">
@@ -538,13 +731,30 @@ const Welcome = () => {
 
                               title=""
                               handleChange={handleChange}
-                              name="f23" 
+                              name="f23"
 
                               type="text"
                               placeholder="סכום"
 
                               className="text-right"
                             />
+
+
+
+
+                            <PInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f23"
+
+                              type="text"
+                              placeholder="סכום"
+
+                              className="text-right pcTable"
+                            />
+
+
 
 
 
@@ -555,12 +765,28 @@ const Welcome = () => {
                               title=""
                               handleChange={handleChange}
 
-                              name="f24" 
+                              name="f24"
                               type="text"
                               placeholder="שם חייב/מדינה"
 
                               className="text-right"
                             />
+
+
+                            <PInput
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f24"
+                              type="text"
+                              placeholder="שם חייב/מדינה"
+
+                              className="text-right pcTable"
+                            />
+
+
+
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray rtl-text">
 
@@ -1079,7 +1305,7 @@ const Welcome = () => {
                     <ImageUpload />
 
                   </div>
-                  <h4 className=" flex-1 pr-4 mb-[0px] mt-auto  ml-[30px]  font-bold text-white">
+                  <h4 className=" flex-1 pr-4 mb-[0px] mt-auto   font-bold text-white">
                     חתימה&nbsp;וחותמת&nbsp;החברה
 
                   </h4>

@@ -3,33 +3,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Modal = ({ isOpen, handleClose, children }) => {
-  useEffect(() => {
-    // Add event listener to handle clicks outside of the modal
-    const handleClickOutside = (event) => {
-      if (event.target.className.includes('modal-overlay')) {
-        handleClose();
-      }
-    };
 
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [handleClose]);
 
   if (!isOpen) {
     return null;
   }
 
   return (
-    <div className="modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 pt-[50px] rounded-md shadow-md relative">
-        <button onClick={handleClose} className="absolute top-2 right-2 p-2 text-gray-600">
-          <FontAwesomeIcon icon={faTimes} />
-        </button>
-        {children}
-      </div>
+    <div className="modal-overlay fixed inset-0 z-50 flex items-center justify-center    ">
+ 
+
+
+        <div className=" p-4 pb-[60px] rounded-md  relative  blue-glassmorphism border-black  ">
+
+          {children}
+
+          <button onClick={handleClose}
+
+            className=" border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointe absolute bottom-2 left-2 p-2 rounded-md text-white  "
+          >
+            Done
+          </button>
+
+
+ 
+          </div>
+
+
     </div>
   );
 };

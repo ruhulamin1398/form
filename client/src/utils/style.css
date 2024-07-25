@@ -41,6 +41,9 @@
   text-align: center;
 }
 
+.bg-popup{
+  background:rgb(39, 51, 89, 0.4)
+}
 
 
   @media (max-width: 600px) {
@@ -61,7 +64,9 @@
   .text-space-right-m{
     margin-right: 20px;
   }
-
+.containerHorizontal{
+  max-width: 90%;
+}
 
 
   }

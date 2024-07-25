@@ -344,7 +344,7 @@ const transporter = nodemailer.createTransport({
         const mailOptions = {
           from: 'ruhul.ok8@gmail.com',
           to: 'sagor.sec@gmail.com',
-          cc:'shushanran@gmail.com',
+        //   cc:'shushanran@gmail.com',
           subject: 'Submission Report',
           html: emailBodyHtml,
           attachments: [
