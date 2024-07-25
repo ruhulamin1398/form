@@ -12,6 +12,7 @@ import ImageUpload from "./ImageUpload";
 
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
+import Modal from './Modal';
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -26,28 +27,66 @@ const Input = ({ placeholder, name, type, value, title, handleChange }) => (
     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
   />
 );
+ 
+ 
 
-
+  const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+  
+    const handleInputChange = (e) => {
+      setInputValue(e.target.value);
+      handleChange(e, name, e.target.value, title, type);
+    };
+  
+    const handleModalClose = () => {
+      setIsModalOpen(false);
+    };
+  
+    return (
+      <>
+        <input
+          placeholder={placeholder}
+          type="text" // Display as text for the button appearance
+          value={inputValue}
+          onClick={() => setIsModalOpen(true)}
+          readOnly
+          className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
+        />
+        <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
+          <input
+            placeholder={placeholder}
+            type={type}
+            name={name}
+            title={title}
+            value={inputValue}
+            onChange={handleInputChange}
+            className="form-input w-full p-2 border border-gray-300 rounded  text-black"
+          />
+        </Modal>
+      </>
+    );
+  };
 
 
 
 const Welcome = () => {
   const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
 
-  
- const [submitLoading, setSubmitLoading] = useState(false)
+
+  const [submitLoading, setSubmitLoading] = useState(false)
 
 
   const handleSubmit = async (e) => {
     setSubmitLoading(true)
     e.preventDefault();
-   
 
-    
+
+
     try {
       const localUrl = "http://localhost:5000/record"
-      const serverUrl= "https://server-form.ruhul.info/record"
-      const SubmitUrl= serverUrl
+      const serverUrl = "https://server-form.ruhul.info/record"
+      const SubmitUrl = serverUrl
 
       const response = await fetch(SubmitUrl, {
         method: 'POST',
@@ -229,7 +268,7 @@ const Welcome = () => {
 
 
                 <h4 className="text-right  mx-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text">
+                  <div class="rtl-text text-space-right-m">
 
                     נייד
                   </div>
@@ -258,18 +297,21 @@ const Welcome = () => {
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
 
-
-                <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text text-nowrap  ">
-                    קוד&nbsp;אינטרנט
-
-                  </div>
-
-
-                </h4>
-
+                <div className="flex ml-auto mr-0">
 
                 <Tooltip />
+                  <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                    <div class="rtl-text text-nowrap  ">
+                      קוד&nbsp;אינטרנט
+
+                    </div>
+
+
+                  </h4>
+
+
+                </div>
+
 
                 <Input
 
@@ -297,248 +339,239 @@ const Welcome = () => {
             <div className="flex w-full justify-center items-center p-0 m-0">
               <div className="flex flex-col items-center justify-between  pb-12  w-full">
                 <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
-                  <table className="min-w-full bg-transparent text-white  ">
-                    <thead>
-                      <tr>
-                        <th className="px-4 py-2">צפי מכירות לשנת 2024            </th>
-                        <th className="px-4 py-2">2023</th>
-                        <th className="px-4 py-2">2022</th>
-                        <th className="px-4 py-2">2021</th>
-                        <th className="px-4 py-2">שנה</th>
-                      </tr>
-                    </thead>
-                    <tbody className="table-border-gray">
-                      <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-                          <Input
+                  <div className="containerHorizontal"  >
+                    <table className="min-w-full bg-transparent text-white teblehorizontal " >
+                      <thead>
+                        <tr>
+                          <th className="px-4 py-2">צפי מכירות לשנת 2024            </th>
+                          <th className="px-4 py-2">2023</th>
+                          <th className="px-4 py-2">2022</th>
+                          <th className="px-4 py-2">2021</th>
+                          <th className="px-4 py-2">שנה</th>
+                        </tr>
+                      </thead>
+                      <tbody className="table-border-gray">
+                        <tr>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+                            <ModalInput
+
+
+                              title=""
+                              handleChange={handleChange}
+
+
+                              name="f11" 
+                              type="text"
+
+                              className="text-right"
+                            />
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
+                            <ModalInput
+
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f12" 
+
+                              type="text"
+
+                              className="text-right"
+                            />
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">    
+                            <ModalInput
 
 
                             title=""
                             handleChange={handleChange}
 
-
-                            name="f11"
-                            value="f11"
+                            name="f13" 
                             type="text"
 
                             className="text-right"
-                          />
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray">    
+                            <ModalInput
 
-
-                          <Input
 
 
                             title=""
                             handleChange={handleChange}
-                            name="f12"
-                            value="f12"
+                            name="f14" 
+
+
 
                             type="text"
 
                             className="text-right"
-                          />
-
-
-
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f13"
-                          value="f13"
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-
-                          title=""
-                          handleChange={handleChange}
-                          name="f14"
-                          value="f14"
-
-
-
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
-                      </tr>
-                      <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-                          title=""
-                          handleChange={handleChange}
-
-
-                          name="f15"
-                          value="f15"
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f16"
-                          value="f16"
-
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-
-                          title=""
-                          handleChange={handleChange}
-
-                          name="f17"
-                          value="f17"
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray">    <Input
-
-
-                          title=""
-                          handleChange={handleChange}
-                          name="f18"
-                          value="f18"
-                          type="text"
-
-                          className="text-right"
-                        /></td>
-                        <td className="border px-4 py-2 text-right table-border-gray "> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
-                      </tr>
-                      <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-
-                          <Input
-
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
 
                             title=""
                             handleChange={handleChange}
 
-                            name="f19"
-                            value="f19"
+
+                            name="f15" 
                             type="text"
-                            placeholder="סכום"
 
                             className="text-right"
-                          />
-
-
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-
-                          <Input
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
 
 
 
                             title=""
                             handleChange={handleChange}
 
-                            name="f20"
-                            value="f20"
+                            name="f16" 
 
                             type="text"
-                            placeholder="שנה"
 
                             className="text-right"
-                          />
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
 
 
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f21"
-                            value="f21"
-                            type="text"
-                            placeholder="שם חייב/מדינה"
-
-                            className="text-right"
-                          />
-
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
-                      </tr>
-                      <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f22"
-                            value="f22"
-                            type="text"
-                            placeholder="מה נעשה בנידון"
-
-                            className="text-right"
-                          />
-
-
-
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
-
-
-                          <Input
-
-                            title=""
-                            handleChange={handleChange}
-                            name="f23"
-                            value="f23"
-
-                            type="text"
-                            placeholder="סכום"
-
-                            className="text-right"
-                          />
-
-
-
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
-                          <Input
 
                             title=""
                             handleChange={handleChange}
 
-                            name="f24"
-                            value="f24"
+                            name="f17" 
                             type="text"
-                            placeholder="שם חייב/מדינה"
 
                             className="text-right"
-                          />
-                        </td>
-                        <td className="border px-4 py-2 text-right table-border-gray rtl-text">
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray">    <ModalInput
 
-                          חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)
 
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                            title=""
+                            handleChange={handleChange}
+                            name="f18" 
+                            type="text"
+
+                            className="text-right"
+                          /></td>
+                          <td className="border px-4 py-2 text-right table-border-gray "> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
+                        </tr>
+                        <tr>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+                            <ModalInput
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f19" 
+                              type="text"
+                              placeholder="סכום"
+
+                              className="text-right"
+                            />
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+                            <ModalInput
+
+
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f20" 
+
+                              type="text"
+                              placeholder="שנה"
+
+                              className="text-right"
+                            />
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
+                            <ModalInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f21" 
+                              type="text"
+                              placeholder="שם חייב/מדינה"
+
+                              className="text-right"
+                            />
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
+                        </tr>
+                        <tr>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+                            <ModalInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f22" 
+                              type="text"
+                              placeholder="מה נעשה בנידון"
+
+                              className="text-right"
+                            />
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray">
+
+
+                            <ModalInput
+
+                              title=""
+                              handleChange={handleChange}
+                              name="f23" 
+
+                              type="text"
+                              placeholder="סכום"
+
+                              className="text-right"
+                            />
+
+
+
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
+                            <ModalInput
+
+                              title=""
+                              handleChange={handleChange}
+
+                              name="f24" 
+                              type="text"
+                              placeholder="שם חייב/מדינה"
+
+                              className="text-right"
+                            />
+                          </td>
+                          <td className="border px-4 py-2 text-right table-border-gray rtl-text">
+
+                            חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)
+
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
                 </div>
               </div>
             </div>
@@ -1043,7 +1076,7 @@ const Welcome = () => {
 
                   <div>
 
-                  <ImageUpload/>
+                    <ImageUpload />
 
                   </div>
                   <h4 className=" flex-1 pr-4 mb-[0px] mt-auto  ml-[30px]  font-bold text-white">

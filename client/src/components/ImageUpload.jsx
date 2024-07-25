@@ -56,7 +56,7 @@ function ImageUpload() {
   return (
     <div>
           
-          {isLoading ? <Loader /> : <img className="text-left mb-4" src={imageURL} alt="" height="30px" />}
+          {isLoading ? <Loader /> : <img className="text-left mb-4" src={imageURL} alt="" width="150px" />}
 
 
    <input type="file" onChange={handleFileChangeImage} />

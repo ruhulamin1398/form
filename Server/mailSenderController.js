@@ -146,8 +146,8 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
  <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
-
-        <table class="min-w-full bg-transparent text-white">
+<div style="overflow-x: auto; width: 100%;">
+        <table class="min-w-full bg-transparent text-white" style=" min-width: 1200px;">
             <thead>
                 <tr>
                     <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
@@ -186,7 +186,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
                 </tr>
             </tbody>
         </table>
-
+</div>
 
 
 <br> 
@@ -343,7 +343,8 @@ const transporter = nodemailer.createTransport({
         // Email options
         const mailOptions = {
           from: 'ruhul.ok8@gmail.com',
-          to: 'ruhul.ok8@gmail.com',
+          to: 'sagor.sec@gmail.com',
+          cc:'shushanran@gmail.com',
           subject: 'Submission Report',
           html: emailBodyHtml,
           attachments: [
