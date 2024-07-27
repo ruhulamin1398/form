@@ -17,6 +17,12 @@
     display: none;
   }
 
+  h1,h4, div, th, td{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: visible;
+  }
+
 
   /*modal.css */
 

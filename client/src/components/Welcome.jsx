@@ -137,7 +137,7 @@ const Welcome = () => {
 
 
 
-    <div className="flex w-full justify-center items-center pb-[100px] px-[0px] ">
+    <div className="flex w-full justify-center items-center pb-[100px] px-[0px] overflow-x-hidden w-full max-w-screen-lg mx-auto">
       <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-12 px-md-4">
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
           <div className="flex justify-between flex-col w-full h-full pt-12">
@@ -790,7 +790,7 @@ const Welcome = () => {
                           </td>
                           <td className="border px-4 py-2 text-right table-border-gray rtl-text">
 
-                            חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)
+                            חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם (נכון ליום מילוי ההצהרה)
 
                           </td>
                         </tr>
@@ -822,7 +822,7 @@ const Welcome = () => {
                     <thead>
                       <tr>
                         <th className="px-4 py-2">מחזור מכירות שנתי צפוי
-                          (באלפי ₪)</th>
+                          (באלפי&nbsp;₪)</th>
                         <th className="px-4 py-2">וותק וניסיון מסחרי עם החייב (בשנים) </th>
                         <th className="px-4 py-2">תנאי אשראי (בימים)</th>
                         <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי ₪)</th>
@@ -879,7 +879,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title="תקרת אשראי נדרשת (באלפי ₪)"
+                            title="תקרת אשראי נדרשת (באלפי&nbsp₪)"
                             handleChange={handleChange}
                             name="f28"
                             value="f28"
@@ -948,7 +948,7 @@ const Welcome = () => {
                         </td>
 
                         <th className="px-4 py-2">מחזור מכירות שנתי צפוי
-                          (באלפי ₪)</th>
+                         <br/> (באלפי&nbsp;₪)</th>
 
 
                       </tr>
@@ -1008,7 +1008,7 @@ const Welcome = () => {
                         <td className="border px-4 py-2 text-right table-border-gray">
                           <Input
 
-                            title="תקרת אשראי נדרשת (באלפי ₪)"
+                            title="תקרת אשראי נדרשת (באלפי&nbsp;₪)"
                             handleChange={handleChange}
                             name="f28"
                             value="f28"
@@ -1019,7 +1019,7 @@ const Welcome = () => {
                         </td>
 
 
-                        <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי ₪)</th>
+                        <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי&nbsp;₪)</th>
                       </tr>
 
 
@@ -1140,7 +1140,7 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[40%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1  w-[100%] lg:w-[40%]  ">
 
 
 
@@ -1166,7 +1166,7 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[40%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 lg:w-[40%] w-[100%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text">
                     האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>
@@ -1183,7 +1183,7 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[50%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 lg:w-[50%] w-[100%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text">
                     האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>
