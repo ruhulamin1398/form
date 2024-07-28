@@ -4,8 +4,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+  
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://ruhulamin1398.github.io/form",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",

@@ -1,11 +1,10 @@
 {
   "scripts": {
     "dev": "nodemon app.js",
-     "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "homepage": "https://ruhulamin1398.github.io/form" ,
-
+  "homepage": "https://ruhulamin1398.github.io/form",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",

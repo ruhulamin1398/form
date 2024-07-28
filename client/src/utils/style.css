@@ -52,6 +52,10 @@
 }
 
 
+.custom-outline {
+  outline: .1px solid #413d3ddb;
+}
+
   @media (max-width: 600px) {
 
     .MainContentid{
