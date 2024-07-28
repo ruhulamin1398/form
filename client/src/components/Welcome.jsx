@@ -1,10 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { SiEthereum } from "react-icons/si";
-import { BsInfoCircle } from "react-icons/bs";
 
 import { TransactionContext } from "../context/TransactionContext";
-import { shortenAddress } from "../utils/shortenAddress";
 import { Loader } from ".";
 import '../utils/style.css'
 import "./Tooltips-form"
@@ -137,16 +133,15 @@ const Welcome = () => {
 
 
 
-    <div className="flex w-full justify-center items-center pb-[100px] px-[0px] overflow-x-hidden w-full max-w-screen-lg mx-auto">
-      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-12 px-md-4">
-        <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
-          <div className="flex justify-between flex-col w-full h-full pt-12">
-            <h1 className="text-3xl sm:text-5xl text-white text-gradient my-10 text-center">
-              טופס הצעת ביטוח אשראי בישראל
-              <br />
-              למכירה של סחורות ושירותים
-              בישראל
-            </h1>
+    <div className="flex  justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto">
+      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-2 md:py-12 px-md-4">
+        <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
+          <div className="flex justify-between flex-col  pt-2 md:pt-12">
+           
+
+   <h1 className="text-xl md:text-5xl text-white  my-5  md:my-10 text-center">
+   טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
+   </h1>
           </div>
 
           <div className="p-5 sm:w-500 w-full flex flex-col justify-start items-center blue-glassmorphism">
@@ -276,23 +271,18 @@ const Welcome = () => {
 
 
 
-            <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
+            <div className="flex w-full justify-center items-center">
+              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
+            
 
-
-                <h4 className="text-right  mx-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
-                  <div class="rtl-text text-space-right-m">
-
-                    נייד
-                  </div>
-
-                </h4>
+              
 
 
                 <Input
 
 
                   title="נייד"
+                  placeholder="נייד"
                   handleChange={handleChange}
 
                   name="f9"
@@ -365,7 +355,7 @@ const Welcome = () => {
                       </thead>
                       <tbody className="table-border-gray">
                         <tr>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                             <ModalInput
                               title=""
                               handleChange={handleChange}
@@ -382,7 +372,7 @@ const Welcome = () => {
                               className="text-right pcTable"
                             />
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
                             <ModalInput
@@ -415,7 +405,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                             <ModalInput
 
 
@@ -443,7 +433,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
                             <ModalInput
@@ -469,10 +459,10 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
                         </tr>
                         <tr>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
 
@@ -506,7 +496,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
 
@@ -531,7 +521,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
 
@@ -567,7 +557,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
 
@@ -599,7 +589,7 @@ const Welcome = () => {
                           <td className="border px-4 py-2 text-right table-border-gray "> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
                         </tr>
                         <tr>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
                             <ModalInput
 
@@ -631,7 +621,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
                             <ModalInput
 
@@ -667,7 +657,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray" colSpan="2">
                             <ModalInput
 
                               title=""
@@ -694,10 +684,10 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
                         </tr>
                         <tr>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
                             <ModalInput
 
@@ -724,7 +714,7 @@ const Welcome = () => {
                             />
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
 
                             <ModalInput
@@ -759,7 +749,7 @@ const Welcome = () => {
 
 
                           </td>
-                          <td className="border px-4 py-2 text-right table-border-gray" colSpan="2">
+                          <td className="border px-2 md:px-4 py-2 text-right table-border-gray" colSpan="2">
                             <ModalInput
 
                               title=""
@@ -832,7 +822,7 @@ const Welcome = () => {
                     </thead>
                     <tbody className="table-border-gray">
                       <tr>
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -847,7 +837,7 @@ const Welcome = () => {
                             className="text-right"
                           />
                         </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -861,7 +851,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -876,7 +866,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
                             title="תקרת אשראי נדרשת (באלפי&nbsp₪)"
@@ -890,7 +880,7 @@ const Welcome = () => {
                         </td>
 
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -905,7 +895,7 @@ const Welcome = () => {
                             className="text-right"
                           />
                         </td>
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
                             title="שם מלא "
@@ -931,7 +921,7 @@ const Welcome = () => {
                       <tr>
 
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -956,7 +946,7 @@ const Welcome = () => {
 
                       <tr>
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -980,7 +970,7 @@ const Welcome = () => {
                       <tr>
 
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -1005,7 +995,7 @@ const Welcome = () => {
                       <tr>
 
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
                             title="תקרת אשראי נדרשת (באלפי&nbsp;₪)"
@@ -1027,7 +1017,7 @@ const Welcome = () => {
 
                       <tr>
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
 
@@ -1052,7 +1042,7 @@ const Welcome = () => {
 
                       <tr>
 
-                        <td className="border px-4 py-2 text-right table-border-gray">
+                        <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
                           <Input
 
                             title="שם מלא "
@@ -1108,7 +1098,7 @@ const Welcome = () => {
               name="f31"
               value="f31"
               type="text"
-              placeholder="פרט"
+              // placeholder="פרט"
 
               className="text-right"
             />
@@ -1133,14 +1123,14 @@ const Welcome = () => {
 
 
               type="text"
-              placeholder="פרט"
+              // placeholder="פרט"
 
               className="text-right"
             />
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1  w-[100%] lg:w-[40%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-end md:items-start justify-between md:py-2 py-1  w-[100%] lg:w-[40%]  ">
 
 
 
@@ -1166,7 +1156,7 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 lg:w-[40%] w-[100%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-end md:items-start justify-between md:py-2 py-1 lg:w-[40%] w-[100%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text">
                     האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>
@@ -1183,7 +1173,7 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-end items-end">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 lg:w-[50%] w-[100%]  ">
+              <div className="flex mf:flex-row-reverse flex-col items-end md:items-start justify-between md:py-2 py-1 lg:w-[50%] w-[100%]  ">
                 <h4 className="text-right   pb-[10px] w-full font-bold text-white">
                   <div class="rtl-text">
                     האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>
@@ -1217,7 +1207,7 @@ const Welcome = () => {
               name="f33"
               value="f33"
               type="text"
-              placeholder="פרט"
+              // placeholder="פרט"
 
               className="text-right"
             />
@@ -1245,7 +1235,7 @@ const Welcome = () => {
 
 
               type="text"
-              placeholder="פרט"
+              // placeholder="פרט"
 
               className="text-right"
             />

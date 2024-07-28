@@ -52,14 +52,22 @@
 }
 
 
-.custom-outline {
+/* .custom-outline {
   outline: .1px solid #413d3ddb;
+} */
+
+.custom-outline {
+  outline: .1px solid rgba(255, 255, 255, 0.1);
 }
 
+
   @media (max-width: 600px) {
+    .custom-outline {
+      outline: .1px solid rgba(255, 255, 255, 0.9);
+    }
 
     .MainContentid{
-      font-size: 70%;
+      font-size: 65%;
     }
  
     .mTable{
