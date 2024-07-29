@@ -1,10 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState ,useContext} from 'react';
 import SignatureCanvas from 'react-signature-canvas';
 import Modal from 'react-modal';
 import Loader from './Loader';
 
 
+import { TransactionContext} from "../context/TransactionContext";
+
+
 const SignaturePopup = () => {
+
+const { handleChangeSignature,  signatureType,  setSignatureType  } = useContext(TransactionContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [imgURL, setImgURL] = useState("")
 
@@ -27,10 +32,10 @@ const SignaturePopup = () => {
 
     closeModal();
 
-    setIsLoading(true)
+    setIsLoading(true) 
+    const serverUrl = "https://server-form.ruhul.info/signature";
 
-    const localUrl = "http://localhost:5000/save-signature";
-    const serverUrl = "https://server-form.ruhul.info/save-signature";
+    const localUrl = "http://localhost:5000/signature"; 
     const SubmitUrl = serverUrl;
 
 
@@ -49,6 +54,14 @@ const SignaturePopup = () => {
         console.log('Success:', data);
         setImgURL(data.imageURL)
 
+        const imagepath =data.filePath ;
+        console.log( "image url ", imagepath)
+        
+
+        
+        handleChangeSignature("sign", imagepath," חתימה&nbsp;וחותמת&nbsp;החברה"  ) 
+        
+        setSignatureType(1)
         setIsLoading(false)
       })
       .catch(error => {
@@ -66,28 +79,38 @@ const SignaturePopup = () => {
 <div>
 
 {isLoading ? (
+                     <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+
                 <Loader />
+                </div>
             ) : (
-              imgURL ? (
+              imgURL && (signatureType==1) ? (
+                <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+
                     <img
-                        className="text-left mb-4 w-[200px] h-[100px] md:w-[300px] md:h-[150px] object-contain bg-white"
+                        className="text-left mb-4 w-[90px] h-[100px] md:w-[140px] md:h-[150px] object-contain bg-white"
                         src={imgURL}
                         alt=""
                     />
+                    </div>
 
-                ) : null
+                ) : ((signatureType==2)?(                   <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+  </div>):null)
             )}
+
+
+ 
 
 </div>
 
 
 
-      <button
+      <div
         onClick={openModal}
-        className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[200px] md:w-[300px] "
+        className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2 "
       >
-        Open Signature Pad
-      </button>
+        פתח פנקס חתימה
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

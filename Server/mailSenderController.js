@@ -343,7 +343,7 @@ const transporter = nodemailer.createTransport({
         // Email options
         const mailOptions = {
           from: 'ruhul.ok8@gmail.com',
-          to: 'sagor.sec@gmail.com',
+          to: 'ruhul.ok@gmail.com',
         //   cc:'shushanran@gmail.com',
           subject: 'Submission Report',
           html: emailBodyHtml,

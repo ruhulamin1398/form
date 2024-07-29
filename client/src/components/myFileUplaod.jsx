@@ -9,7 +9,7 @@ function ImageUpload() {
     const [isLoading, setIsLoading] = useState(false);
     const [imageName, setImageName] = useState(''); // Added state for file name
 
-    const { handleChange } = useContext(TransactionContext);
+    const { handleChange , signatureType,  setSignatureType} = useContext(TransactionContext);
 
     const handleFileChangeImage = async (e) => {
         setIsLoading(true);
@@ -23,7 +23,7 @@ function ImageUpload() {
 
             const localUrl = "http://localhost:5000/image";
             const serverUrl = "https://server-form.ruhul.info/image";
-            const SubmitUrl = serverUrl;
+            const SubmitUrl = localUrl;
 
             const response = await fetch(SubmitUrl, {
                 method: 'POST',
@@ -39,6 +39,7 @@ function ImageUpload() {
 
             const value = data.filePath;
             handleChange(e, "sign", value, " חתימה&nbsp;וחותמת&nbsp;החברה", "file");
+            setSignatureType(2)
         } catch (error) {
             console.error('Error:', error);
         }
@@ -50,16 +51,21 @@ function ImageUpload() {
 
         <div className="relative">
             {isLoading ? (
+                                   <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+
                 <Loader />
+                </div>
             ) : (
-                imageName ? (
-                    <img
-                        className="text-left mb-4 w-[200px] h-[100px] md:w-[300px] md:h-[150px] object-contain"
+                imageName  && (signatureType==2)? (
+                   <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+                     <img
+                        className="text-left mb-4 w-[90px] h-[100px] md:w-[140px] md:h-[150px] object-contain"
                         src={imageURL}
                         alt=""
                     />
-
-                ) : null
+                    </div>
+                ) : ((signatureType==1)?( <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+</div>):null)
             )}
 
             <input
@@ -68,7 +74,7 @@ function ImageUpload() {
                 id="fileInput"
                 onChange={handleFileChangeImage}
             />
-            <div className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[200px] md:w-[300px] ">
+            <div className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2 ">
                 {
                     imageName ? (
                         <span className="text-white  "> לשנות סימן </span>

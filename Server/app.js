@@ -23,48 +23,46 @@ app.use(function(req, res, next) {
 
 
 // // upload image signature -- old
-// app.use('/images', express.static(path.join(__dirname, 'images')));
-
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'images/')
-//   },
-//   filename: (req, file, cb) => {
-//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-//     const extension = path.extname(file.originalname)
-//     const basename = path.basename(file.originalname, extension)
-//     cb(null, basename + '-' + uniqueSuffix + extension)
-//   },
-// })
-
-// const upload = multer({ storage: storage }) 
-
-// app.post('/image', upload.single('file'), function (req, res) {
-//   if (req.file) {
-//     const filePath = path.join('/images', req.file.filename)
-//     res.json({
-
-//       filePath:filePath,
-//       imageURL: `${req.protocol}://${req.get('host')}${filePath}`
-      
-//        })
-
-//   } else {
-//     res.status(400).json({ error: 'No file uploaded' })
-//   }
-// })
-
-// Routes
-
-
-
-// Serve static files from the 'images' directory
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images/')
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    const extension = path.extname(file.originalname)
+    const basename = path.basename(file.originalname, extension)
+    cb(null, basename + '-' + uniqueSuffix + extension)
+  },
+})
+
+const upload = multer({ storage: storage }) 
+
+app.post('/image', upload.single('file'), function (req, res) {
+  if (req.file) {
+    const filePath = path.join('/images', req.file.filename)
+    res.json({
+
+      filePath:filePath,
+      imageURL: `${req.protocol}://${req.get('host')}${filePath}`
+      
+       })
+
+  } else {
+    res.status(400).json({ error: 'No file uploaded' })
+  }
+})
+
+ 
+
+
+ 
 
 // Use body-parser to parse JSON bodies
 app.use(bodyParser.json({ limit: '10mb' })); // Adjust limit as needed
 
-app.post('/save-signature', (req, res) => {
+app.post('/signature', (req, res) => {
   const { image } = req.body;
 
   if (!image) {
@@ -103,7 +101,8 @@ app.post('/record', async(req, res) => {
   // console.log(req.file)
   console.log(req.body);
   const data = req.body
-  console.log(data['sign'])
+  console.log("sign  : "  )
+  console.log(  data['sign'])
   await prepareEmail(data)
 
 

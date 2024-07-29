@@ -9,6 +9,9 @@ import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
 import Modal from './Modal'; 
 import SignaturePopup from './SignaturePad';
+import SuccessAlert from "./SuccessModal";
+import ImageUpload from "./myFileUplaod";
+ 
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -84,6 +87,7 @@ const Welcome = () => {
 
 
   const [submitLoading, setSubmitLoading] = useState(false)
+  const [isScuccess, setIsSuccess] = useState(false)
 
 
   const handleSubmit = async (e) => {
@@ -111,6 +115,9 @@ const Welcome = () => {
 
       const data = await response.json();
       console.log('Success:', data);
+      // setIsSuccess(true)
+  
+
       alert("Success !!!!")
       window.location.reload();
       // Handle successful submission (e.g., show a success message, clear the form, etc.)
@@ -1291,7 +1298,7 @@ const Welcome = () => {
                 <div className="flex items-center ">
 
                   
-                    {/* <MyFileUpload /> */}
+                    <ImageUpload />
 
                     <SignaturePopup/>
             
@@ -1326,11 +1333,18 @@ const Welcome = () => {
                 Submit
               </button>
             )}
+
+            {
+              isScuccess?<SuccessAlert/> : null
+            }
+
+
+
+
           </div>
         </div>
       </div>
     </div>
-
 
 
 

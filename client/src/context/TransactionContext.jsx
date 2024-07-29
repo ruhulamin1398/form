@@ -190,6 +190,7 @@ export const TransactionsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(localStorage.getItem("transactionCount"));
   const [transactions, setTransactions] = useState([]);
+  const [signatureType, setSignatureType] = useState(0);
 
   const handleChange = (e,name, value, title , type ) => {
     if(type =="text"){
@@ -216,11 +217,21 @@ export const TransactionsProvider = ({ children }) => {
       console.log(formData)
  
     }
-
-
- 
  
   };
+
+
+  const handleChangeSignature = (name, value, title  ) => {
+   
+      setformData((prevState) => ({ ...prevState, [name]: {"value":value ,"title":title} }));
+
+      console.log(name , " -  ", value)
+      console.log(formData)
+ 
+   
+  };
+
+
 
   const getAllTransactions = async () => {
     try {
@@ -345,7 +356,7 @@ export const TransactionsProvider = ({ children }) => {
         console.log("No ethereum object");
       }
     } catch (error) {
-      console.log(error);
+      console.log(errorhandleChangeSignature);
 
       throw new Error("No ethereum object");
     }
@@ -366,7 +377,10 @@ export const TransactionsProvider = ({ children }) => {
         isLoading,
         sendTransaction,
         handleChange,
+        handleChangeSignature,
         formData,
+        signatureType,
+        setSignatureType
       }}
     >
       {children}

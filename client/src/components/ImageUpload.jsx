@@ -21,7 +21,7 @@ function ImageUpload() {
 
     try {
       let formSubmitData = new FormData();
-      formSubmitData.append('file', file); // Directly use the file instead of image
+      formSubmitData.append('file', file); 
 
       const localUrl = "http://localhost:5000/image";
       const serverUrl = "https://server-form.ruhul.info/image";
