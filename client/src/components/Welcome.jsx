@@ -3,12 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from ".";
 import '../utils/style.css'
-import "./Tooltips-form"
-import ImageUpload from "./ImageUpload";
+import "./Tooltips-form" 
 
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
-import Modal from './Modal';
+import Modal from './Modal'; 
+import SignaturePopup from './SignaturePad';
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -20,7 +20,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange , className
     title={title}
     // value={value}
     onChange={(e) => handleChange(e, name, value, title, type)}
-    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline  "
+    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px]"
   />
 );
 
@@ -33,7 +33,7 @@ const PInput = ({ placeholder, name, type, value, title, handleChange , classNam
     title={title}
     // value={value}
     onChange={(e) => handleChange(e, name, value, title, type)}
-    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline pcTable  "
+    className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] pcTable  "
   />
 );
 
@@ -60,7 +60,7 @@ const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => 
         value={inputValue}
         onClick={() => setIsModalOpen(true)}
         readOnly
-        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline mTable"
+        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white   text-[7px] white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] text-wrap mTable"
       />
       <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
         <input
@@ -369,7 +369,7 @@ const Welcome = () => {
                               handleChange={handleChange}
                               name="f11"
                               type="text"
-                              className="text-right pcTable"
+                              className="text-right "
                             />
                           </td>
                           <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
@@ -398,7 +398,7 @@ const Welcome = () => {
 
                               type="text"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -428,7 +428,7 @@ const Welcome = () => {
                               name="f13"
                               type="text"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -453,7 +453,7 @@ const Welcome = () => {
                               handleChange={handleChange}
                               name="f14"
                               type="text"
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -490,7 +490,7 @@ const Welcome = () => {
                               name="f15"
                               type="text"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -515,7 +515,7 @@ const Welcome = () => {
                               handleChange={handleChange}
                               name="f16"
                               type="text"
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -550,7 +550,7 @@ const Welcome = () => {
                               name="f17"
                               type="text"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -580,7 +580,7 @@ const Welcome = () => {
                               name="f18"
                               type="text"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -616,7 +616,7 @@ const Welcome = () => {
                               type="text"
                               placeholder="סכום"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -650,7 +650,7 @@ const Welcome = () => {
                               type="text"
                               placeholder="שנה"
 
-                              className="text-right pcTable "
+                              className="text-right  "
                             />
 
 
@@ -679,7 +679,7 @@ const Welcome = () => {
                               type="text"
                               placeholder="שם חייב/מדינה"
 
-                              className="text-right pcTable"
+                              className="text-right "
                             />
 
 
@@ -937,7 +937,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <th className="px-4 py-2">מחזור מכירות שנתי צפוי
+                        <th className="px-4 py-2 border table-border-gray">מחזור מכירות שנתי צפוי
                          <br/> (באלפי&nbsp;₪)</th>
 
 
@@ -960,7 +960,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <th className="px-4 py-2">וותק וניסיון מסחרי עם החייב (בשנים) </th>
+                        <th className="px-4 py-2 border table-border-gray">וותק וניסיון מסחרי עם החייב (בשנים) </th>
 
                       </tr>
 
@@ -985,7 +985,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <th className="px-4 py-2">תנאי אשראי (בימים)</th>
+                        <th className="px-4 py-2 border table-border-gray">תנאי אשראי (בימים)</th>
 
                       </tr>
 
@@ -1009,7 +1009,7 @@ const Welcome = () => {
                         </td>
 
 
-                        <th className="px-4 py-2">תקרת אשראי נדרשת (באלפי&nbsp;₪)</th>
+                        <th className="px-4 py-2 border table-border-gray">תקרת אשראי נדרשת (באלפי&nbsp;₪)</th>
                       </tr>
 
 
@@ -1033,7 +1033,7 @@ const Welcome = () => {
                           />
                         </td>
 
-                        <th className="px-4 py-2">ח.פ. (חובה למלא)</th>
+                        <th className="px-4 py-2 border table-border-gray">ח.פ. (חובה למלא)</th>
 
                       </tr>
 
@@ -1262,11 +1262,11 @@ const Welcome = () => {
 
 
             <div className="flex w-full justify-center items-center">
-              <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
+              <div className="flex mf:flex-row-reverse flex-col items-end md:items-start md:justify-between md:py-2 py-1 w-full gap-2">
 
 
 
-                <div className="flex items-center text-right w-full md:w-auto">
+                <div className="flex items-center text-right w-full md:w-auto mb-0">
 
                   <Input
                     type="date"
@@ -1290,12 +1290,14 @@ const Welcome = () => {
 
                 <div className="flex items-center ">
 
-                  <div>
+                  
+                    {/* <MyFileUpload /> */}
 
-                    <ImageUpload />
+                    <SignaturePopup/>
+            
 
-                  </div>
-                  <h4 className=" flex-1 pr-4 mb-[0px] mt-auto   font-bold text-white">
+                  
+                  <h4 className="pl-2 pb-[8px] md:pl-[20px] flex-1 pr-4 mb-[0px] mt-auto   font-bold text-white">
                     חתימה&nbsp;וחותמת&nbsp;החברה
 
                   </h4>

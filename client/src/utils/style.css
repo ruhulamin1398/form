@@ -59,11 +59,12 @@
 .custom-outline {
   outline: .1px solid rgba(255, 255, 255, 0.1);
 }
+ 
 
 
   @media (max-width: 600px) {
     .custom-outline {
-      outline: .1px solid rgba(255, 255, 255, 0.9);
+      outline: .1px solid white;
     }
 
     .MainContentid{
@@ -84,6 +85,9 @@
   }
 .containerHorizontal{
   max-width: 90%;
+}
+input::placeholder {
+  white-space: pre-wrap;
 }
 
 

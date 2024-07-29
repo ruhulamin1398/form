@@ -5,6 +5,7 @@ const cors = require('cors');
 const { prepareEmail } = require('./mailSenderController');
 const path = require('path');
 
+const fs = require('fs');
 const multer = require('multer');
 
 const app = express();
@@ -21,39 +22,78 @@ app.use(function(req, res, next) {
 });
 
 
+// // upload image signature -- old
+// app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'images/')
+//   },
+//   filename: (req, file, cb) => {
+//     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+//     const extension = path.extname(file.originalname)
+//     const basename = path.basename(file.originalname, extension)
+//     cb(null, basename + '-' + uniqueSuffix + extension)
+//   },
+// })
+
+// const upload = multer({ storage: storage }) 
+
+// app.post('/image', upload.single('file'), function (req, res) {
+//   if (req.file) {
+//     const filePath = path.join('/images', req.file.filename)
+//     res.json({
+
+//       filePath:filePath,
+//       imageURL: `${req.protocol}://${req.get('host')}${filePath}`
+      
+//        })
+
+//   } else {
+//     res.status(400).json({ error: 'No file uploaded' })
+//   }
+// })
+
+// Routes
+
+
+
 // Serve static files from the 'images' directory
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images/')
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    const extension = path.extname(file.originalname)
-    const basename = path.basename(file.originalname, extension)
-    cb(null, basename + '-' + uniqueSuffix + extension)
-  },
-})
+// Use body-parser to parse JSON bodies
+app.use(bodyParser.json({ limit: '10mb' })); // Adjust limit as needed
 
-const upload = multer({ storage: storage }) 
+app.post('/save-signature', (req, res) => {
+  const { image } = req.body;
 
-app.post('/image', upload.single('file'), function (req, res) {
-  if (req.file) {
-    const filePath = path.join('/images', req.file.filename)
-    res.json({
-
-      filePath:filePath,
-      imageURL: `${req.protocol}://${req.get('host')}${filePath}`
-      
-       })
-
-  } else {
-    res.status(400).json({ error: 'No file uploaded' })
+  if (!image) {
+    return res.status(400).json({ error: 'No image provided' });
   }
-})
 
-// Routes
+  // Remove the data:image/png;base64, part from the string
+  const base64Data = image.replace(/^data:image\/png;base64,/, "");
+
+  // Create a unique filename
+  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+  const filename = `signature-${uniqueSuffix}.png`;
+  const filePath = path.join(__dirname, 'images', filename);
+
+  // Write the file to the images directory
+  fs.writeFile(filePath, base64Data, 'base64', (err) => {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to save the image' });
+    }
+
+    const imageURL = `${req.protocol}://${req.get('host')}/images/${filename}`;
+    res.json({ filePath: `/images/${filename}`, imageURL });
+  });
+});
+
+
+
+
+
 app.get('/', (req, res) => {
   res.send('Welcome to the Express server!');
 });
@@ -63,7 +103,7 @@ app.post('/record', async(req, res) => {
   // console.log(req.file)
   console.log(req.body);
   const data = req.body
-  console.log(data['f1'].title)
+  console.log(data['sign'])
   await prepareEmail(data)
 
 
