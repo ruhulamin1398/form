@@ -3,19 +3,21 @@ import React, { useContext, useEffect, useState } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from ".";
 import '../utils/style.css'
-import "./Tooltips-form" 
+import "./Tooltips-form"
 
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
-import Modal from './Modal'; 
+import Modal from './Modal';
 import SignaturePopup from './SignaturePad';
 import SuccessAlert from "./SuccessModal";
 import ImageUpload from "./myFileUplaod";
- 
+
+import Toast from './Toast';
+
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
-const Input = ({ placeholder, name, type, value, title, handleChange , className }) => (
+const Input = ({ placeholder, name, type, value, title, handleChange, className }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -28,7 +30,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange , className
 );
 
 
-const PInput = ({ placeholder, name, type, value, title, handleChange , className }) => (
+const PInput = ({ placeholder, name, type, value, title, handleChange, className }) => (
   <input
     placeholder={placeholder}
     type={type}
@@ -83,14 +85,30 @@ const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => 
 
 
 const Welcome = () => {
-  const { currentAccount, connectWallet, handleChange, sendTransaction, formData, isLoading } = useContext(TransactionContext);
+  const { handleChange, formData, signatureType } = useContext(TransactionContext);
 
 
   const [submitLoading, setSubmitLoading] = useState(false)
   const [isScuccess, setIsSuccess] = useState(false)
+  const [isToast, setIsToast] = useState(false);
+
+
+  const showToast = () => {
+    setIsToast(true);
+    setTimeout(() => {
+      setIsToast(false);
+    }, 3000); // Hide the toast after 3 seconds
+  };
+
+
 
 
   const handleSubmit = async (e) => {
+
+    if (signatureType == 0) {
+      showToast()
+      return;
+    }
     setSubmitLoading(true)
     e.preventDefault();
 
@@ -116,7 +134,7 @@ const Welcome = () => {
       const data = await response.json();
       console.log('Success:', data);
       // setIsSuccess(true)
-  
+
 
       alert("Success !!!!")
       window.location.reload();
@@ -144,11 +162,11 @@ const Welcome = () => {
       <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-2 md:py-12 px-md-4">
         <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
           <div className="flex justify-between flex-col  pt-2 md:pt-12">
-           
 
-   <h1 className="text-xl md:text-5xl text-white  my-5  md:my-10 text-center">
-   טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
-   </h1>
+
+            <h1 className="text-xl md:text-5xl text-white  my-5  md:my-10 text-center">
+              טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
+            </h1>
           </div>
 
           <div className="p-5 sm:w-500 w-full flex flex-col justify-start items-center blue-glassmorphism">
@@ -280,9 +298,9 @@ const Welcome = () => {
 
             <div className="flex w-full justify-center items-center">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
-            
 
-              
+
+
 
 
                 <Input
@@ -945,7 +963,7 @@ const Welcome = () => {
                         </td>
 
                         <th className="px-4 py-2 border table-border-gray">מחזור מכירות שנתי צפוי
-                         <br/> (באלפי&nbsp;₪)</th>
+                          <br /> (באלפי&nbsp;₪)</th>
 
 
                       </tr>
@@ -1297,13 +1315,13 @@ const Welcome = () => {
 
                 <div className="flex items-center ">
 
-                  
-                    <ImageUpload />
 
-                    <SignaturePopup/>
-            
+                  <ImageUpload />
 
-                  
+                  <SignaturePopup />
+
+
+
                   <h4 className="pl-2 pb-[8px] md:pl-[20px] flex-1 pr-4 mb-[0px] mt-auto   font-bold text-white">
                     חתימה&nbsp;וחותמת&nbsp;החברה
 
@@ -1335,8 +1353,11 @@ const Welcome = () => {
             )}
 
             {
-              isScuccess?<SuccessAlert/> : null
+              isScuccess ? <SuccessAlert /> : null
             }
+
+
+          
 
 
 
@@ -1344,6 +1365,7 @@ const Welcome = () => {
           </div>
         </div>
       </div>
+      {isToast ? <Toast /> : null}
     </div>
 
 

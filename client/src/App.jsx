@@ -1,4 +1,4 @@
-import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
+import { Navbar, Welcome, } from "./components";
 
 
 import './utils/style.css'
@@ -10,7 +10,6 @@ const App = () => (
     </div>
    
  
-    <Footer />
   </div>
 );
 
