@@ -2,7 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { prepareEmail } = require('./mailSenderController');
+const { prepareEmail } = require('./mailSenderController')
 const path = require('path');
 
 const fs = require('fs');
@@ -98,9 +98,13 @@ app.get('/', (req, res) => {
 
 app.post('/record', async(req, res) => {
 
-  // console.log(req.file)
+  const host = req.hostname;
+  console.log(host)
+  
   console.log(req.body);
-  const data = req.body
+  let data = req.body;
+
+  data['sign'].value2 = `${req.protocol}://${req.get('host')}${data['sign'].value}`
   console.log("sign  : "  )
   console.log(  data['sign'])
   await prepareEmail(data)
