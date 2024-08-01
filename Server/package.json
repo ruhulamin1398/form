@@ -1,25 +1,75 @@
 {
+  
   "scripts": {
-    "dev": "nodemon app.js",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+  
+    
+  "dev": "nodemon app.js",
+  
+    
+  "predeploy": "npm run build",
+  
+    
+  "deploy": "gh-pages -d build"
+  
   },
+  
   "homepage": "https://ruhulamin1398.github.io/form",
+  
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "express-async-handler": "^1.2.0",
-    "html2pdf": "^0.0.11",
-    "image-size": "^1.1.1",
-    "jspdf": "^2.5.1",
-    "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.14",
-    "nodemon": "^3.1.4",
-    "pdfkit": "^0.15.0",
-    "pdfkit-table": "^0.1.99",
-    "pdfmake": "^0.2.10",
-    "puppeteer": "^22.14.0"
+  
+    
+  "axios": "^1.7.2",
+  
+    
+  "bidi": "^0.0.1",
+  
+    
+  "body-parser": "^1.20.2",
+  
+    
+  "chai": "^5.1.1",
+  
+    
+  "convertapi": "^1.14.0",
+  
+    
+  "cors": "^2.8.5",
+  
+    
+  "dotenv": "^16.4.5",
+  
+    
+  "express": "^4.19.2",
+  
+    
+  "express-async-handler": "^1.2.0",
+  
+    
+  "image-size": "^1.1.1",
+  
+    
+  "install": "^0.13.0",
+  
+    
+  "mocha": "^10.7.0",
+  
+    
+  "multer": "^1.4.5-lts.1",
+  
+    
+  "node-fetch": "^3.3.2",
+  
+    
+  "nodemailer": "^6.9.14",
+  
+    
+  "nodemon": "^3.1.4",
+  
+    
+  "npm": "^10.8.2",
+  
+    
+  "unicode-bidirectional": "^2.0.5"
+  
   }
 }

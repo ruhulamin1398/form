@@ -1,25 +1,30 @@
-const { jsPDF } = require('jspdf');
+const PDFDocument = require('pdfkit');
 const fs = require('fs');
+
 const path = require('path');
 
-// Load a font
-const fontPath = path.join(__dirname, 'fonts/NotoSansHebrew-Regular.ttf');
-const fontData = fs.readFileSync(fontPath, 'base64');
+// Create a document
+const doc = new PDFDocument();
 
-// Initialize jsPDF
-const doc = new jsPDF();
+// Pipe its output somewhere, like to a file or HTTP response
+doc.pipe(fs.createWriteStream('output.pdf'));
 
-// Add custom font
-doc.addFileToVFS('NotoSansHebrew-Regular.ttf', fontData);
-doc.addFont('NotoSansHebrew-Regular.ttf', 'NotoSansHebrew', 'normal');
+// Example Hebrew text
+const hebrewText = "שלום עולם";
 
-// Set the font
-doc.setFont('NotoSansHebrew');
-doc.setFontSize(12);
- 
-// Add some Hebrew text
-doc.text("שם החברה", 10, 10, { align: 'center' });
+// Wrap the text with RLE and PDF characters
+const rtlText = `\u202B${hebrewText}\u202C`;
 
-// Save the PDF
-doc.save('SampleHebrewPDF.pdf');
-console.log("helloo")
+// Set the font (make sure the font supports Hebrew characters)
+
+
+const fontPath = path.join(__dirname, "./fonts/NotoSansHebrew-Regular.ttf");
+doc.font(fontPath);
+
+// Draw text right-aligned
+doc.text(rtlText, {
+  align: 'right'
+});
+
+// Finalize PDF file
+doc.end();

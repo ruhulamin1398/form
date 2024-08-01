@@ -154,13 +154,15 @@ export const TransactionsProvider = ({ children }) => {
 
     "yesNoOption2": {
       "value": "",
-      "title":  ' האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>'
+    //   "title":  ' האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>'
+      "title":  ' האם החברה הייתה מבוטחת ב-3 שנים האחרונות'
   },
 
 
   "yesNoOption3": {
     "value": "",
-    "title": '   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>'
+    // "title": '   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>'
+    "title": '   האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה'
 },
 
 

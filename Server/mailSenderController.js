@@ -3,10 +3,9 @@ const expressAsyncHandler = require("express-async-handler")
 
 const nodemailer = require("nodemailer")
   
-const path = require('path'); 
-const pdf = require('pdfkit');
-const fs = require('fs');
-const generatePDF = require("./pdfGenerator");
+const path = require('path');  
+const fs = require('fs'); 
+const generatePDF  = require("./pdfGenerator");
 
 const prepareEmail = expressAsyncHandler(async (data) => {
 
@@ -344,6 +343,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             margin: 0;
             padding: 50px;
             background-color: #f4f4f4;  
+            text-align:right;
 
             font-size: 8px;
         }
@@ -352,6 +352,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             background: #fff;
             padding: 20px;
             border-radius: 10px; 
+            text-align:right;
           
         }
         h2 {
@@ -360,12 +361,14 @@ const prepareEmail = expressAsyncHandler(async (data) => {
         }
         .field {
             margin-bottom: 15px;
+            text-align:right;
             
         }
         .field label {
             font-weight: bold;
             display: block;
             margin-bottom: 5px;  direction: rtl ;
+            text-align:right;
             
         }
         .field p {
@@ -374,15 +377,18 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             background: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 4px;  direction: rtl ;
+            text-align:right;
             
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px; 
+            text-align:right;
         }
         table, th, td {
             border: 1px solid #ddd;   
+            text-align:right;
         }
         th, td {
             padding: 10px;
@@ -628,7 +634,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 <label for="name">${data['sign'].title}</label>
 <p id="name">
 
-<img className="text-left " src="${data['sign'].value2}" alt="sign" height="50px" />
+<img className="text-left " src="https://lumiere-a.akamaihd.net/v1/images/avatarfooter_1600_34d731a8.jpeg" alt="sign" height="50px" />
 
 </p>
 </div>
@@ -656,10 +662,11 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
     `;
 
+    const emailPdf = await generatePDF(pdfBody)
+    console.log("email                            :",emailPdf)
+ 
     console.log( " img link " , data['sign'].value)
-
-    const pdfBuffer = await generatePDF(pdfBody)
-
+ 
     // Configure Nodemailer transporter
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -678,9 +685,16 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
         // Email options
         const mailOptions = {
-            from: 'ruhul.ok8@gmail.com',
-            to: 'ruhulamin010398@gmail.com',
-            //   cc:'shushanran@gmail.com',
+            from: 'ruhul',
+            to: 'ruhul.ok@gmail.com',
+
+
+            // to: 'Rishum@iocea.org.il',
+            // cc:'Adi@incerto-credit.com',
+            // cc:'shushanran@gmail.com',
+
+
+
             subject: 'Submission Report',
             html: emailBodyHtml,
             attachments: [
@@ -695,7 +709,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
                     cid: 'uniquedfdf@nodemailer.com'
                 },{
                     filename: 'report.pdf',
-                    content: pdfBuffer,
+                    content: emailPdf,
                     contentType: 'application/pdf',
                   }
 

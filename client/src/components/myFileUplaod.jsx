@@ -24,7 +24,7 @@ function ImageUpload() {
 
             const localUrl = "http://localhost:5000/image";
             const serverUrl = "https://server-form.ruhul.info/image";
-            const SubmitUrl = serverUrl;
+            const SubmitUrl = localUrl;
 
             const response = await fetch(SubmitUrl, {
                 method: 'POST',

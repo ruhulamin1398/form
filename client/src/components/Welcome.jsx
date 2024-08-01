@@ -117,7 +117,7 @@ const Welcome = () => {
     try {
       const localUrl = "http://localhost:5000/record"
       const serverUrl = "https://server-form.ruhul.info/record"
-      const SubmitUrl = serverUrl
+      const SubmitUrl = localUrl
 
       const response = await fetch(SubmitUrl, {
         method: 'POST',

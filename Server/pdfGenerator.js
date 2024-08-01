@@ -1,29 +1,34 @@
-const puppeteer = require('puppeteer');
-const path = require('path');
-const expressAsyncHandler = require("express-async-handler");
+const axios = require('axios');
+const expressAsyncHandler = require("express-async-handler"); 
+const path = require('path');  
+const fs = require('fs'); 
+const generatePDF = async (data) => {
 
- 
-const  generatePDF = async (data)=> {
-  const browser = await puppeteer.launch(
-{    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  headless: true ,}
-  );
-  const page = await browser.newPage();
-  await page.setContent(data);
-  await page.pdf({ path: 'example.pdf', format: 'A4' });
+  try {
+    const htmlContent = data;
 
-   // Generate PDF buffer
-   const pdfBuffer = await page.pdf({
-    format: 'A4',
-    printBackground: true, 
-  });
+    const response = await axios.post('https://apihtmltopdf.ruhul.info/index.php', htmlContent, {
+        headers: {
+            'Content-Type': 'text/html'
+        },
+        responseType: 'arraybuffer' // Ensure response is in binary format
+    });
+    const pdfBuffer = response.data;
+    const filePath = path.join(__dirname, 'document.pdf');
 
-  await browser.close();
-  
-  return pdfBuffer;
+    // Save the PDF to a file
+    fs.writeFile(filePath, pdfBuffer, (err) => {
+        if (err) {
+            console.error('Error saving PDF:', err);
+            return res.status(500).send('Error saving PDF');
+        }})
+   return response.data;
+
+} catch (error) {
+    console.error('Error generating PDF:', error);
+    res.status(500).send('Error generating PDF');
 }
 
-
- 
+};
 
 module.exports = generatePDF;
