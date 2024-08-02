@@ -4,6 +4,10 @@ export const TransactionContext = React.createContext();
 export const TransactionsProvider = ({ children }) => {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmit, setIsSubmit] = useState(false)
+  const [submitLoading, setSubmitLoading] = useState(false)
+  const [isComplete, setIsComplete] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(0)
    
   const [signatureType, setSignatureType] = useState(0);
   const [formData, setformData] = useState(
@@ -208,9 +212,9 @@ export const TransactionsProvider = ({ children }) => {
   };
 
 
-  const handleChangeSignature = (name, value, title  ) => {
+  const handleChangeSignature = (name, value,imgURL, title  ) => {
    
-      setformData((prevState) => ({ ...prevState, [name]: {"value":value ,"title":title} }));
+      setformData((prevState) => ({ ...prevState, [name]: {"value":value , "url" : imgURL, "title":title} }));
 
       console.log(name , " -  ", value)
       console.log(formData)
@@ -231,7 +235,14 @@ export const TransactionsProvider = ({ children }) => {
         signatureType,
         setSignatureType,
         handleChange,
-        handleChangeSignature
+        handleChangeSignature,
+
+        isSubmit, setIsSubmit,
+        submitLoading, setSubmitLoading,
+        isComplete, setIsComplete,
+        submitStatus, setSubmitStatus
+
+
       }}
     >
       {children}

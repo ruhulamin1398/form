@@ -22,45 +22,57 @@ app.use(function(req, res, next) {
 });
 
 
-// // upload image signature -- old
+
+
+
+
+
+// Serve static files from the /images folder
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'images/')
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    const extension = path.extname(file.originalname)
-    const basename = path.basename(file.originalname, extension)
-    cb(null, basename + '-' + uniqueSuffix + extension)
-  },
-})
-
-const upload = multer({ storage: storage }) 
-
-app.post('/image', upload.single('file'), function (req, res) {
-  if (req.file) {
-    const filePath = path.join('/images', req.file.filename)
-    res.json({
-
-      filePath:filePath,
-      imageURL: `${req.protocol}://${req.get('host')}${filePath}`
-      
-       })
-
-  } else {
-    res.status(400).json({ error: 'No file uploaded' })
-  }
-})
-
- 
-
-
- 
 
 // Use body-parser to parse JSON bodies
 app.use(bodyParser.json({ limit: '10mb' })); // Adjust limit as needed
+
+// Multer storage configuration for the first location
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.resolve(__dirname, '../apihtmltopdf.ruhul.info/images/');
+    cb(null, uploadPath);
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const extension = path.extname(file.originalname);
+    const basename = path.basename(file.originalname, extension);
+    cb(null, basename + '-' + uniqueSuffix + extension);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post('/image', upload.single('file'), (req, res) => {
+  if (req.file) {
+    // First location
+    const firstLocationPath = path.resolve(__dirname, '../apihtmltopdf.ruhul.info/images/', req.file.filename);
+    
+    // Second location
+    const secondLocationPath = path.resolve(__dirname, 'images', req.file.filename);
+
+    // Copy file to the second location
+    fs.copyFile(firstLocationPath, secondLocationPath, (err) => {
+      if (err) {
+        return res.status(500).json({ error: 'Error copying file to the second location' });
+      }
+
+      const filePath = path.join('/images', req.file.filename);
+      res.json({
+        filePath: filePath,
+        imageURL: `https://apihtmltopdf.ruhul.info${filePath}`
+      });
+    });
+  } else {
+    res.status(400).json({ error: 'No file uploaded' });
+  }
+});
 
 app.post('/signature', (req, res) => {
   const { image } = req.body;
@@ -75,16 +87,28 @@ app.post('/signature', (req, res) => {
   // Create a unique filename
   const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
   const filename = `signature-${uniqueSuffix}.png`;
-  const filePath = path.join(__dirname, 'images', filename);
 
-  // Write the file to the images directory
-  fs.writeFile(filePath, base64Data, 'base64', (err) => {
+  // First location
+  const firstLocationPath = path.join(__dirname, '../apihtmltopdf.ruhul.info/images', filename);
+
+  // Write the file to the first location
+  fs.writeFile(firstLocationPath, base64Data, 'base64', (err) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to save the image' });
     }
 
-    const imageURL = `${req.protocol}://${req.get('host')}/images/${filename}`;
-    res.json({ filePath: `/images/${filename}`, imageURL });
+    // Second location
+    const secondLocationPath = path.join(__dirname, 'images', filename);
+
+    // Copy file to the second location
+    fs.copyFile(firstLocationPath, secondLocationPath, (copyErr) => {
+      if (copyErr) {
+        return res.status(500).json({ error: 'Error copying file to the second location' });
+      }
+
+      const imageURL = `https://apihtmltopdf.ruhul.info/images/${filename}`;
+      res.json({ filePath: `/images/${filename}`, imageURL });
+    });
   });
 });
 
@@ -104,7 +128,7 @@ app.post('/record', async(req, res) => {
   console.log(req.body);
   let data = req.body;
 
-  data['sign'].value2 = `${req.protocol}://${req.get('host')}${data['sign'].value}`
+  data['sign'].value2 = `https://apihtmltopdf.ruhul.info${data['sign'].value}`
   console.log("sign  : "  )
   console.log(  data['sign'])
   await prepareEmail(data)

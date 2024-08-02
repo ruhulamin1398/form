@@ -9,7 +9,7 @@ function ImageUpload() {
     const [isLoading, setIsLoading] = useState(false);
     const [imageName, setImageName] = useState(''); // Added state for file name
 
-    const { handleChange, signatureType, setSignatureType } = useContext(TransactionContext);
+    const { handleChangeSignature, signatureType, setSignatureType } = useContext(TransactionContext);
 
     const handleFileChangeImage = async (e) => {
         setIsLoading(true);
@@ -24,7 +24,7 @@ function ImageUpload() {
 
             const localUrl = "http://localhost:5000/image";
             const serverUrl = "https://server-form.ruhul.info/image";
-            const SubmitUrl = localUrl;
+            const SubmitUrl = serverUrl;
 
             const response = await fetch(SubmitUrl, {
                 method: 'POST',
@@ -38,8 +38,10 @@ function ImageUpload() {
             const data = await response.json();
             setImageURL(data.imageURL);
 
-            const value = data.filePath;
-            handleChange(e, "sign", value, " חתימה&nbsp;וחותמת&nbsp;החברה", "file");
+            const imagepath = data.filePath;
+
+
+        handleChangeSignature("sign", imagepath, data.imageURL, " חתימה&nbsp;וחותמת&nbsp;החברה")
 
         } catch (error) {
 
@@ -68,7 +70,8 @@ function ImageUpload() {
                         />
                     </div>
                 ) : ((signatureType == 1) ? (<div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
-                </div>) : null)
+                </div>) : <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+                </div>)
             )}
 
             <input

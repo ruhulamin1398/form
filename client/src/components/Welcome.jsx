@@ -8,11 +8,12 @@ import "./Tooltips-form"
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
 import Modal from './Modal';
-import SignaturePopup from './SignaturePad';
-import SuccessAlert from "./SuccessModal";
+import SignaturePopup from './SignaturePad'; 
 import ImageUpload from "./myFileUplaod";
+import Submit from "./Submit";
 
 import Toast from './Toast';
+import LoaderBig from "./LoaderBig";
 
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -85,10 +86,11 @@ const ModalInput = ({ placeholder, name, type, value, title, handleChange }) => 
 
 
 const Welcome = () => {
-  const { handleChange, formData, signatureType } = useContext(TransactionContext);
+  const { handleChange, formData, signatureType, isSubmit, setIsSubmit , submitLoading, setSubmitLoading , isComplete, setIsComplete, submitStatus, setSubmitStatus} = useContext(TransactionContext);
 
 
-  const [submitLoading, setSubmitLoading] = useState(false)
+ 
+
   const [isScuccess, setIsSuccess] = useState(false)
   const [isToast, setIsToast] = useState(false);
 
@@ -104,6 +106,7 @@ const Welcome = () => {
 
 
   const handleSubmit = async (e) => {
+    setIsSubmit(true)
 
     if (signatureType == 0) {
       showToast()
@@ -117,7 +120,7 @@ const Welcome = () => {
     try {
       const localUrl = "http://localhost:5000/record"
       const serverUrl = "https://server-form.ruhul.info/record"
-      const SubmitUrl = localUrl
+      const SubmitUrl = serverUrl
 
       const response = await fetch(SubmitUrl, {
         method: 'POST',
@@ -132,15 +135,16 @@ const Welcome = () => {
       }
 
       const data = await response.json();
+     
       console.log('Success:', data);
-      // setIsSuccess(true)
-
-
-      alert("Success !!!!")
-      window.location.reload();
-      // Handle successful submission (e.g., show a success message, clear the form, etc.)
+      setIsComplete(true)
+      setSubmitStatus(1)
+  
     } catch (error) {
       console.error('Error:', error);
+      setIsComplete(true)
+      setSubmitStatus(2)
+
       // Handle error (e.g., show an error message)
     }
 
@@ -155,6 +159,9 @@ const Welcome = () => {
 
 
   return (
+<>
+
+{ isComplete ? <Submit/>:
 
 
 
@@ -1342,7 +1349,7 @@ const Welcome = () => {
 
 
 
-            {submitLoading ? <Loader /> : (
+            {submitLoading ? <LoaderBig /> : (
               <button
                 type="button"
                 onClick={handleSubmit}
@@ -1352,10 +1359,7 @@ const Welcome = () => {
               </button>
             )}
 
-            {
-              isScuccess ? <SuccessAlert /> : null
-            }
-
+          
 
           
 
@@ -1364,13 +1368,15 @@ const Welcome = () => {
 
           </div>
         </div>
-      </div>
-      {isToast ? <Toast /> : null}
+      </div> 
     </div>
+  }
 
+</>
 
 
   );
+  
 };
 
 export default Welcome;

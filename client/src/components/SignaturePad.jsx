@@ -37,7 +37,7 @@ const SignaturePopup = () => {
     const serverUrl = "https://server-form.ruhul.info/signature";
 
     const localUrl = "http://localhost:5000/signature";
-    const SubmitUrl = localUrl;
+    const SubmitUrl = serverUrl;
 
 
 
@@ -60,7 +60,7 @@ const SignaturePopup = () => {
 
 
 
-        handleChangeSignature("sign", imagepath, " חתימה&nbsp;וחותמת&nbsp;החברה")
+        handleChangeSignature("sign", imagepath, data.imageURL, " חתימה&nbsp;וחותמת&nbsp;החברה")
 
      
         setIsLoading(false)
@@ -96,7 +96,8 @@ const SignaturePopup = () => {
             </div>
 
           ) : ((signatureType == 2) ? (<div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
-          </div>) : null)
+          </div>) : <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+          </div>)
         )}
 
 

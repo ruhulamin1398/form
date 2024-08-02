@@ -2,10 +2,10 @@ const { json } = require("body-parser");
 const expressAsyncHandler = require("express-async-handler")
 
 const nodemailer = require("nodemailer")
-  
-const path = require('path');  
-const fs = require('fs'); 
-const generatePDF  = require("./pdfGenerator");
+
+const path = require('path');
+const fs = require('fs');
+const generatePDF = require("./pdfGenerator");
 
 const prepareEmail = expressAsyncHandler(async (data) => {
 
@@ -634,7 +634,9 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 <label for="name">${data['sign'].title}</label>
 <p id="name">
 
-<img className="text-left " src="https://lumiere-a.akamaihd.net/v1/images/avatarfooter_1600_34d731a8.jpeg" alt="sign" height="50px" />
+<img  src="${data['sign'].value2}" alt="sign" height="50px" />
+ 
+ 
 
 </p>
 </div>
@@ -663,10 +665,21 @@ const prepareEmail = expressAsyncHandler(async (data) => {
     `;
 
     const emailPdf = await generatePDF(pdfBody)
-    console.log("email                            :",emailPdf)
- 
-    console.log( " img link " , data['sign'].value)
- 
+    console.log("email                            :", emailPdf)
+
+
+    const filePath = 'pdfBody.html';
+    // Write the HTML content to the file
+    fs.writeFile(filePath, pdfBody, (err) => {
+        if (err) {
+            console.error('Error writing to file', err);
+        } else {
+            console.log('HTML content successfully saved to', filePath);
+        }
+    });
+
+    console.log(" img link ", data['sign'].value)
+
     // Configure Nodemailer transporter
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -688,6 +701,8 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             from: 'ruhul',
             to: 'ruhul.ok@gmail.com',
 
+            // cc: 'Adi@incerto-credit.com, shushanran@gmail.com,shushanran@gmail.com',
+
 
             // to: 'Rishum@iocea.org.il',
             // cc:'Adi@incerto-credit.com',
@@ -707,11 +722,11 @@ const prepareEmail = expressAsyncHandler(async (data) => {
                     filename: 'sign.png',
                     path: path.join(__dirname, data['sign'].value),
                     cid: 'uniquedfdf@nodemailer.com'
-                },{
+                }, {
                     filename: 'report.pdf',
                     content: emailPdf,
                     contentType: 'application/pdf',
-                  }
+                }
 
             ]
         };
