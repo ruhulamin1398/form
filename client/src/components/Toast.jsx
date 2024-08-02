@@ -1,7 +1,7 @@
 // src/components/Toast.js
 import React from 'react';
 
-const Toast = () => {
+const Toast = ({textTitle}) => {
   return (
     <div className="fixed bottom-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2">
   <svg
@@ -18,7 +18,7 @@ const Toast = () => {
           d="M6 18L18 6M6 6l12 12"
         />
       </svg>
-      <span>יש לחתום דיגיטלית או להעלות קובץ חתימה</span>
+      <span>{textTitle}</span>
     </div>
   );
 };

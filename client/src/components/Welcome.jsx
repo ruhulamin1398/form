@@ -106,12 +106,14 @@ const Welcome = () => {
 
 
   const handleSubmit = async (e) => {
-    setIsSubmit(true)
+    console.log("signatureType  :: ",signatureType)
+
 
     if (signatureType == 0) {
       showToast()
       return;
     }
+    setIsSubmit(true)
     setSubmitLoading(true)
     e.preventDefault();
 
@@ -1371,6 +1373,16 @@ const Welcome = () => {
       </div> 
     </div>
   }
+
+  {
+    isToast ?   
+    <Toast
+    textTitle="יש לחתום דיגיטלית או להעלות קובץ חתימה"
+    
+    />  : null
+  }
+
+
 
 </>
 

@@ -10,6 +10,10 @@ export const TransactionsProvider = ({ children }) => {
   const [submitStatus, setSubmitStatus] = useState(0)
    
   const [signatureType, setSignatureType] = useState(0);
+
+  const [isNumberError, setIsNumberError] = useState(false);
+  
+
   const [formData, setformData] = useState(
     {
       "f1": {
