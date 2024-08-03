@@ -10,8 +10,8 @@ export const TransactionsProvider = ({ children }) => {
   const [submitStatus, setSubmitStatus] = useState(0)
    
   const [signatureType, setSignatureType] = useState(0);
+ 
 
-  const [isNumberError, setIsNumberError] = useState(false);
   
 
   const [formData, setformData] = useState(
@@ -188,11 +188,18 @@ export const TransactionsProvider = ({ children }) => {
   ); 
 
   const handleChange = (e,name, value, title , type ) => {
-    if(type =="text"){
+    if(type =="text"  ){
       setformData((prevState) => ({ ...prevState, [name]: {"value": e.target.value,"title":title} }));
  
       console.log(formData); 
     }
+
+    if( type=="number"){
+        setformData((prevState) => ({ ...prevState, [name]: {"value": value,"title":title} }));
+   
+        console.log(formData); 
+      }
+
     if(  type == "radio"){
       console.log(name , "   " , value)
       setformData((prevState) => ({ ...prevState, [name]: {"value":value ,"title":title} }));

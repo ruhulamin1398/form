@@ -1,10 +1,11 @@
 // src/components/Toast.js
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Toast = ({textTitle}) => {
-  return (
+const Toast = ({ textTitle }) => {
+  const toastElement = (
     <div className="fixed bottom-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2">
-  <svg
+      <svg
         className="w-6 h-6 text-white"
         fill="none"
         stroke="currentColor"
@@ -20,6 +21,11 @@ const Toast = ({textTitle}) => {
       </svg>
       <span>{textTitle}</span>
     </div>
+  );
+
+  return ReactDOM.createPortal(
+    toastElement,
+    document.body // This renders the toast into the body element
   );
 };
 
