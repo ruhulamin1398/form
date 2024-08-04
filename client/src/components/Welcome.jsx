@@ -58,6 +58,7 @@ const Welcome = () => {
 
 
   const [isToast, setIsToast] = useState(false);
+  const [isFieldToast, setIsFiledToast] = useState(false);
 
 
   const showToast = () => {
@@ -69,6 +70,13 @@ const Welcome = () => {
 
 
 
+  const showFieldToast = () => {
+    setIsFiledToast(true);
+    setTimeout(() => {
+      setIsFiledToast(false);
+    }, 3000); // Hide the toast after 3 seconds
+  };
+
 
 
   const handleSubmit = async (e) => {
@@ -78,7 +86,20 @@ const Welcome = () => {
     if (signatureType == 0) {
       showToast()
       return;
+    } 
+  
+    for (let key in formData) {
+      if (!formData[key].value.trim()) {
+        console.log(key," : ",formData[key].title , "   - " ,formData[key].value   )
+      
+        showFieldToast();
+
+        return;
+      }
     }
+ 
+
+
     setIsSubmit(true)
     setSubmitLoading(true)
     e.preventDefault();
@@ -89,6 +110,14 @@ const Welcome = () => {
       const localUrl = "http://localhost:5000/record"
       const serverUrl = "https://server-form.ruhul.info/record"
       const SubmitUrl = serverUrl
+
+
+
+      // checking all field are mendatory 
+
+     
+
+
 
       const response = await fetch(SubmitUrl, {
         method: 'POST',
@@ -164,7 +193,7 @@ const Welcome = () => {
                       placeholder="מספר ח.פ"
                       name="f2"
                       type="text"
-                      InputType="text"
+                      InputType="number"
 
                       title="מספר ח.פ"
                       handleChange={handleChange}
@@ -233,7 +262,7 @@ const Welcome = () => {
                     />
                   </div>
                 </div>
-
+ 
                 <div className="flex w-full justify-center items-center">
                   <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
                     <Input
@@ -262,7 +291,7 @@ const Welcome = () => {
 
                       name="f8"
                       type="text"
-                      InputType="text"
+                      InputType="number"
 
                       className="text-right"
                     />
@@ -289,7 +318,7 @@ const Welcome = () => {
 
                       name="f9"
                       type="text"
-                      InputType="text"
+                      InputType="number"
 
                       className="text-right flex-auto"
                     />
@@ -329,10 +358,16 @@ const Welcome = () => {
 
                       type="text"
 
-                      InputType="text"
+                      InputType="number"
 
                       className="text-right      flex-auto"
                     />
+
+
+ 
+
+
+
                   </div>
                 </div>
 
@@ -364,17 +399,17 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f11"
                                   type="text" 
-                                  InputType="text"
+                                  InputType="number"
                                 />
 
                                 <PInput
                                   title=""
                                   handleChange={handleChange}
                                   name="f11"
-                                  InputType="text"
+                                  InputType="number"
 
                                   //                                                                          number
-                                  className="text-right "
+                                
                                 />
                               </td>
                               <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
@@ -387,10 +422,9 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f12"
 
-                                  type="text"
-                                  InputType="text"
-
-                                  className="text-right"
+                                  type="number"
+                                  InputType="number"
+ 
                                 />
 
 
@@ -401,10 +435,9 @@ const Welcome = () => {
                                   title=""
                                   handleChange={handleChange}
                                   name="f12"
-                                  InputType="text"
-                                  type="text" 
-
-                                  className="text-right "
+                                  InputType="number"
+                                  type="number" 
+ 
                                 />
 
 
@@ -420,7 +453,7 @@ const Welcome = () => {
 
                                   name="f13"
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
                                   className="text-right"
                                 />
@@ -434,9 +467,8 @@ const Welcome = () => {
 
                                   name="f13"
                                   type="text"
-                                  InputType="text"
-
-                                  className="text-right "
+                                  InputType="number"
+ 
                                 />
 
 
@@ -451,8 +483,7 @@ const Welcome = () => {
                                   name="f14"
                                   type="text"
 
-                                  InputType="text"
-                                  className="text-right"
+                                  InputType="number" 
                                 />
 
 
@@ -462,8 +493,7 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f14"
                                   type="text"
-                                  InputType="text"
-                                  className="text-right "
+                                  InputType="number" 
                                 />
 
 
@@ -484,9 +514,8 @@ const Welcome = () => {
 
                                   name="f15"
                                   type="text"
-                                  InputType="text"
-
-                                  className="text-right"
+                                  InputType="number"
+ 
                                 />
 
 
@@ -500,9 +529,9 @@ const Welcome = () => {
 
                                   name="f15"
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
-                                  className="text-right "
+                                   
                                 />
 
 
@@ -517,8 +546,7 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f16"
                                   type="text"
-                                  className="text-right"
-                                  InputType="text"
+                                   InputType="number"
                                 />
 
 
@@ -528,8 +556,8 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f16"
                                   type="text"
-                                  InputType="text"
-                                  className="text-right "
+                                  InputType="number"
+                                   
                                 />
 
 
@@ -545,12 +573,11 @@ const Welcome = () => {
 
                                   title=""
                                   handleChange={handleChange}
-                                  InputType="text"
+                                  InputType="number"
 
                                   name="f17"
                                   type="text"
-
-                                  className="text-right"
+ 
                                 />
 
 
@@ -564,9 +591,9 @@ const Welcome = () => {
 
                                   name="f17"
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
-                                  className="text-right "
+                                   
                                 />
 
 
@@ -582,12 +609,11 @@ const Welcome = () => {
 
                                   title=""
                                   handleChange={handleChange}
-                                  InputType="text"
+                                  InputType="number"
                                   name="f18"
                                   type="text"
 
-                                  className="text-right"
-                                />
+                                 />
 
                                 <PInput
 
@@ -596,9 +622,9 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f18"
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
-                                  className="text-right "
+                                   
                                 />
 
 
@@ -614,14 +640,13 @@ const Welcome = () => {
 
                                   title=""
                                   handleChange={handleChange}
-                                  InputType="text"
+                                  InputType="number"
 
                                   name="f19"
                                   type="text"
                                   placeholder="סכום"
 
-                                  className="text-right"
-                                />
+                                 />
 
 
 
@@ -633,11 +658,11 @@ const Welcome = () => {
 
                                   name="f19"
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
                                   placeholder="סכום"
 
-                                  className="text-right "
+                                   
                                 />
 
 
@@ -653,12 +678,11 @@ const Welcome = () => {
 
                                   name="f20"
 
-                                  InputType="text"
+                                  InputType="number"
                                   type="text"
                                   placeholder="שנה"
 
-                                  className="text-right"
-                                />
+                                 />
 
 
 
@@ -670,12 +694,11 @@ const Welcome = () => {
                                   name="f20"
 
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
                                   placeholder="שנה"
 
-                                  className="text-right  "
-                                />
+                                 />
 
 
 
@@ -691,8 +714,7 @@ const Welcome = () => {
                                   InputType="text"
                                   placeholder="שם חייב/מדינה"
 
-                                  className="text-right"
-                                />
+                                 />
 
 
 
@@ -706,7 +728,7 @@ const Welcome = () => {
 
                                   placeholder="שם חייב/מדינה"
 
-                                  className="text-right "
+                                   
                                 />
 
 
@@ -725,8 +747,7 @@ const Welcome = () => {
                                   placeholder="מה נעשה בנידון"
                                   InputType="text"
 
-                                  className="text-right"
-                                />
+                                 />
 
 
 
@@ -753,12 +774,11 @@ const Welcome = () => {
                                   handleChange={handleChange}
                                   name="f23"
 
-                                  InputType="text"
+                                  InputType="number"
                                   type="text"
                                   placeholder="סכום"
 
-                                  className="text-right"
-                                />
+                                 />
 
 
 
@@ -770,7 +790,7 @@ const Welcome = () => {
                                   name="f23"
 
                                   type="text"
-                                  InputType="text"
+                                  InputType="number"
 
                                   placeholder="סכום"
 
@@ -794,7 +814,12 @@ const Welcome = () => {
                                   placeholder="שם חייב/מדינה"
 
                                   className="text-right"
-                                  InputType="text"
+                                  /> 
+                                  
+                                  
+                                  
+                                  
+                                  <PInput
                                   title=""
                                   handleChange={handleChange}
 
@@ -1306,7 +1331,7 @@ const Welcome = () => {
                         title="תאריך"
                         name="date"
 
-                        className="flex-1 text-right py-2 px-3 rounded-lg bg-gray-200"
+                        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-sm white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px]"
                       />
 
 
@@ -1354,7 +1379,7 @@ const Welcome = () => {
                     onClick={handleSubmit}
                     className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
                   >
-                    Submit
+                    שליחה
                   </button>
                 )}
 
@@ -1377,6 +1402,14 @@ const Welcome = () => {
           textTitle="יש לחתום דיגיטלית או להעלות קובץ חתימה"
 
           /> : null
+      }
+
+      {
+        isFieldToast?
+        <Toast
+        textTitle="נא למלא את כל השדות הנדרשים"
+
+        /> : null
       }
 
 

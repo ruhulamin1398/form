@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Toast from '../Toast'; // Adjust the import path as needed
 
 const Input = ({ placeholder, name, type, value, title, handleChange, className, InputType }) => {
+
+
+    
     const [inputValue, setInputValue] = useState("");
     const [isToast, setIsToast] = useState(false);
 
@@ -49,7 +52,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
             
             />
             {isToast && (
-                <Toast textTitle="Please enter numbers only" />
+                <Toast textTitle="נא להכניס מספרים בלבד" />
             )}
         </>
     );

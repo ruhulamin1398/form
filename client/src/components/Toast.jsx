@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 const Toast = ({ textTitle }) => {
   const toastElement = (
-    <div className="fixed bottom-4 right-4 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2">
+    <div className="fixed bottom-[50%] right-0 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2 z-50 ransform  -translate-y-1/2 max-w-[200px] md:max-w-[250px] ">
       <svg
         className="w-6 h-6 text-white"
         fill="none"
@@ -25,7 +25,7 @@ const Toast = ({ textTitle }) => {
 
   return ReactDOM.createPortal(
     toastElement,
-    document.body // This renders the toast into the body element
+    document.body  
   );
 };
 

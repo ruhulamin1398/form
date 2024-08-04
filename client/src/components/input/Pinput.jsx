@@ -60,7 +60,7 @@ const PInput = ({ placeholder, name, InputType ,type , value, title, handleChang
     {
         isToast ?   
         <Toast
-        textTitle="Please enter numbers only"
+        textTitle="נא להכניס מספרים בלבד"
         
         />  : null
       }

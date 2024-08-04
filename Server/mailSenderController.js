@@ -19,7 +19,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Response</title>
+    <title>טופס חדש</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -86,7 +86,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 </head>
 <body>
     <div class="container">
-        <h2>Form Response</h2>
+        <h2>טופס חדש</h2>
         <!-- Example fields, replace with actual form field names and values -->
         <div class="field">
             <label for="name">${data['f1'].title}</label>
@@ -332,7 +332,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Response</title>
+    <title>טופס חדש</title>
     <style>
 
      .page-break {
@@ -368,7 +368,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             font-weight: bold;
             display: block;
             margin-bottom: 5px;  direction: rtl ;
-            text-align:right;
+            text-align:right; 
             
         }
         .field p {
@@ -407,11 +407,12 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             color: #777; 
         }
     </style>
-</head>
+</head> 
+
 <body>
     <div class="container" >
        <div style="text-align:center ">
-        <h1 style="font-size:20px">Form Response</h1>
+        <h1 style="font-size:20px">טופס חדש</h1>
            <h2 style="font-size:15px">
               טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
             </h2>
@@ -424,16 +425,19 @@ const prepareEmail = expressAsyncHandler(async (data) => {
 
         <!-- Example fields, replace with actual form field names and values -->
         <div class="field">
-            <label for="name">${data['f1'].title}</label>
+            <label for="name">${data['f1'].title}</label>    
+          
             <p id="name">${data['f1'].value}</p>
         </div>
         <div class="field">
             <label for="name">${data['f2'].title}</label>
+             
             <p id="name">${data['f2'].value}</p>
         </div>
 
         <div class="field">
             <label for="name">${data['f3'].title}</label>
+                
             <p id="name">${data['f3'].value}</p>
         </div>
 
@@ -701,7 +705,11 @@ const prepareEmail = expressAsyncHandler(async (data) => {
             from: 'ruhul',
             to: 'ruhul.ok@gmail.com',
 
-            // cc: 'Adi@incerto-credit.com, shushanran@gmail.com,shushanran@gmail.com',
+            // to: 'Rishum@iocea.org.il',
+
+            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com,sagor.sec@gmail.com',
+            
+            // cc: 'Adi@incerto-credit.com, shushanran@gmail.com',
 
 
             // to: 'Rishum@iocea.org.il',

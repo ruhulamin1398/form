@@ -59,12 +59,13 @@ const ModalInput = ({ placeholder, name, InputType, type, value, title, handleCh
           value={inputValue}
           InputType= {InputType}
           onChange={handleInputChange}
+          autoFocus="true"
           className="form-input w-full p-2 pl-0 border border-gray-300 rounded text-black"
         />
       </Modal>
 
       {isToast && (
-        <Toast textTitle="Please enter numbers only" />
+        <Toast textTitle="נא להכניס מספרים בלבד" />
       )}
     </>
   );
