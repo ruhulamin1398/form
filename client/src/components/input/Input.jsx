@@ -7,6 +7,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
     
     const [inputValue, setInputValue] = useState("");
     const [isToast, setIsToast] = useState(false);
+    const [toastTitle , setToastTitle] = useState('')
 
     const showToast = () => {
         console.log("input")
@@ -27,10 +28,22 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
             const isNumber = /^\d*$/.test(newValue);
             if (!isNumber) {
                 setInputValue(extractNumbers(inputValue + ''));
+                setToastTitle="נא להכניס מספרים בלבד"
                 showToast();
                 return;
             }
         }
+
+
+        if (InputType === 'email') {
+            const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue);
+            if (!isEmail) {
+                 setToastTitle="אנא הזן מספר תקין"
+                showToast();
+                return;
+            }
+        }
+
 
         setInputValue(newValue);
         handleChange(e, name, newValue, title, InputType);
@@ -54,7 +67,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
             
             />
             {isToast && (
-                <Toast textTitle="נא להכניס מספרים בלבד" />
+                <Toast textTitle={toastTitle} />
             )}
         </>
     );

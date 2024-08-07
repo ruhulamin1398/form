@@ -50,21 +50,21 @@ const DynamicTable = () => {
 
   return (
     <div>
-      <table className="min-w-full bg-transparent text-white">
+      <table className="min-w-full max-w-full bg-transparent text-white  ">
         <thead>
           <tr>
-            <th className="px-4 py-2 text-sm md:text-lg">מחזור מכירות שנתי צפוי (באלפי ₪)</th>
-            <th className="px-4 py-2 text-sm md:text-lg">וותק וניסיון מסחרי עם החייב (בשנים)</th>
-            <th className="px-4 py-2 text-sm md:text-lg">תנאי אשראי (בימים)</th>
-            <th className="px-4 py-2 text-sm md:text-lg">תקרת אשראי נדרשת (באלפי ₪)</th>
-            <th className="px-4 py-2 text-sm md:text-lg">ח.פ. (חובה למלא)</th>
-            <th className="px-4 py-2 text-sm md:text-lg">שם מלא</th>
-            <th className="px-4 py-2 text-sm md:text-lg">   <button
+            <td className="px-1 py-2 text-[8px] md:text-sm pl-4">מחזור מכירות שנתי צפוי (באלפי ₪)</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">וותק וניסיון מסחרי עם החייב (בשנים)</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">תנאי אשראי (בימים)</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">תקרת אשראי נדרשת (באלפי ₪)</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">ח.פ. (חובה למלא)</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">שם מלא</td>
+            <td className="px-1 py-2 text-[8px] md:text-sm">   <button
               onClick={() => addRow()}
-              className="mr-2 bg-green-500 text-white px-2 py-1 rounded"
+              className="mr-2 bg-[#3d4f7c] text-white px-2 py-1 rounded"
             >
               +
-            </button></th>
+            </button></td>
           </tr>
         </thead>
         <tbody className="table-border-gray">
@@ -233,13 +233,15 @@ const DynamicTable = () => {
 
               </td>
               <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
-
+{index !=0 ?
                 <button
                   onClick={() => removeRow(index)}
-                  className="bg-red-500 text-white px-2 py-1 rounded"
+                  className="bg-[#3d4f7c] text-xs text-white px-2 py-1 text-red-300 rounded"
                 >
                   X
                 </button>
+
+:""}
               </td>
             </tr>
           ))}

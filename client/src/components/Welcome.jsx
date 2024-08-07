@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { TransactionContext } from "../context/TransactionContext";
-import { Loader } from ".";
+import { Done, Loader } from ".";
 import '../utils/style.css'
 import "./Tooltips-form"
 import { activeHost } from "../utils/constant";
@@ -18,6 +18,7 @@ import PInput from "./input/Pinput";
 import Input from "./input/Input";
 import ModalInput from "./input/ModalInput";
 import DynamicTable from "./input/DynamicTable";
+import SubmitSuccess from "./SubmitSuccess";
 
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -56,7 +57,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 
 
 const Welcome = () => {
-  const { handleChange, formData, signatureType, isSubmit, setIsSubmit, submitLoading, setSubmitLoading, isComplete, setIsComplete, submitStatus, setSubmitStatus, isToastError, setIsToastError, toastErrorMessage, setToastErrorMessage, } = useContext(TransactionContext);
+  const { submnissionStage, setSubmnissionStage , dPDFLink, setDPDFLink, handleChange, formData, signatureType, isSubmit, setIsSubmit, submitLoading, setSubmitLoading, isComplete, setIsComplete, submitStatus, setSubmitStatus, isToastError, setIsToastError, toastErrorMessage, setToastErrorMessage, } = useContext(TransactionContext);
 
 
   const [isToast, setIsToast] = useState(false);
@@ -127,7 +128,7 @@ const Welcome = () => {
 
 
           showToast();
-          
+
           //!!!!!!!!!!!!!!! uncomment this 
           // return;
         }
@@ -135,7 +136,7 @@ const Welcome = () => {
 
 
       // ! check all field mandatory
-      if (key != "list") {
+      if (key != "list" && key !='pdf') {
 
         if (!formData[key].value.trim()) {
           console.log(key, " : ", formData[key].title, "   - ", formData[key].value)
@@ -147,7 +148,7 @@ const Welcome = () => {
           console.log("Field Toast")
           showToast();
 
-        
+
           //!!!!!!!!!!!!!!! uncomment this 
           // return;
         }
@@ -163,7 +164,7 @@ const Welcome = () => {
 
 
 
- 
+
 
     setIsSubmit(true)
     setSubmitLoading(true)
@@ -197,8 +198,12 @@ const Welcome = () => {
       const data = await response.json();
 
       console.log('Success:', data);
+      let pdflink = data.pdfLink
+      console.log(" pdf link from submit ", pdflink)
+      setDPDFLink(pdflink)
       setIsComplete(true)
       setSubmitStatus(1)
+      setSubmnissionStage (2)
 
     } catch (error) {
       console.error('Error:', error);
@@ -221,11 +226,12 @@ const Welcome = () => {
   return (
     <>
 
-      {/* {isComplete ? <Submit /> : */}
+ 
 
 
 
-      <div className="flex  justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto">
+<div className={`flex justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto  ${submnissionStage <3 ? 'block' : 'hidden'}`}>
+ 
         <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-2 md:py-12 px-md-4">
           <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
             <div className="flex justify-between flex-col  pt-2 md:pt-12">
@@ -339,8 +345,8 @@ const Welcome = () => {
                     name="f7"
 
 
-                    type="text"
-                    InputType="text"
+                    type="email"
+                    InputType="email"
 
                     className="text-right"
                   />
@@ -470,7 +476,7 @@ const Welcome = () => {
                                 handleChange={handleChange}
                                 name="f11"
                                 InputType="number"
- 
+
 
                               />
                             </td>
@@ -1475,7 +1481,9 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-      {/* } */}
+
+
+ 
 
       {
         isToast ?
@@ -1485,6 +1493,8 @@ const Welcome = () => {
           /> : null
       }
 
+{submnissionStage ==2 ?   <Submit    /> : ""}
+{submnissionStage ==3 ?  <SubmitSuccess/> : ""}
 
 
 

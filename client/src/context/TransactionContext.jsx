@@ -7,9 +7,11 @@ export const TransactionsProvider = ({ children }) => {
     const [isSubmit, setIsSubmit] = useState(false)
     const [submitLoading, setSubmitLoading] = useState(false)
     const [isComplete, setIsComplete] = useState(false)
-    const [submitStatus, setSubmitStatus] = useState(0)
+    const [submitStatus, setSubmitStatus] = useState(0) 
+    const [submnissionStage, setSubmnissionStage] = useState(1)
 
     const [signatureType, setSignatureType] = useState(0);
+    const [dPDFLink, setDPDFLink] = useState(0);
 
 
 
@@ -191,7 +193,7 @@ export const TransactionsProvider = ({ children }) => {
                 "value": [], 
             },
             
-            "pdf":""
+             
         }
     );
 
@@ -245,6 +247,9 @@ export const TransactionsProvider = ({ children }) => {
 
     };
 
+  
+
+
 
 
 
@@ -255,15 +260,18 @@ export const TransactionsProvider = ({ children }) => {
             value={{
                 isLoading,
                 formData, setformData,
-                signatureType,
-                setSignatureType,
+                signatureType, setSignatureType,
                 handleChange,
-                handleChangeSignature,
+                handleChangeSignature, 
 
                 isSubmit, setIsSubmit,
                 submitLoading, setSubmitLoading,
                 isComplete, setIsComplete,
-                submitStatus, setSubmitStatus
+                submitStatus, setSubmitStatus,
+
+
+                submnissionStage, setSubmnissionStage,
+                dPDFLink, setDPDFLink,
 
 
             }}

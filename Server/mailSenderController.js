@@ -1120,7 +1120,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
 
             // to: 'Rishum@iocea.org.il',
 
-            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com',
+            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com, sagor.sec@gmail.com',
 
             // cc: 'Adi@incerto-credit.com, shushanran@gmail.com',
 
