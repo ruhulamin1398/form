@@ -5,6 +5,7 @@ import Loader from './Loader';
 
 
 import { TransactionContext } from "../context/TransactionContext";
+import { activeHost } from '../utils/constant';
 
 
 const SignaturePopup = () => {
@@ -34,16 +35,14 @@ const SignaturePopup = () => {
     setSignatureType(1)
 
     setIsLoading(true)
-    const serverUrl = "https://server-form.ruhul.info/signature";
-
-    const localUrl = "http://localhost:5000/signature";
-    const SubmitUrl = serverUrl;
-
+    
 
 
     const dataURL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png');
+    const submitURL = activeHost+'/signature';
+    console.log(submitURL)
 
-    fetch(SubmitUrl, {
+    fetch(submitURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

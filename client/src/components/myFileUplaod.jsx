@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Loader from './Loader';
+import { activeHost } from '../utils/constant';
 
 import { TransactionContext } from "../context/TransactionContext";
 
@@ -21,12 +22,9 @@ function ImageUpload() {
             setSignatureType(2)
             let formSubmitData = new FormData();
             formSubmitData.append('file', file); // Directly use the file instead of image
+            
 
-            const localUrl = "http://localhost:5000/image";
-            const serverUrl = "https://server-form.ruhul.info/image";
-            const SubmitUrl = serverUrl;
-
-            const response = await fetch(SubmitUrl, {
+            const response = await fetch(activeHost + '/image', {
                 method: 'POST',
                 body: formSubmitData,
             });
@@ -41,7 +39,7 @@ function ImageUpload() {
             const imagepath = data.filePath;
 
 
-        handleChangeSignature("sign", imagepath, data.imageURL, " חתימה&nbsp;וחותמת&nbsp;החברה")
+            handleChangeSignature("sign", imagepath, data.imageURL, " חתימה&nbsp;וחותמת&nbsp;החברה")
 
         } catch (error) {
 

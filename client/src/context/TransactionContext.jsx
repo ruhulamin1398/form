@@ -112,28 +112,30 @@ export const TransactionsProvider = ({ children }) => {
                 "value": "",
                 "title": ""
             },
-            "f27": {
-                "value": "",
-                "title": "תנאי אשראי (בימים)"
-            },
-            "f26": {
-                "value": "",
-                "title": "וותק וניסיון מסחרי עם החייב (בשנים)"
-            },
             "f25": {
-                "value": "",
+                "value": "n",
                 "title": "מחזור מכירות שנתי צפוי (באלפי ₪)"
             },
+
+            "f26": {
+                "value": "n",
+                "title": "וותק וניסיון מסחרי עם החייב (בשנים)"
+            },
+            "f27": {
+                "value": "n",
+                "title": "תנאי אשראי (בימים)"
+            },
+      
             "f28": {
-                "value": "",
+                "value": "n",
                 "title": "תקרת אשראי נדרשת (באלפי ₪)"
             },
             "f29": {
-                "value": "",
+                "value": "n",
                 "title": "ח.פ. (חובה למלא)"
             },
             "f30": {
-                "value": "",
+                "value": "n",
                 "title": "שם מלא "
             },
             "f31": {
@@ -183,7 +185,13 @@ export const TransactionsProvider = ({ children }) => {
             "sign": {
                 "value": "",
                 "title": "חתימה וחותמת החברה"
-            }
+            },
+
+            "list": {
+                "value": [], 
+            },
+            
+            "pdf":""
         }
     );
 
@@ -246,7 +254,7 @@ export const TransactionsProvider = ({ children }) => {
         <TransactionContext.Provider
             value={{
                 isLoading,
-                formData,
+                formData, setformData,
                 signatureType,
                 setSignatureType,
                 handleChange,

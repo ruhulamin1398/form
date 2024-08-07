@@ -9,6 +9,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
     const [isToast, setIsToast] = useState(false);
 
     const showToast = () => {
+        console.log("input")
         setIsToast(true);
         setTimeout(() => {
             setIsToast(false);
@@ -44,6 +45,7 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
                 name={name}
                 title={title}
                 value={inputValue}
+                  dir="rtl"
                 
       onChange={(e) => handleInputChange(e, name, inputValue, title, type)}
       onKeyUp={(e) => handleInputChange(e, name, inputValue, title, type)}

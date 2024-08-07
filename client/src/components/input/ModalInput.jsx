@@ -8,6 +8,9 @@ const ModalInput = ({ placeholder, name, InputType, type, value, title, handleCh
   const [isToast, setIsToast] = useState(false);
 
   const showToast = () => {
+
+
+    console.log("modal")
     setIsToast(true);
     setTimeout(() => {
       setIsToast(false);
@@ -42,16 +45,20 @@ const ModalInput = ({ placeholder, name, InputType, type, value, title, handleCh
   return (
     <>
       <input
+
+        dir="rtl"
         placeholder={placeholder}
-        type={type} // Display as text for the button appearance
+        type="text" // Display as text for the button appearance
         value={inputValue}
         InputType= {InputType}
         onClick={() => setIsModalOpen(true)}
         readOnly
-        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-[7px] white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-wrap mTable"
+        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-[7px] white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-wrap block md:hidden"
       />
       <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
         <input
+
+          dir="rtl"
           placeholder={placeholder}
           type="text"
           name={name}
