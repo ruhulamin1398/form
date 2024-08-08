@@ -1185,13 +1185,18 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
     } catch (error) {
         console.error('Error sending email:', error);
     }
+   
+   
 
+     
+ 
+  return    emailPdf;
 
 })
 
 
 
-
+ 
 
 
 

@@ -176,11 +176,24 @@ app.post('/submit', async(req, res) => {
   data['sign'].value2 = `https://apihtmltopdf.ruhul.info${data['sign'].value}`
   console.log("sign  : "  )
   console.log(  data['sign'])
-  await SubmitEmail(data)
+  const responsePDF = await SubmitEmail(data)
 
+  const pdfname = Date.now() + '-' + Math.round(Math.random() * 1E9)+'.pdf';
+  const pdfPath = path.resolve(__dirname, '../apihtmltopdf.ruhul.info/pdf', pdfname);
+
+  fs.writeFile(pdfPath, responsePDF, (err) => {
+    if (err) {
+        console.error('Error writing to file', err);
+    } else {
+        console.log('File content successfully saved to', pdfPath);
+    } 
+  })
+
+  console.log(pdfname)
+  const pdfLink = "https://apihtmltopdf.ruhul.info/pdf/"+pdfname ;
+  res.json({pdfLink, pdfLink });
 
   
-  res.json({data  });
 });
 
 // Start the server

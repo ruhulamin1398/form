@@ -65,6 +65,20 @@ const Welcome = () => {
   const [toastTitle, setToastTitle] = useState("");
 
 
+
+
+
+  const [isChecked, setIsChecked] = useState(false);
+
+
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+    console.log(isChecked)
+  };
+
+
+
   const showToast = () => {
 
 
@@ -83,6 +97,14 @@ const Welcome = () => {
   const handleSubmit = async (e) => {
     console.log("signatureType  :: ", signatureType)
 
+    if(!isChecked){
+      setToastTitle("Checkbox is required")
+
+
+          console.log("checkbox Toast")
+          showToast();
+          return ;
+    }
 
     if (signatureType == 0) {
 
@@ -101,7 +123,7 @@ const Welcome = () => {
       showToast();
 
       //!!!!!!!!!!!!!!! uncomment this 
-      return;
+      // return;
 
     }
 
@@ -131,7 +153,7 @@ const Welcome = () => {
           showToast();
 
           //!!!!!!!!!!!!!!! uncomment this 
-          return;
+          // return;
         }
       }
 
@@ -151,7 +173,7 @@ const Welcome = () => {
 
 
           //!!!!!!!!!!!!!!! uncomment this 
-          return;
+          // return;
         }
 
       }
@@ -184,7 +206,7 @@ const Welcome = () => {
 
 
 
-      const response = await fetch(activeHost + '/record', {
+      const response = await fetch(activeHost + '/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -204,7 +226,7 @@ const Welcome = () => {
       setDPDFLink(pdflink)
       setIsComplete(true)
       setSubmitStatus(1)
-      setSubmnissionStage(2)
+      setSubmnissionStage(3)
 
     } catch (error) {
       console.error('Error:', error);
@@ -1474,6 +1496,24 @@ const Welcome = () => {
               </div>
 
 
+
+
+
+              <label className="flex items-center space-x-2 mt-4 px-2  mt-[20px] md:mt-[100px] md:px-10">
+                <input
+                  type="checkbox"
+                  className="form-checkbox h-5 w-5 text-[#3d4f7c] border-gray-300 rounded focus:ring-[#3d4f7c]"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="text-white pl-4">
+                  I have reviewed the form data, and everything looks correct. I agree to submit the data.
+                </span>
+              </label>
+
+
+
+
               {submitLoading ? (
                 <LoaderBig />
               ) : (
@@ -1483,7 +1523,7 @@ const Welcome = () => {
                     onClick={handleSubmit}
                     className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
                   >
-                    Next
+                    Submit
                   </button>
                 ) : null
               )}
@@ -1493,9 +1533,6 @@ const Welcome = () => {
 
               <hr />
 
-
-
-              {submnissionStage == 2 ? <Submit /> : ""}
 
 
             </div>

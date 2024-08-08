@@ -82,3 +82,11 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+input::placeholder {
+	/* background-color: white; */
+ 
+	color: white;
+	padding: 0;
+}

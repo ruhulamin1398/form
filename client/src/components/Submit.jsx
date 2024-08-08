@@ -116,7 +116,7 @@ const Submit = () => {
   return (
 
 <>
-{submnissionStage ==2 ? 
+{submnissionStage ==1 ? 
     <div className={`flex  justify-center items-center   px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto mt-[30px] md:mt-[100px]  `}>
       <hr  className="text-white"/>
       <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0     px-md-4">
@@ -165,7 +165,7 @@ const Submit = () => {
 
 
 
-              <div className=" p-4 mb-4 text-white">
+              {/* <div className=" p-4 mb-4 text-white">
                 Your Form is SuccessFully Recorded.
               </div>
 
@@ -184,7 +184,7 @@ const Submit = () => {
                 </a>
 
 
-              </div>
+              </div> */}
 
 
 
