@@ -19,6 +19,7 @@ import Input from "./input/Input";
 import ModalInput from "./input/ModalInput";
 import DynamicTable from "./input/DynamicTable";
 import SubmitSuccess from "./SubmitSuccess";
+import Txarea from "./input/Txarea"
 
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -57,7 +58,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 
 
 const Welcome = () => {
-  const { submnissionStage, setSubmnissionStage , dPDFLink, setDPDFLink, handleChange, formData, signatureType, isSubmit, setIsSubmit, submitLoading, setSubmitLoading, isComplete, setIsComplete, submitStatus, setSubmitStatus, isToastError, setIsToastError, toastErrorMessage, setToastErrorMessage, } = useContext(TransactionContext);
+  const { submnissionStage, setSubmnissionStage, dPDFLink, setDPDFLink, handleChange, formData, signatureType, isSubmit, setIsSubmit, submitLoading, setSubmitLoading, isComplete, setIsComplete, submitStatus, setSubmitStatus, isToastError, setIsToastError, toastErrorMessage, setToastErrorMessage, } = useContext(TransactionContext);
 
 
   const [isToast, setIsToast] = useState(false);
@@ -100,7 +101,7 @@ const Welcome = () => {
       showToast();
 
       //!!!!!!!!!!!!!!! uncomment this 
-      // return;
+      return;
 
     }
 
@@ -130,13 +131,13 @@ const Welcome = () => {
           showToast();
 
           //!!!!!!!!!!!!!!! uncomment this 
-          // return;
+          return;
         }
       }
 
 
       // ! check all field mandatory
-      if (key != "list" && key !='pdf') {
+      if (key != "list" && key != 'pdf') {
 
         if (!formData[key].value.trim()) {
           console.log(key, " : ", formData[key].title, "   - ", formData[key].value)
@@ -150,7 +151,7 @@ const Welcome = () => {
 
 
           //!!!!!!!!!!!!!!! uncomment this 
-          // return;
+          return;
         }
 
       }
@@ -203,7 +204,7 @@ const Welcome = () => {
       setDPDFLink(pdflink)
       setIsComplete(true)
       setSubmitStatus(1)
-      setSubmnissionStage (2)
+      setSubmnissionStage(2)
 
     } catch (error) {
       console.error('Error:', error);
@@ -226,13 +227,13 @@ const Welcome = () => {
   return (
     <>
 
- 
 
 
 
-<div className={`flex justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto  ${submnissionStage <3 ? 'block' : 'hidden'}`}>
- 
-        <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-2 md:py-12 px-md-4">
+
+      <div className={`flex justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto  ${submnissionStage < 3 ? 'block' : 'hidden'}`}>
+
+        <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0   px-md-4">
           <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
             <div className="flex justify-between flex-col  pt-2 md:pt-12">
 
@@ -567,8 +568,10 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
+
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray"     >סה"כ מחזור מכירות בהתאם למאזנים</td>
                           </tr>
+
                           <tr>
                             <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
@@ -698,8 +701,16 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-4 py-2 text-right table-border-gray "> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
+                            <td className="border px-4 py-2 text-right table-border-gray " rowSpan="2"> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
                           </tr>
+                          <tr> <td colSpan="4" className="px-4">
+                          <Txarea
+                            name="tx1"
+
+                            handleChange={handleChange}
+                            />
+                          </td></tr>
+
                           <tr>
                             <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
@@ -801,8 +812,15 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray" rowSpan="2"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
                           </tr>
+                          <tr> <td colSpan="4" className="px-4">
+                            <Txarea
+                            name="tx2"
+
+                            handleChange={handleChange}
+                            />
+                          </td></tr>
                           <tr>
                             <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
 
@@ -902,12 +920,19 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-4 py-2 text-right table-border-gray rtl-text">
+                            <td className="border px-4 py-2 text-right table-border-gray rtl-text" rowSpan="2">
 
                               חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם (נכון ליום מילוי ההצהרה)
 
                             </td>
                           </tr>
+                          <tr> <td colSpan="4" className="px-4">
+                          <Txarea
+                            name="tx3"
+
+                            handleChange={handleChange}
+                            />
+                          </td></tr>
                         </tbody>
                       </table>
 
@@ -1449,32 +1474,28 @@ const Welcome = () => {
               </div>
 
 
-              {submitLoading ? <LoaderBig /> : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
-                >
-                  Next
-                </button>
-              )}
-
-
-              {/* {submitLoading ? <LoaderBig /> : (
+              {submitLoading ? (
+                <LoaderBig />
+              ) : (
+                submnissionStage === 1 ? (
                   <button
                     type="button"
                     onClick={handleSubmit}
                     className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
                   >
-                    שליחה
+                    Next
                   </button>
-                )} */}
+                ) : null
+              )}
 
 
 
 
+              <hr />
 
 
+
+              {submnissionStage == 2 ? <Submit /> : ""}
 
 
             </div>
@@ -1483,7 +1504,7 @@ const Welcome = () => {
       </div>
 
 
- 
+
 
       {
         isToast ?
@@ -1493,8 +1514,8 @@ const Welcome = () => {
           /> : null
       }
 
-{submnissionStage ==2 ?   <Submit    /> : ""}
-{submnissionStage ==3 ?  <SubmitSuccess/> : ""}
+
+      {submnissionStage == 3 ? <SubmitSuccess /> : ""}
 
 
 

@@ -50,7 +50,7 @@
 .bg-popup{
   background:rgb(39, 51, 89, 0.4)
 }
-
+ 
 
 /* .custom-outline {
   outline: .1px solid #413d3ddb;
@@ -60,7 +60,10 @@
   outline: .1px solid rgba(255, 255, 255, 0.1);
 }
  
-
+input::placeholder {
+  white-space: pre-wrap;
+   
+}
 
   @media (max-width: 600px) {
     .custom-outline {

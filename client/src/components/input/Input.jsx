@@ -4,10 +4,10 @@ import Toast from '../Toast'; // Adjust the import path as needed
 const Input = ({ placeholder, name, type, value, title, handleChange, className, InputType }) => {
 
 
-    
+
     const [inputValue, setInputValue] = useState("");
     const [isToast, setIsToast] = useState(false);
-    const [toastTitle , setToastTitle] = useState('')
+    const [toastTitle, setToastTitle] = useState('')
 
     const showToast = () => {
         console.log("input")
@@ -28,21 +28,21 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
             const isNumber = /^\d*$/.test(newValue);
             if (!isNumber) {
                 setInputValue(extractNumbers(inputValue + ''));
-                setToastTitle="נא להכניס מספרים בלבד"
+                setToastTitle( "נא להכניס מספרים בלבד")
                 showToast();
                 return;
             }
         }
 
 
-        if (InputType === 'email') {
-            const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue);
-            if (!isEmail) {
-                 setToastTitle="אנא הזן מספר תקין"
-                showToast();
-                return;
-            }
-        }
+        // if (InputType === 'email') {
+        //     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue);
+        //     if (!isEmail) {
+        //         setToastTitle = "אנא הזן מספר תקין"
+        //         showToast();
+        //         return;
+        //     }
+        // }
 
 
         setInputValue(newValue);
@@ -58,13 +58,13 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
                 name={name}
                 title={title}
                 value={inputValue}
-                  dir="rtl"
-                
-      onChange={(e) => handleInputChange(e, name, inputValue, title, type)}
-      onKeyUp={(e) => handleInputChange(e, name, inputValue, title, type)}
-      
+                dir="rtl"
+
+                onChange={(e) => handleInputChange(e, name, inputValue, title, type)}
+                onKeyUp={(e) => handleInputChange(e, name, inputValue, title, type)}
+
                 className={"form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-sm white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px]"}
-            
+
             />
             {isToast && (
                 <Toast textTitle={toastTitle} />

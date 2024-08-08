@@ -203,19 +203,28 @@ const prepareEmail = expressAsyncHandler(async (data) => {
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f21'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx2'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f22'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f23'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f24'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray rtl-text">חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                    <td class="border px-4 py-2 text-right table-border-gray rtl-text"rowspan="2" >חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx3'].value}</td>
                 </tr>
             </tbody>
         </table>
@@ -557,19 +566,28 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f21'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx2'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f22'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f23'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f24'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray rtl-text">חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                    <td class="border px-4 py-2 text-right table-border-gray rtl-text"rowspan="2" >חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx3'].value}</td>
                 </tr>
             </tbody>
         </table>
@@ -901,7 +919,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
                     <th class="px-4 py-2">שנה</th>
                 </tr>
             </thead>
-            <tbody class="table-border-gray">
+              <tbody class="table-border-gray">
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f11'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f12'].value}</td>
@@ -914,19 +932,28 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                </tr>
+                <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f21'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx2'].value}</td>
                 </tr>
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f22'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f23'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f24'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray rtl-text">חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                    <td class="border px-4 py-2 text-right table-border-gray rtl-text"rowspan="2" >חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+                </tr>
+                   <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx3'].value}</td>
                 </tr>
             </tbody>
         </table>
@@ -1120,7 +1147,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
 
             // to: 'Rishum@iocea.org.il',
 
-            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com, sagor.sec@gmail.com',
+            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com',
 
             // cc: 'Adi@incerto-credit.com, shushanran@gmail.com',
 

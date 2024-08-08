@@ -156,6 +156,17 @@ export const TransactionsProvider = ({ children }) => {
                 "value": "",
                 "title": "  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב פרט:"
             },
+            "tx1": {
+                "value": "", 
+            },
+
+            "tx2": {
+                "value": "", 
+            },
+
+            "tx3": {
+                "value": "", 
+            },
 
 
             "yesNoOption": {
@@ -199,7 +210,7 @@ export const TransactionsProvider = ({ children }) => {
 
     const handleChange = (e, name, value, title, type) => {
 
-
+        setSubmnissionStage(1)
         console.log(e.target.type)
         if (type == "text") {
             setformData((prevState) => ({ ...prevState, [name]: { "value": e.target.value, "title": title } }));
@@ -234,11 +245,20 @@ export const TransactionsProvider = ({ children }) => {
 
         }
 
+
+        if (type == "textarea") {
+            setformData((prevState) => ({ ...prevState, [name]: { "value": value } }));
+
+            
+            console.log(formData)
+
+        }
+
     };
 
 
     const handleChangeSignature = (name, value, imgURL, title) => {
-
+        setSubmnissionStage(1)
         setformData((prevState) => ({ ...prevState, [name]: { "value": value, "url": imgURL, "title": title } }));
 
         console.log(name, " -  ", value)

@@ -117,39 +117,40 @@ const Submit = () => {
 
 <>
 {submnissionStage ==2 ? 
-    <div className={`flex  justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto   `}>
-      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-2 md:py-12 px-md-4">
-        <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
+    <div className={`flex  justify-center items-center   px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto mt-[30px] md:mt-[100px]  `}>
+      <hr  className="text-white"/>
+      <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0     px-md-4">
+        <div className="flex flex-col flex-1 items-center justify-start mf:mt-0    ">
 
-          <div className="p-5  w-full flex flex-col justify-start items-center blue-glassmorphism w-full md:w-[500px]">
+          <div className="p-5  w-full flex flex-col justify-start items-center  w-full ">
 
 
 
           {
   isLoading? <LoaderBig/> :
 <>
-            {(submitStatus == 2) ? <Error /> : (
+              {/* {(submitStatus == 2) ? <Error /> : (
 
 
-              <>
+                <>
 
-                <button
-                  type="button"
-                  className="text-white mt-2 rounded-full cursor-pointer flex items-center space-x-2 mb-[20px] md:mb-[50px]"
-                  onClick={TryAgain}
-                >
-                  <IoIosArrowRoundBack size={52} />
-                  <div>Modify Response</div>
-                </button>
+                  <button
+                    type="button"
+                    className="text-white mt-2 rounded-full cursor-pointer flex items-center space-x-2 mb-[20px] md:mb-[50px]"
+                    onClick={TryAgain}
+                  >
+                    <IoIosArrowRoundBack size={52} />
+                    <div>Modify Response</div>
+                  </button>
 
 
-                <Done />
-              </>
-            )}
- 
+                  <Done />
+                </>
+              )}
+    */}
 
             {submitStatus == 2 ? <>
-              <div className="p-4 m-4 text-white text-2xl">
+              <div className="p-4   text-white text-2xl">
                 Something Went Wrong !!!!
               </div>
 
@@ -170,7 +171,7 @@ const Submit = () => {
 
 
 
-              <div className=" py-12">
+              <div className=" py-0">
 
                 <a href={dPDFLink} target="_blank" rel="noopener noreferrer">
                   <button
