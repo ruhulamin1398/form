@@ -12,7 +12,7 @@ import "./Tooltips-form"
 import YesNoRadio from './YesNoRadio';
 import Tooltip from "./Tooltips-form";
 
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-black";
 
 const Input = ({ placeholder, name, type, value, handleChange }) => (
   <input
@@ -21,7 +21,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
     step="0.0001"
     value={value}
     onChange={(e) => handleChange(e, name)}
-    className="my-2 w-full rounded-sm p-2   bg-transparent text-white border-none text-sm white-glassmorphism text-right custom-outline"
+    className="my-2 w-full rounded-sm p-2   bg-transparent text-black border-none text-sm white-glassmorphism text-right custom-outline"
   />
 );
 
@@ -51,7 +51,7 @@ const Welcome = () => {
       <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0 py-12 px-md-4">
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
           <div className="flex justify-between flex-col w-full h-full pt-12">
-            <h1 className="text-3xl sm:text-5xl text-white text-gradient my-10 text-center">
+            <h1 className="text-3xl sm:text-5xl text-black text-gradient my-10 text-center">
               טופס הצעת ביטוח אשראי בישראל
               <br />
               למכירה של סחורות ושירותים
@@ -160,7 +160,7 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
 
 
-                <h4 className="text-right  mx-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                <h4 className="text-right  mx-[20px] mt-[20px]  flex-1 pb-[10px] w-full font-bold text-black">
                   <div class="rtl-text">
 
                     נייד
@@ -188,7 +188,7 @@ const Welcome = () => {
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[100%] ">
 
 
-                <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-black">
                   <div class="rtl-text text-nowrap  ">
                     קוד&nbsp;אינטרנט
 
@@ -218,12 +218,12 @@ const Welcome = () => {
 
 
 
-            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">פירוט מכירות (באלפי ₪ )</h4>
+            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">פירוט מכירות (באלפי ₪ )</h4>
 
             <div className="flex w-full justify-center items-center p-0 m-0">
               <div className="flex flex-col items-center justify-between  pb-12  w-full">
                 <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
-                  <table className="min-w-full bg-transparent text-white  ">
+                  <table className="min-w-full bg-transparent text-black  ">
                     <thead>
                       <tr>
                         <th className="px-4 py-2">צפי מכירות לשנת 2024            </th>
@@ -436,7 +436,7 @@ const Welcome = () => {
 
 
 
-            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
 
               רשימת חייבים לבדיקה
 
@@ -447,7 +447,7 @@ const Welcome = () => {
             <div className="flex w-full justify-center items-center p-0 m-0">
               <div className="flex flex-col items-center justify-between  pb-12  w-full">
                 <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
-                  <table className="min-w-full bg-transparent text-white pcTable">
+                  <table className="min-w-full bg-transparent text-black pcTable">
                     <thead>
                       <tr>
                         <th className="px-4 py-2">מחזור מכירות שנתי צפוי
@@ -545,7 +545,7 @@ const Welcome = () => {
                   </table>
 
 
-                  <table className="min-w-full bg-transparent text-white mTable">
+                  <table className="min-w-full bg-transparent text-black mTable">
                     
                     <tbody className="table-border-gray">
                       <tr>
@@ -688,7 +688,7 @@ const Welcome = () => {
 
 
 
-            <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
+            <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-black">
 
               האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
 
@@ -706,7 +706,7 @@ const Welcome = () => {
             />
 
 
-            <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
+            <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-black">
               האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת ?
               האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע ? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:
             </h4>
@@ -732,7 +732,7 @@ const Welcome = () => {
 
 
 
-                <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                   <div class="rtl-text">
 
                     האם החברה מבוטחת כיום כן/לא? או בעבר?
@@ -751,7 +751,7 @@ const Welcome = () => {
 
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[40%]  ">
-                <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                   <div class="rtl-text">
                     האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>
                   </div>
@@ -768,7 +768,7 @@ const Welcome = () => {
 
             <div className="flex w-full justify-end items-end">
               <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-[50%]  ">
-                <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                   <div class="rtl-text">
                     האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>
                   </div>
@@ -781,7 +781,7 @@ const Welcome = () => {
               </div>
             </div>
 
-            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
               <div class="rtl-text">
                 האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
                 אם כן, פרט:
@@ -799,7 +799,7 @@ const Welcome = () => {
               className="text-right"
             />
 
-            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+            <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
               <div class="rtl-text">
                 התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
                 פרט:
@@ -818,7 +818,7 @@ const Welcome = () => {
               className="text-right"
             />
 
-            <h4 className="text-right pt-[30px] pb-[30px] w-full font-bold text-white">
+            <h4 className="text-right pt-[30px] pb-[30px] w-full font-bold text-black">
 
 
 
@@ -852,7 +852,7 @@ const Welcome = () => {
                   />
 
 
-                  <h4 className="pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-white">
+                  <h4 className="pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-black">
                     תאריך
                   </h4>
 
@@ -871,7 +871,7 @@ const Welcome = () => {
                   />
 
 
-                  <h4 className=" flex-1 pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-white">
+                  <h4 className=" flex-1 pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-black">
                     חתימה&nbsp;וחותמת&nbsp;החברה
 
                   </h4>
@@ -894,7 +894,7 @@ const Welcome = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
+                className="text-black w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
               >
                 Submit
               </button>

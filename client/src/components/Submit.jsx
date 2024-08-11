@@ -118,7 +118,7 @@ const Submit = () => {
 <>
 {submnissionStage ==1 ? 
     <div className={`flex  justify-center items-center   px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto mt-[30px] md:mt-[100px]  `}>
-      <hr  className="text-white"/>
+      <hr  className="text-black"/>
       <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0     px-md-4">
         <div className="flex flex-col flex-1 items-center justify-start mf:mt-0    ">
 
@@ -136,7 +136,7 @@ const Submit = () => {
 
                   <button
                     type="button"
-                    className="text-white mt-2 rounded-full cursor-pointer flex items-center space-x-2 mb-[20px] md:mb-[50px]"
+                    className="text-black mt-2 rounded-full cursor-pointer flex items-center space-x-2 mb-[20px] md:mb-[50px]"
                     onClick={TryAgain}
                   >
                     <IoIosArrowRoundBack size={52} />
@@ -150,14 +150,14 @@ const Submit = () => {
     */}
 
             {submitStatus == 2 ? <>
-              <div className="p-4   text-white text-2xl">
+              <div className="p-4   text-black text-2xl">
                 Something Went Wrong !!!!
               </div>
 
               <button
                 type="button"
                 onClick={TryAgain}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer   "
+                className="text-black w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer   "
               >
                 Try Again
               </button>
@@ -165,7 +165,7 @@ const Submit = () => {
 
 
 
-              {/* <div className=" p-4 mb-4 text-white">
+              {/* <div className=" p-4 mb-4 text-black">
                 Your Form is SuccessFully Recorded.
               </div>
 
@@ -176,7 +176,7 @@ const Submit = () => {
                 <a href={dPDFLink} target="_blank" rel="noopener noreferrer">
                   <button
                     type="button"
-                    className="text-white mt-2 rounded-full cursor-pointer text-center flex flex-col items-center justify-center p-4"
+                    className="text-black mt-2 rounded-full cursor-pointer text-center flex flex-col items-center justify-center p-4"
                   >
                     <FaDownload size="64" />
                     <div className=" py-4 text-sm"> Click Here <br/>To Download Response</div>
@@ -197,7 +197,7 @@ const Submit = () => {
                   checked={isChecked}
                   onChange={handleCheckboxChange}
                 />
-                <span className="text-white pl-4">
+                <span className="text-black pl-4">
                   I have reviewed the form data, and everything looks correct. I agree to submit the data.
                 </span>
               </label>
@@ -206,7 +206,7 @@ const Submit = () => {
               <button
                 type="button"
                 onClick={FinalSubmit}
-                className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-6    "
+                className="text-black w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-6    "
               >
                 Submit
               </button>

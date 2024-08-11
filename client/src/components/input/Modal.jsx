@@ -14,13 +14,13 @@ const Modal = ({ isOpen, handleClose, children }) => {
  
 
 
-        <div className=" p-4 pb-[60px] rounded-md  relative  blue-glassmorphism border-black  ">
+        <div className=" p-4 pb-[60px] rounded-md  relative  bg-[#e9ecef] border-black  ">
 
           {children}
 
           <button onClick={handleClose}
 
-            className=" border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointe absolute bottom-2 left-2 p-2 rounded-md text-white  "
+            className=" border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointe absolute bottom-2 left-2 p-2 rounded-md text-black  "
           >
             Done
           </button>

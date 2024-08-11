@@ -180,7 +180,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
  <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
 <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white"  >
+        <table class="min-w-full bg-transparent text-black"  >
             <thead>
                 <tr>
                     <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
@@ -240,7 +240,7 @@ const prepareEmail = expressAsyncHandler(async (data) => {
       </h4>
 
  <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white" >
+        <table class="min-w-full bg-transparent text-black" >
             <thead>
                 <tr>
                     <th class="px-4 py-2">${data['f25'].title}</th>
@@ -543,7 +543,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
  <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
 <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white" style=" min-width: 1200px;">
+        <table class="min-w-full bg-transparent text-black" style=" min-width: 1200px;">
             <thead>
                 <tr>
                     <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
@@ -606,7 +606,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
 
 
       <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white" style=" min-width: 1200px;">
+        <table class="min-w-full bg-transparent text-black" style=" min-width: 1200px;">
             <thead>
                 <tr>
                     <th class="px-4 py-2">${data['f25'].title}</th>
@@ -909,7 +909,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
  <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
 <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white"  >
+        <table class="min-w-full bg-transparent text-black"  >
             <thead>
                 <tr>
                     <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
@@ -969,7 +969,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
       </h4>
 
  <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-white" >
+        <table class="min-w-full bg-transparent text-black" >
             <thead>
                 <tr>
                     <th class="px-4 py-2">${data['f25'].title}</th>
@@ -1147,7 +1147,7 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
 
             // to: 'Rishum@iocea.org.il',
 
-            cc: 'ruhul.ok8@gmail.com.com, ruhulamin010398@gmail.com',
+            // cc: 'shushanran@gmail.com',
 
             // cc: 'Adi@incerto-credit.com, shushanran@gmail.com',
 

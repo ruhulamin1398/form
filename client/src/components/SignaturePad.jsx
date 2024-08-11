@@ -94,7 +94,7 @@ const SignaturePopup = () => {
               />
             </div>
 
-          ) : ((signatureType == 2) ? (<div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+          ) : ((signatureType == 2) ? (<div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden '>
           </div>) : <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
           </div>)
         )}
@@ -104,11 +104,10 @@ const SignaturePopup = () => {
 
       </div>
 
-
-
+ 
       <div
         onClick={openModal}
-        className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2 text-[8px]  md:text-base "
+        className="  w-full mt-2 border-[1px] p-2 text-[#20123a] border-[#20123a]       rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2 text-[8px] md:text-base "
       >
        חתימה - דיגיטלית
       </div>
@@ -127,20 +126,15 @@ const SignaturePopup = () => {
           <div className="flex justify-between mt-4">
             <button
               onClick={closeModal}
-              className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
+              className="px-4 py-2 text-black border border-[#20123a] rounded  hover:bg-[#20123a] hover:text-white  "
             >
               cancel
             </button>
 
-            {/* <button
-              onClick={clearSignature}
-              className="px-4 py-2 text-white bg-red-500 rounded hover:bg-red-700"
-            >
-              Clear
-            </button> */}
+       
             <button
               onClick={saveSignature}
-              className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+              className="px-4 py-2 text-black  border border-[#20123a]   hover:bg-[#20123a] hover:text-white"
             >
               Save
             </button>

@@ -53,7 +53,12 @@ const ModalInput = ({ placeholder, name, InputType, type, value, title, handleCh
         InputType= {InputType}
         onClick={() => setIsModalOpen(true)}
         readOnly
-        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-[7px] white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-wrap block md:hidden"
+        style={
+         
+           { fontSize: '8px' } 
+            
+        }
+        className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-black text-[7px] bg-[#e9ecef] text-right border border-[#413d3ddb] border-[0.1px] text-wrap block md:hidden"
       />
       <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
         <input
@@ -143,7 +148,7 @@ export default ModalInput;
 //           value={inputValue}
 //           onClick={() => setIsModalOpen(true)}
 //           readOnly
-//           className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white   text-[7px] white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] text-wrap mTable"
+//           className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-black   text-[7px] white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] text-wrap mTable"
 //         />
 //         <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
 //           <input

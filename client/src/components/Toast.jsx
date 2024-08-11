@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 
 const Toast = ({ textTitle }) => {
   const toastElement = (
-    <div className="fixed bottom-[50%] right-0 bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2 z-50 ransform  -translate-y-1/2 max-w-[200px] md:max-w-[250px] ">
+    <div className="fixed bottom-[50%] right-0 bg-red-500 text-black px-6 py-4 rounded-lg shadow-lg flex items-center space-x-2 z-50 ransform  -translate-y-1/2 max-w-[200px] md:max-w-[250px] ">
       <svg
-        className="w-6 h-6 text-white"
+        className="w-6 h-6 text-black"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

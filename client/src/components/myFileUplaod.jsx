@@ -52,7 +52,7 @@ function ImageUpload() {
 
     return (
 
-        <div className="relative">
+        <div className="relative " >
             {isLoading ? (
                 <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
 
@@ -60,7 +60,7 @@ function ImageUpload() {
                 </div>
             ) : (
                 imageName && (signatureType == 2) ? (
-                    <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+                    <div className='w-[80px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
                         <img
                             className="text-left mb-4 w-[90px] h-[100px] md:w-[140px] md:h-[150px] object-contain"
                             src={imageURL}
@@ -68,25 +68,25 @@ function ImageUpload() {
                         />
                     </div>
                 ) : ((signatureType == 1) ? (<div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
-                </div>) : <div className='w-[90px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
+                </div>) : <div className='w-[80px] h-[100px] md:w-[140px] md:h-[150px] overflow-hidden'>
                 </div>)
             )}
 
             <input
                 type="file"
-                className="absolute bottom-0 left-0 w-full h-full opacity-0 cursor-pointer"
+                className="absolute bottom-0 left-0 w-full h-full opacity-0 cursor-pointer text-black bg-white   "
                 id="fileInput"
                 onChange={handleFileChangeImage}
             />
-            <div className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2  text-[8px] md:text-base ">
+            <button className="text-black bg-white  text-black bg-white  hover:bg-[#20123a] hover:text-white    w-full mt-2 border-[1px] p-2 border-[#3d4f7c]  rounded-full cursor-pointer    text-center w-[90px] md:w-[140px] mx-2    ">
                 {
                     imageName ? (
-                        <span className="text-white text-[8px] md:text-base  "> העלאת קובץ</span>
+                        <span className="  text-black bg-white text-[8px] md:text-base  "> העלאת קובץ</span>
                     ) : (
-                        <div className="text-white text-[8px] md:text-base"> העלאת קובץ  </div>
+                        <div className=" text-black bg-white  text-[8px] md:text-base "> העלאת קובץ  </div>
                     )
                 }
-            </div>
+            </button>
         </div>
     );
 }

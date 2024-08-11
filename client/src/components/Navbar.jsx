@@ -21,7 +21,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="w-full flex justify-center   items-center p-4 white-glassmorphism border-radius-none">
+    <nav className="w-full flex justify-center   items-center p-4 bg-[#20123a] border-radius-none">
       <div className="  justify-center items-center">
        <a href="#">  <img src={logo} alt="logo" className=" center cursor-pointer" width="250px" /></a>
       </div>

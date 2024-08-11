@@ -2,9 +2,9 @@ import React from 'react';
 
 const Done = () => (
   <div className="flex justify-center items-center py-3">
-    <div className="rounded-full h-16 w-16 flex items-center justify-center border-2 border-green-500">
+    <div className="rounded-full h-16 w-16 flex items-center justify-center border-2 border-[#20123a]">
       <svg
-        className="w-8 h-8 text-green-500"
+        className="w-8 h-8 text-[#20123a]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -17,3 +17,6 @@ const Done = () => (
 );
 
 export default Done;
+
+
+ 

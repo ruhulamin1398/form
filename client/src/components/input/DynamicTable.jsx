@@ -50,16 +50,16 @@ const DynamicTable = () => {
 
   return (
     <div>
-      <table className="min-w-full max-w-full bg-transparent text-white  ">
-        <thead>
+      <table className="min-w-full max-w-full  text-black  border-collapse  border table-border-black ">
+        <thead className='bg-[#20123a] text-white'>
           <tr>
-            <td className="px-1 py-2 text-[8px] md:text-sm pl-4">מחזור מכירות שנתי צפוי (באלפי ₪)</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">וותק וניסיון מסחרי עם החייב (בשנים)</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">תנאי אשראי (בימים)</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">תקרת אשראי נדרשת (באלפי ₪)</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">ח.פ. (חובה למלא)</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">שם מלא</td>
-            <td className="px-1 py-2 text-[8px] md:text-sm">   <button
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black  pl-4">מחזור מכירות שנתי צפוי (באלפי ₪)</td>
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black ">וותק וניסיון מסחרי עם החייב (בשנים)</td>
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black ">תנאי אשראי (בימים)</td>
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black ">תקרת אשראי נדרשת (באלפי ₪)</td>
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black ">ח.פ. (חובה למלא)</td>
+            <td className="px-1 py-2 text-center text-[8px] md:text-sm border table-border-black ">שם מלא</td>
+            <td className=" px-2 md:px-4 py-2 text-center  text-[8px] md:text-sm border table-border-black ">   <button
               onClick={() => addRow()}
               className="mr-2 bg-[#3d4f7c] text-white px-2 py-1 rounded"
             >
@@ -67,10 +67,10 @@ const DynamicTable = () => {
             </button></td>
           </tr>
         </thead>
-        <tbody className="table-border-gray">
+        <tbody className="table-border-black">
           {rows.map((row, index) => (
             <tr key={index}>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   handleChange={(e) => handleChange(e, index)}
                   name="f25"
@@ -96,7 +96,7 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   title="וותק וניסיון מסחרי עם החייב (בשנים)"
                   handleChange={(e) => handleChange(e, index)}
@@ -122,7 +122,7 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   title="תנאי אשראי (בימים)"
                   handleChange={(e) => handleChange(e, index)}
@@ -150,7 +150,7 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   title="תקרת אשראי נדרשת (באלפי ₪)"
                   handleChange={(e) => handleChange(e, index)}
@@ -177,7 +177,7 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   title="ח.פ. (חובה למלא)"
                   handleChange={(e) => handleChange(e, index)}
@@ -206,7 +206,7 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                 <InputTable
                   title="שם מלא"
                   handleChange={(e) => handleChange(e, index)}
@@ -232,11 +232,11 @@ const DynamicTable = () => {
 
 
               </td>
-              <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
-{index !=0 ?
+              <td className="border px-2 md:px-4 py-2 text-right table-border-black">
+{rows.length !=1 ?
                 <button
                   onClick={() => removeRow(index)}
-                  className="bg-[#3d4f7c] text-xs text-white px-2 py-1 text-red-300 rounded"
+                  className="bg-[#3d4f7c] text-xs text-black px-2 py-1 text-white rounded"
                 >
                   X
                 </button>

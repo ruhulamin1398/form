@@ -22,7 +22,7 @@ import SubmitSuccess from "./SubmitSuccess";
 import Txarea from "./input/Txarea"
 
 
-const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-black";
 
 // const Input = ({ placeholder, name, type, value, title, handleChange, className }) => (
 //   <input
@@ -32,7 +32,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 //     title={title}
 //     // value={value}
 //     onChange={(e) => handleChange(e, name, value, title, type)}
-//     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px]"
+//     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-black  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px]"
 //   />
 // );
 
@@ -45,7 +45,7 @@ const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex jus
 //     title={title}
 //     // value={value}
 //     onChange={(e) => handleChange(e, name, value, title, type)}
-//     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] pcTable  "
+//     className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-black  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] pcTable  "
 //   />
 // );
 
@@ -97,13 +97,11 @@ const Welcome = () => {
   const handleSubmit = async (e) => {
     console.log("signatureType  :: ", signatureType)
 
-    if(!isChecked){
-      setToastTitle("Checkbox is required")
-
-
-          console.log("checkbox Toast")
-          showToast();
-          return ;
+    if (!isChecked) {
+      setToastTitle("נא לאשר את ההצהרה")
+ 
+      showToast();
+      return;
     }
 
     if (signatureType == 0) {
@@ -115,17 +113,17 @@ const Welcome = () => {
     }
 
     //! 10 largest customers 
-    if (formData["list"].value.length < 10) {
+    // if (formData["list"].value.length < 10) {
 
-      console.log(" list ", formData["list"].value.length)
-      setToastTitle("יש למלא את 10 הלקוחות הגדולים")
+    //   console.log(" list ", formData["list"].value.length)
+    //   setToastTitle("יש למלא את 10 הלקוחות הגדולים")
 
-      showToast();
+    //   showToast();
 
-      //!!!!!!!!!!!!!!! uncomment this 
-      // return;
+    //   //!!!!!!!!!!!!!!! uncomment this 
+    //   return;
 
-    }
+    // }
 
 
     //! check all filed inside list 
@@ -153,7 +151,7 @@ const Welcome = () => {
           showToast();
 
           //!!!!!!!!!!!!!!! uncomment this 
-          // return;
+          return;
         }
       }
 
@@ -173,7 +171,7 @@ const Welcome = () => {
 
 
           //!!!!!!!!!!!!!!! uncomment this 
-          // return;
+          return;
         }
 
       }
@@ -253,19 +251,19 @@ const Welcome = () => {
 
 
 
-      <div className={`flex justify-center items-center pb-[10px] px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto  ${submnissionStage < 3 ? 'block' : 'hidden'}`}>
+      <div className={`flex justify-center items-center pb-[10px] px-[5px] md:px-[10px] overflow-x-hidden w-full max-w-screen-lg mx-auto  ${submnissionStage < 3 ? 'block' : 'hidden'}`}>
 
         <div className="flex mf:flex-row-reverse flex-col items-end justify-between md:p-0   px-md-4">
           <div className="flex flex-col flex-1 items-center justify-start mf:mt-0 mt-2 md:mt-10">
             <div className="flex justify-between flex-col  pt-2 md:pt-12">
 
 
-              <h1 className="text-xl md:text-5xl text-white  my-5  md:my-10 text-center">
+              <h1 className="text-xl md:text-5xl text-black  my-5  md:my-10 text-center">
                 טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
               </h1>
             </div>
 
-            <div className="p-5 sm:w-500 w-full flex flex-col justify-start items-center blue-glassmorphism">
+            <div className="p-5 md:p-16   w-full flex flex-col justify-start items-center bg-white  rounded-3xl">
               <div className="flex w-full justify-center items-center">
                 <div className="flex mf:flex-row-reverse flex-col items-start justify-between md:py-2 py-1 w-full gap-2">
                   <Input
@@ -368,8 +366,8 @@ const Welcome = () => {
                     name="f7"
 
 
-                    type="email"
-                    InputType="email"
+                    type="text"
+                    InputType="text"
 
                     className="text-right"
                   />
@@ -426,7 +424,7 @@ const Welcome = () => {
                   <div className="flex ml-auto mr-0">
 
                     <Tooltip />
-                    <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-white">
+                    <h4 className="text-right  mt-[20px]  flex-1 pb-[10px] w-full font-bold text-black">
                       <div class="rtl-text text-nowrap  ">
                         קוד&nbsp;אינטרנט
 
@@ -467,25 +465,25 @@ const Welcome = () => {
 
 
 
-              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">פירוט מכירות (באלפי ₪ )</h4>
+              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">פירוט מכירות (באלפי ₪ )</h4>
 
               <div className="flex w-full justify-center items-center p-0 m-0">
                 <div className="flex flex-col items-center justify-between  pb-12  w-full">
-                  <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
+                  <div className="  w-full flex flex-col justify-start items-center white-glassmorphism">
                     <div className="containerHorizontal"  >
-                      <table className="min-w-full bg-transparent text-white teblehorizontal " >
-                        <thead>
+                      <table className="min-w-full bg-transparent text-black teblehorizontal border-collapse  border table-border-black" >
+                        <thead class="bg-[#20123a] text-white ">
                           <tr>
-                            <th className="px-4 py-2">צפי מכירות לשנת 2024            </th>
-                            <th className="px-4 py-2">2023</th>
-                            <th className="px-4 py-2">2022</th>
-                            <th className="px-4 py-2">2021</th>
-                            <th className="px-4 py-2">שנה</th>
+                            <th className="px-4 py-2 border table-border-black">צפי מכירות לשנת 2024            </th>
+                            <th className="px-4 py-2 border able-border-black">2023</th>
+                            <th className="px-4 py-2 border table-border-black">2022</th>
+                            <th className="px-4 py-2 border table-border-black">2021</th>
+                            <th className="px-4 py-2 border table-border-black">שנה</th>
                           </tr>
                         </thead>
-                        <tbody className="table-border-gray">
+                        <tbody className="table-border-black">
                           <tr>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <ModalInput
                                 title=""
                                 handleChange={handleChange}
@@ -503,7 +501,7 @@ const Welcome = () => {
 
                               />
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
                               <ModalInput
@@ -535,7 +533,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <ModalInput
 
 
@@ -564,7 +562,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
                               <ModalInput
@@ -591,11 +589,11 @@ const Welcome = () => {
 
                             </td>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray"     >סה"כ מחזור מכירות בהתאם למאזנים</td>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black"     >סה"כ מחזור מכירות בהתאם למאזנים</td>
                           </tr>
 
                           <tr>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
 
@@ -630,7 +628,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
 
@@ -656,7 +654,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
 
@@ -693,7 +691,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
 
@@ -723,128 +721,128 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-4 py-2 text-right table-border-gray " rowSpan="2"> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
-                          </tr>
-                          <tr> <td colSpan="4" className="px-4">
-                          <Txarea
-                            name="tx1"
-
-                            handleChange={handleChange}
-                            />
-                          </td></tr>
-
-                          <tr>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
-
-                              <ModalInput
-
-
-                                title=""
-                                handleChange={handleChange}
-                                InputType="number"
-
-                                name="f19"
-                                type="text"
-                                placeholder="סכום"
-
-                              />
-
-
-
-                              <PInput
-
-
-                                title=""
-                                handleChange={handleChange}
-
-                                name="f19"
-                                type="text"
-                                InputType="number"
-
-                                placeholder="סכום"
-
-
-                              />
-
-
-                            </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
-
-                              <ModalInput
-
-
-
-                                title=""
-                                handleChange={handleChange}
-
-                                name="f20"
-
-                                InputType="number"
-                                type="text"
-                                placeholder="שנה"
-
-                              />
-
-
-
-
-                              <PInput
-                                title=""
-                                handleChange={handleChange}
-
-                                name="f20"
-
-                                type="text"
-                                InputType="number"
-
-                                placeholder="שנה"
-
-                              />
-
-
-
-
-                            </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray" colSpan="2">
-                              <ModalInput
-
-                                title=""
-                                handleChange={handleChange}
-                                name="f21"
-                                type="text"
-                                InputType="text"
-                                placeholder="שם חייב/מדינה"
-
-                              />
-
-
-
-                              <PInput
-
-                                title=""
-                                handleChange={handleChange}
-                                name="f21"
-                                type="text"
-                                InputType="text"
-
-                                placeholder="שם חייב/מדינה"
-
-
-                              />
-
-
-                            </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray" rowSpan="2"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
+                            <td className="border px-4 py-2 text-right table-border-black " rowSpan="2"> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong> </td>
                           </tr>
                           <tr> <td colSpan="4" className="px-4">
                             <Txarea
-                            name="tx2"
+                              name="tx1"
 
-                            handleChange={handleChange}
+                              handleChange={handleChange}
+                            />
+                          </td></tr>
+
+                          <tr>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
+
+                              <ModalInput
+
+
+                                title=""
+                                handleChange={handleChange}
+                                InputType="number"
+
+                                name="f19"
+                                type="text"
+                                placeholder="סכום"
+
+                              />
+
+
+
+                              <PInput
+
+
+                                title=""
+                                handleChange={handleChange}
+
+                                name="f19"
+                                type="text"
+                                InputType="number"
+
+                                placeholder="סכום"
+
+
+                              />
+
+
+                            </td>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
+
+                              <ModalInput
+
+
+
+                                title=""
+                                handleChange={handleChange}
+
+                                name="f20"
+
+                                InputType="number"
+                                type="text"
+                                placeholder="שנה"
+
+                              />
+
+
+
+
+                              <PInput
+                                title=""
+                                handleChange={handleChange}
+
+                                name="f20"
+
+                                type="text"
+                                InputType="number"
+
+                                placeholder="שנה"
+
+                              />
+
+
+
+
+                            </td>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black" colSpan="2">
+                              <ModalInput
+
+                                title=""
+                                handleChange={handleChange}
+                                name="f21"
+                                type="text"
+                                InputType="text"
+                                placeholder="שם חייב/מדינה"
+
+                              />
+
+
+
+                              <PInput
+
+                                title=""
+                                handleChange={handleChange}
+                                name="f21"
+                                type="text"
+                                InputType="text"
+
+                                placeholder="שם חייב/מדינה"
+
+
+                              />
+
+
+                            </td>
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black" rowSpan="2"> תיאור מקרי החובות האבודים הגדולים   ב-3 שנים האחרונות</td>
+                          </tr>
+                          <tr> <td colSpan="4" className="px-4">
+                            <Txarea
+                              name="tx2"
+
+                              handleChange={handleChange}
                             />
                           </td></tr>
                           <tr>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
                               <ModalInput
 
@@ -867,13 +865,13 @@ const Welcome = () => {
                                 type="text"
 
                                 InputType="text"
-                                placeholder="מה נעשה בנידון"
+                                placeholder="מה&nbsp;נעשה בנידון"
 
                                 className="text-right pcTable "
                               />
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
 
                               <ModalInput
@@ -910,7 +908,7 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray" colSpan="2">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black" colSpan="2">
                               <ModalInput
 
                                 title=""
@@ -942,17 +940,17 @@ const Welcome = () => {
 
 
                             </td>
-                            <td className="border px-4 py-2 text-right table-border-gray rtl-text" rowSpan="2">
+                            <td className="border px-4 py-2 text-right table-border-black rtl-text" rowSpan="2">
 
                               חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם (נכון ליום מילוי ההצהרה)
 
                             </td>
                           </tr>
                           <tr> <td colSpan="4" className="px-4">
-                          <Txarea
-                            name="tx3"
+                            <Txarea
+                              name="tx3"
 
-                            handleChange={handleChange}
+                              handleChange={handleChange}
                             />
                           </td></tr>
                         </tbody>
@@ -968,7 +966,7 @@ const Welcome = () => {
 
 
 
-              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
 
                 רשימת חייבים לבדיקה
 
@@ -978,7 +976,7 @@ const Welcome = () => {
 
               <div className="flex w-full justify-center items-center p-0 m-0">
                 <div className="flex flex-col items-center justify-between  pb-12  w-full">
-                  <div className="  w-full flex flex-col justify-start items-center blue-glassmorphism">
+                  <div className="  w-full flex flex-col justify-start items-center ">
 
 
 
@@ -988,7 +986,7 @@ const Welcome = () => {
 
 
 
-                    {/* <table className="min-w-full bg-transparent text-white ">
+                    {/* <table className="min-w-full bg-transparent text-black ">
                         <thead>
                           <tr>
                             <th className="px-4 py-2">מחזור מכירות שנתי צפוי
@@ -1000,9 +998,9 @@ const Welcome = () => {
                             <th className="px-4 py-2">שם מלא </th>
                           </tr>
                         </thead>
-                        <tbody className="table-border-gray">
+                        <tbody className="table-border-black">
                           <tr>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1017,7 +1015,7 @@ const Welcome = () => {
                                 className="text-right"
                               />
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1031,7 +1029,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1046,7 +1044,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
                                 title="תקרת אשראי נדרשת (באלפי&nbsp₪)"
@@ -1060,7 +1058,7 @@ const Welcome = () => {
                             </td>
 
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1075,7 +1073,7 @@ const Welcome = () => {
                                 className="text-right"
                               />
                             </td>
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
                                 title="שם מלא "
@@ -1095,13 +1093,13 @@ const Welcome = () => {
                       </table> */}
 
 
-                    {/* <table className="min-w-full bg-transparent text-white mTable">
+                    {/* <table className="min-w-full bg-transparent text-black mTable">
 
-                        <tbody className="table-border-gray">
+                        <tbody className="table-border-black">
                           <tr>
 
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1117,7 +1115,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <th className="px-4 py-2 border table-border-gray">מחזור מכירות שנתי צפוי
+                            <th className="px-4 py-2 border table-border-black">מחזור מכירות שנתי צפוי
                               <br /> (באלפי&nbsp;₪)</th>
 
 
@@ -1126,7 +1124,7 @@ const Welcome = () => {
 
                           <tr>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1140,7 +1138,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <th className="px-4 py-2 border table-border-gray">וותק וניסיון מסחרי עם החייב (בשנים) </th>
+                            <th className="px-4 py-2 border table-border-black">וותק וניסיון מסחרי עם החייב (בשנים) </th>
 
                           </tr>
 
@@ -1150,7 +1148,7 @@ const Welcome = () => {
                           <tr>
 
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1165,7 +1163,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <th className="px-4 py-2 border table-border-gray">תנאי אשראי (בימים)</th>
+                            <th className="px-4 py-2 border table-border-black">תנאי אשראי (בימים)</th>
 
                           </tr>
 
@@ -1175,7 +1173,7 @@ const Welcome = () => {
                           <tr>
 
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
                                 title="תקרת אשראי נדרשת (באלפי&nbsp;₪)"
@@ -1189,7 +1187,7 @@ const Welcome = () => {
                             </td>
 
 
-                            <th className="px-4 py-2 border table-border-gray">תקרת אשראי נדרשת (באלפי&nbsp;₪)</th>
+                            <th className="px-4 py-2 border table-border-black">תקרת אשראי נדרשת (באלפי&nbsp;₪)</th>
                           </tr>
 
 
@@ -1197,7 +1195,7 @@ const Welcome = () => {
 
                           <tr>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
 
@@ -1213,7 +1211,7 @@ const Welcome = () => {
                               />
                             </td>
 
-                            <th className="px-4 py-2 border table-border-gray">ח.פ. (חובה למלא)</th>
+                            <th className="px-4 py-2 border table-border-black">ח.פ. (חובה למלא)</th>
 
                           </tr>
 
@@ -1222,7 +1220,7 @@ const Welcome = () => {
 
                           <tr>
 
-                            <td className="border px-2 md:px-4 py-2 text-right table-border-gray">
+                            <td className="border px-2 md:px-4 py-2 text-right table-border-black">
                               <Input
 
                                 title="שם מלא "
@@ -1259,7 +1257,7 @@ const Welcome = () => {
 
 
 
-              <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
+              <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-black">
 
                 האם החברה נוהגת לקחת בטחונות מלקוחותיה ? אם כן פרט:
 
@@ -1284,7 +1282,7 @@ const Welcome = () => {
               />
 
 
-              <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-white">
+              <h4 dir="rtl" className="  pt-[30px] pb-[10px] w-full font-bold text-black">
                 האם כיום מבוצעת בחברה בדיקה לגבי כושר ההחזר של החייבים איתם החברה עובדת ?
                 האם נעשה שימוש לצורך בדיקת החייבים ע"י חברות מידע ? במידה וישנן בדיקות נוספות לבדיקת החייבים, אנא פרט:
               </h4>
@@ -1317,7 +1315,7 @@ const Welcome = () => {
 
 
 
-                  <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                  <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                     <div class="rtl-text">
 
                       האם החברה מבוטחת כיום כן/לא? או בעבר?
@@ -1337,7 +1335,7 @@ const Welcome = () => {
 
               <div className="flex w-full justify-end items-end">
                 <div className="flex mf:flex-row-reverse flex-col items-end md:items-start justify-between md:py-2 py-1 lg:w-[40%] w-[100%]  ">
-                  <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                  <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                     <div class="rtl-text">
                       האם החברה הייתה מבוטחת ב-3 שנים האחרונות<bdi class="ltr-symbol">?</bdi>
                     </div>
@@ -1354,7 +1352,7 @@ const Welcome = () => {
 
               <div className="flex w-full justify-end items-end">
                 <div className="flex mf:flex-row-reverse flex-col items-end md:items-start justify-between md:py-2 py-1 lg:w-[50%] w-[100%]  ">
-                  <h4 className="text-right   pb-[10px] w-full font-bold text-white">
+                  <h4 className="text-right   pb-[10px] w-full font-bold text-black">
                     <div class="rtl-text">
                       האם סירב מבטח אשראי לבטח את החברה בעבר או ביטל/לא חידש את הביטוח שלה<bdi class="ltr-symbol">?</bdi>
                     </div>
@@ -1369,7 +1367,7 @@ const Welcome = () => {
                 </div>
               </div>
 
-              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
                 <div class="rtl-text">
                   האם קיים בינך לבין מי מהלקוחות, אשר אתה מבקש לבטח באמצעותנו, סכסוך מסחרי ? תקרות כגון לקוח שלך פטור מלשלם/ זכאי לעכב/לקזז/לתבוע אותך את חובו לך מסיבה כלשהיא.
                   אם כן, פרט:
@@ -1392,7 +1390,7 @@ const Welcome = () => {
                 className="text-right"
               />
 
-              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-white">
+              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
                 <div class="rtl-text">
                   התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב
                   פרט:
@@ -1420,7 +1418,21 @@ const Welcome = () => {
                 className="text-right"
               />
 
-              <h4 className="text-right pt-[30px] pb-[30px] w-full font-bold text-white">
+
+
+              <label className="text-right pt-[30px]  w-full font-bold text-black rtl-text">
+                <input
+                  type="checkbox"
+                  className="form-checkbox h-5 w-5 text-[#3d4f7c] border-gray-300 rounded focus:ring-[#3d4f7c]"
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                />
+                <span className="text-black px-4" dir="rtl">
+                  {/* I agree to submit the data. */}
+                </span>
+              </label>
+
+              <h4 className="text-right pt-[00px] pb-[30px] w-full font-bold text-black">
 
 
 
@@ -1441,6 +1453,7 @@ const Welcome = () => {
 
 
 
+
               <div className="flex w-full justify-center items-center">
                 <div className="flex mf:flex-row-reverse flex-col items-end md:items-start md:justify-between md:py-2 py-1 w-full gap-2">
 
@@ -1455,11 +1468,11 @@ const Welcome = () => {
                       title="תאריך"
                       name="date"
 
-                      className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-sm white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px]"
+                      className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-black text-sm white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-[8px] md:text-base"
                     />
 
 
-                    <h4 className="pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-white">
+                    <h4 className="pr-4 pt-[30px] pb-[10px] ml-[30px] mb-[20px] font-bold text-black">
                       תאריך
                     </h4>
 
@@ -1477,7 +1490,7 @@ const Welcome = () => {
 
 
 
-                    <h4 className="pl-2 pb-[8px] md:pl-[20px] flex-1 pr-4 mb-[0px] mt-auto   font-bold text-white">
+                    <h4 className="pl-2 pb-[8px] md:pl-[20px] flex-1 pr-4 mb-[0px] mt-auto   font-bold text-black">
                       חתימה&nbsp;וחותמת&nbsp;החברה
 
                     </h4>
@@ -1499,17 +1512,7 @@ const Welcome = () => {
 
 
 
-              <label className="flex items-center space-x-2 mt-4 px-2  mt-[20px] md:mt-[100px] md:px-10">
-                <input
-                  type="checkbox"
-                  className="form-checkbox h-5 w-5 text-[#3d4f7c] border-gray-300 rounded focus:ring-[#3d4f7c]"
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
-                />
-                <span className="text-white pl-4">
-                  I have reviewed the form data, and everything looks correct. I agree to submit the data.
-                </span>
-              </label>
+
 
 
 
@@ -1521,9 +1524,9 @@ const Welcome = () => {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer mt-[50px] mb-[50px]"
+                    className="text-black w-full mt-2 border-[1px] p-2 border-[#3d4f7c]  bg-[#20123a]  text-white hover:text-[#20123a]  hover:bg-white rounded-full cursor-pointer mt-[50px] mb-[50px]"
                   >
-                    Submit
+                    שליחה
                   </button>
                 ) : null
               )}

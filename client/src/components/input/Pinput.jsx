@@ -58,7 +58,12 @@ const PInput = ({ placeholder, name, InputType ,type , value, title, handleChang
       value={inputValue}
       onChange={(e) => handleInputChange(e, name, inputValue, title, type)}
       onKeyUp={(e) => handleInputChange(e, name, inputValue, title, type)}
-      className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-white  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] hidden md:block  "
+      style={
+         
+        { fontSize: '10px' } 
+         
+     }
+      className=" form-input my-2 w-full rounded-sm p-2   bg-transparent text-black  text-sm white-glassmorphism text-right  border border-[#413d3ddb] border-[0.1px] hidden md:block  "
     />
 
     {

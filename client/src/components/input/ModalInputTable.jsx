@@ -31,7 +31,12 @@ const ModalInputTable = ({ name, type, value, title, handleChange, index }) => {
                 onKeyUp={handleChange}
                 onClick={() => setIsModalOpen(true)}
                 readOnly
-                className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-[7px] white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-wrap blog md:hidden "
+                style={
+         
+                    { fontSize: '8px' } 
+                     
+                 }
+                className="form-input my-2 w-full rounded-sm p-2 bg-transparent text-black text-[7px] white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px] text-wrap blog md:hidden "
             />
             <Modal isOpen={isModalOpen} handleClose={handleModalClose}>
                 <input

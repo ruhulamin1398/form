@@ -9,6 +9,8 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
     const [isToast, setIsToast] = useState(false);
     const [toastTitle, setToastTitle] = useState('')
 
+
+   
     const showToast = () => {
         console.log("input")
         setIsToast(true);
@@ -63,8 +65,13 @@ const Input = ({ placeholder, name, type, value, title, handleChange, className,
                 onChange={(e) => handleInputChange(e, name, inputValue, title, type)}
                 onKeyUp={(e) => handleInputChange(e, name, inputValue, title, type)}
 
-                className={"form-input my-2 w-full rounded-sm p-2 bg-transparent text-white text-sm white-glassmorphism text-right border border-[#413d3ddb] border-[0.1px]"}
-
+                className={"form-input my-2 w-full rounded-sm     text-black text-sm   text-right "}
+                style={
+                    type === 'date' 
+                      ? { fontSize: '10px' } // Apply this style if type is 'date'
+                      : {} // Empty object if the condition is false, meaning no style changes
+                  }
+                
             />
             {isToast && (
                 <Toast textTitle={toastTitle} />
