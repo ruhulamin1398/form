@@ -122,10 +122,13 @@ app.get('/', (req, res) => {
 
 app.post('/record', async(req, res) => {
 
+
+
+
   const host = req.hostname;
   console.log(host)
   
-  console.log(req.body);
+  console.log("body ",req.body);
   let data = req.body;
 
   data['sign'].value2 = `https://apihtmltopdf.ruhul.info${data['sign'].value}`
@@ -167,6 +170,10 @@ console.log(pdfname)
 
 app.post('/submit', async(req, res) => {
 
+
+    
+  
+      
   const host = req.hostname;
   console.log(host)
   

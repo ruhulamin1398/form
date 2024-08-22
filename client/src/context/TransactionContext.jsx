@@ -70,26 +70,13 @@ export const TransactionsProvider = ({ children }) => {
                 "value": "",
                 "title": ""
             },
-            "f16": {
-                "value": "",
-                "title": ""
-            },
-            "f17": {
-                "value": "",
-                "title": ""
-            },
-            "f18": {
-                "value": "",
-                "title": ""
-            },
+             
+            
             "f11": {
                 "value": "",
                 "title": ""
             },
-            "f15": {
-                "value": "",
-                "title": ""
-            },
+            
             "f19": {
                 "value": "",
                 "title": ""
@@ -156,9 +143,7 @@ export const TransactionsProvider = ({ children }) => {
                 "value": "",
                 "title": "  התגבשות החוב מול הלקוח – באיזה שלב של תכנון או ניהול פרויקט נוצר החוב פרט:"
             },
-            "tx1": {
-                "value": "", 
-            },
+         
 
             "tx2": {
                 "value": "", 

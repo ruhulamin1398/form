@@ -56,136 +56,16 @@ const DynamicTable = () => {
 
 
       <tr>
-        <td className="border px-2 md:px-4 py-2 text-right table-border-black">
-
-
-
-          <ModalInput
-
-            title=""
-            handleChange={handleChange}
-
-
-            name="f15"
-            type="text"
-            InputType="number"
-
-          />
-
-
-
-
-          <PInput
-
-            title=""
-            handleChange={handleChange}
-
-
-            name="f15"
-            type="text"
-            InputType="number"
-
-
-          />
-
-
-
-        </td>
-        <td className="border px-2 md:px-4 py-2 text-right table-border-black">
-
-
-
-          <ModalInput
-            title=""
-            handleChange={handleChange}
-            name="f16"
-            type="text"
-            InputType="number"
-          />
-
-
-
-          <PInput
-            title=""
-            handleChange={handleChange}
-            name="f16"
-            type="text"
-            InputType="number"
-
-          />
-
-
-
-        </td>
-        <td className="border px-2 md:px-4 py-2 text-right table-border-black">
-
-
-
-          <ModalInput
-
-
-
-            title=""
-            handleChange={handleChange}
-            InputType="number"
-
-            name="f17"
-            type="text"
-
-          />
-
-
-
-          <PInput
-
-
-
-            title=""
-            handleChange={handleChange}
-
-            name="f17"
-            type="text"
-            InputType="number"
-
-
-          />
-
-
-
-
-        </td>
-        <td className="border px-2 md:px-4 py-2 text-right table-border-black">
-
-
-
-          <ModalInput
-
-
-            title=""
-            handleChange={handleChange}
-            InputType="number"
-            name="f18"
-            type="text"
-
-          />
-
-          <PInput
-
-
-            title=""
-            handleChange={handleChange}
-            name="f18"
-            type="text"
-            InputType="number"
-
-
-          />
-
-
-
-        </td>
-        <td className="border px-4 py-2 text-right table-border-black " rowSpan="2"> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong>
+   
+
+ 
+ 
+        <td className="border px-4 py-2 text-right table-border-black " colSpan="4" rowSpan="1"> חובות אבודים ו/או חובות בטיפול   משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong>
           <br />
+         
+        </td>
+
+        <td className="border px-4 py-2 text-right table-border-black " colSpan="1" rowSpan="1">  
           <button
             onClick={() => addRow()}
             className="mr-2 bg-[#3d4f7c] text-white px-2 py-1 rounded"
@@ -193,14 +73,7 @@ const DynamicTable = () => {
             +
           </button>
         </td>
-      </tr>
-      <tr> <td colSpan="4" className="px-4">
-        <Txarea
-          name="tx1"
-
-          handleChange={handleChange}
-        />
-      </td></tr>
+       </tr>
 
 
 

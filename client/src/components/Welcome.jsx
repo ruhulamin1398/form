@@ -156,9 +156,34 @@ const Welcome = () => {
         }
       }
 
+      console.log(formData["bedDebtList"].value)
+      for (let index in formData["bedDebtList"].value) {
+        for (let key in formData["bedDebtList"].value[index]) {
+
+          if (!formData["bedDebtList"].value[index][key]) {
+
+
+            isError = true
+          }
+
+        }
+
+        if (isError) {
+          setToastTitle("נא למלא את כל השדות הנדרשים")
+          // setToastTitle("xxxxxxxxxxxxxxxxxxxxxxxxxxx")   
+
+
+          showToast();
+
+          //!!!!!!!!!!!!!!! uncomment this 
+          return;
+        }
+      }
+
+
 
       // ! check all field mandatory
-      if (key != "list" && key != 'pdf') {
+      if (key != "list"  && key !="bedDebtList"  && key != 'pdf') {
 
         if (!formData[key].value.trim()) {
           console.log(key, " : ", formData[key].title, "   - ", formData[key].value)

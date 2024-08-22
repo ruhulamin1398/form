@@ -14,347 +14,361 @@ const prepareEmail = expressAsyncHandler(async (data) => {
   
  
 
-    let pdfBody = ` 
+//     let pdfBody = ` 
      
     
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>טופס חדש</title>
-    <style>
+//     <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>טופס חדש</title>
+//     <style>
 
-     .page-break {
-            page-break-before: always;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 50px;
-            background-color: #f4f4f4;  
-            text-align:right;
+//      .page-break {
+//             page-break-before: always;
+//         }
+//         body {
+//             font-family: Arial, sans-serif;
+//             margin: 0;
+//             padding: 50px;
+//             background-color: #f4f4f4;  
+//             text-align:right;
 
-            font-size: 8px;
-        }
-        .container { 
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px; 
-            text-align:right;
+//             font-size: 8px;
+//         }
+//         .container { 
+//             margin: auto;
+//             background: #fff;
+//             padding: 20px;
+//             border-radius: 10px; 
+//             text-align:right;
           
-        }
-        h2 {
-            color: #333;
+//         }
+//         h2 {
+//             color: #333;
             
-        }
-        .field {
-            margin-bottom: 15px;
-            text-align:right;
+//         }
+//         .field {
+//             margin-bottom: 15px;
+//             text-align:right;
             
-        }
-        .field label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;  direction: rtl ;
-            text-align:right; 
+//         }
+//         .field label {
+//             font-weight: bold;
+//             display: block;
+//             margin-bottom: 5px;  direction: rtl ;
+//             text-align:right; 
             
-        }
-        .field p {
-            margin: 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 4px;  direction: rtl ;
-            text-align:right;
+//         }
+//         .field p {
+//             margin: 0;
+//             padding: 10px;
+//             background: #f9f9f9;
+//             border: 1px solid #ddd;
+//             border-radius: 4px;  direction: rtl ;
+//             text-align:right;
             
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px; 
-            text-align:right;
-        }
-        table, th, td {
-            border: 1px solid #ddd;   
-            text-align:right;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;   
-        }
-        th {
-            background-color: #f2f2f2;   
-        }
-            .rtl, td{
-              direction: rtl ;
-              text-align:right;
-              }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #777; 
-        }
-    </style>
-</head> 
+//         }
+//         table {
+//             width: 100%;
+//             border-collapse: collapse;
+//             margin-top: 20px; 
+//             text-align:right;
+//         }
+//         table, th, td {
+//             border: 1px solid #ddd;   
+//             text-align:right;
+//         }
+//         th, td {
+//             padding: 10px;
+//             text-align: left;   
+//         }
+//         th {
+//             background-color: #f2f2f2;   
+//         }
+//             .rtl, td{
+//               direction: rtl ;
+//               text-align:right;
+//               }
+//         .footer {
+//             text-align: center;
+//             margin-top: 20px;
+//             color: #777; 
+//         }
+//     </style>
+// </head> 
 
-<body>
-    <div class="container" >
-       <div style="text-align:center ">
-        <h1 style="font-size:20px">טופס חדש</h1>
-           <h2 style="font-size:15px">
-              טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
-            </h2>
-<hr style="color:black" />
-<br>
-<br>
-<br>
-       </div>
+// <body>
+//     <div class="container" >
+//        <div style="text-align:center ">
+//         <h1 style="font-size:20px">טופס חדש</h1>
+//            <h2 style="font-size:15px">
+//               טופס הצעת ביטוח אשראי למכירה של סחורות ושירותים בישראל
+//             </h2>
+// <hr style="color:black" />
+// <br>
+// <br>
+// <br>
+//        </div>
 
 
-        <!-- Example fields, replace with actual form field names and values -->
-        <div class="field">
-            <label for="name">${data['f1'].title}</label>    
+//         <!-- Example fields, replace with actual form field names and values -->
+//         <div class="field">
+//             <label for="name">${data['f1'].title}</label>    
           
-            <p id="name">${data['f1'].value}</p>
-        </div>
-        <div class="field">
-            <label for="name">${data['f2'].title}</label>
+//             <p id="name">${data['f1'].value}</p>
+//         </div>
+//         <div class="field">
+//             <label for="name">${data['f2'].title}</label>
              
-            <p id="name">${data['f2'].value}</p>
-        </div>
+//             <p id="name">${data['f2'].value}</p>
+//         </div>
 
-        <div class="field">
-            <label for="name">${data['f3'].title}</label>
+//         <div class="field">
+//             <label for="name">${data['f3'].title}</label>
                 
-            <p id="name">${data['f3'].value}</p>
-        </div>
+//             <p id="name">${data['f3'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f4'].title}</label>
-            <p id="name">${data['f4'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f4'].title}</label>
+//             <p id="name">${data['f4'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f5'].title}</label>
-            <p id="name">${data['f5'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f5'].title}</label>
+//             <p id="name">${data['f5'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f6'].title}</label>
-            <p id="name">${data['f6'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f6'].title}</label>
+//             <p id="name">${data['f6'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f7'].title}</label>
-            <p id="name">${data['f7'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f7'].title}</label>
+//             <p id="name">${data['f7'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f8'].title}</label>
-            <p id="name">${data['f8'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f8'].title}</label>
+//             <p id="name">${data['f8'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f9'].title}</label>
-            <p id="name">${data['f9'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f9'].title}</label>
+//             <p id="name">${data['f9'].value}</p>
+//         </div>
 
 
-        <div class="field">
-            <label for="name">${data['f10'].title}</label>
-            <p id="name">${data['f10'].value}</p>
-        </div>
+//         <div class="field">
+//             <label for="name">${data['f10'].title}</label>
+//             <p id="name">${data['f10'].value}</p>
+//         </div>
 
-<br>
+// <br>
  
-    <div class="page-break"></div>
+//     <div class="page-break"></div>
 
- <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
+//  <h4 class="rtl">פירוט מכירות (באלפי ₪ )</h4>
 
-<div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-black"  >
-            <thead>
-                <tr>
-                    <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
-                    <th class="px-4 py-2">2023</th>
-                    <th class="px-4 py-2">2022</th>
-                    <th class="px-4 py-2">2021</th>
-                    <th class="px-4 py-2">שנה</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-gray">
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f11'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f12'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f13'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f14'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f15'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f21'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
-                </tr>
-                   <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx2'].value}</td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f22'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f23'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f24'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray rtl-text"rowspan="2" >חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
-                </tr>
-                   <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx3'].value}</td>
-                </tr>
-            </tbody>
-        </table>
-</div>
+// <div style="overflow-x: auto; width: 100%;">
+//         <table class="min-w-full bg-transparent text-black"  >
+//             <thead>
+//                 <tr>
+//                     <th class="px-4 py-2">צפי מכירות לשנת 2024</th>
+//                     <th class="px-4 py-2">2023</th>
+//                     <th class="px-4 py-2">2022</th>
+//                     <th class="px-4 py-2">2021</th>
+//                     <th class="px-4 py-2">שנה</th>
+//                 </tr>
+//             </thead>
+//             <tbody class="table-border-gray">
+//                 <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f11'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f12'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f13'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f14'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
+//                 </tr>
+//                 `
 
 
-<br> 
-        <h4 class="rtl">
+//     for (let index in data["bedDebtList"].value) {
 
-        רשימת חייבים לבדיקה
-
-
-      </h4>
-
- <div style="overflow-x: auto; width: 100%;">
-        <table class="min-w-full bg-transparent text-black" >
-            <thead>
-                <tr>
-                    <th class="px-4 py-2">${data['f25'].title}</th>
-                    <th class="px-4 py-2">${data['f26'].title}</th>
-                    <th class="px-4 py-2">${data['f27'].title}</th>
-                    <th class="px-4 py-2">${data['f28'].title}</th>
-                    <th class="px-4 py-2">${data['f29'].title}</th>
-                    <th class="px-4 py-2">${data['f30'].title}</th>
-                </tr>
-            </thead>
-            <tbody class="table-border-gray">`
+//         emailBodyHtml += `
+        
+//                 <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f15']}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f16']}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f17']}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f18']}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td> 
+//                 </tr>
+                
+//                   <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data["bedDebtList"].value[index]['tx1']}</td>
+//                 </tr>
+                
+//                 `;
+//     }
 
 
-            for (let index in data["list"].value) {
+//     emailBodyHtml += `
+//                 <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f21'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >תיאור מקרי החובות האבודים הגדולים ב-3 שנים האחרונות</td>
+//                 </tr>
+//                    <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx2'].value}</td>
+//                 </tr>
+//                 <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f22'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray">${data['f23'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray" colspan="2">${data['f24'].value}</td>
+//                     <td class="border px-4 py-2 text-right table-border-gray rtl-text"rowspan="2" >חובות לקוחות אשר בפיגור של יותר מ- 90 יום מעבר לזמן פירעונם )נכון ליום מילוי ההצהרה)</td>
+//                 </tr>
+//                    <tr>
+//                     <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx3'].value}</td>
+//                 </tr>
+//             </tbody>
+//         </table>
+// </div>
 
 
-                pdfBody+= `<tr>`;
+// <br> 
+//         <h4 class="rtl">
+
+//         רשימת חייבים לבדיקה
+
+
+//       </h4>
+
+//  <div style="overflow-x: auto; width: 100%;">
+//         <table class="min-w-full bg-transparent text-black" >
+//             <thead>
+//                 <tr>
+//                     <th class="px-4 py-2">${data['f25'].title}</th>
+//                     <th class="px-4 py-2">${data['f26'].title}</th>
+//                     <th class="px-4 py-2">${data['f27'].title}</th>
+//                     <th class="px-4 py-2">${data['f28'].title}</th>
+//                     <th class="px-4 py-2">${data['f29'].title}</th>
+//                     <th class="px-4 py-2">${data['f30'].title}</th>
+//                 </tr>
+//             </thead>
+//             <tbody class="table-border-gray">`
+
+
+//             for (let index in data["list"].value) {
+
+
+//                 pdfBody+= `<tr>`;
 
                     
                 
 
 
-                for (let key in data["list"].value[index]) {
-                    pdfBody+= `<td class="border px-4 py-2 text-right table-border-gray">${data["list"].value[index][key]}</td>` 
+//                 for (let key in data["list"].value[index]) {
+//                     pdfBody+= `<td class="border px-4 py-2 text-right table-border-gray">${data["list"].value[index][key]}</td>` 
        
-                }
+//                 }
 
-                pdfBody+= `</tr>`;
+//                 pdfBody+= `</tr>`;
         
                 
-              }
+//               }
 
 
 
               
 
-              pdfBody+=     ` </tbody>
-        </table>
-</div>
+//               pdfBody+=     ` </tbody>
+//         </table>
+// </div>
 
 
-<br>
+// <br>
 
-    <div class="page-break"></div>
-<br>
+//     <div class="page-break"></div>
+// <br>
 
-             <div class="field ">
-            <label for="name">${data['f31'].title}</label>
-            <p id="name">${data['f31'].value}</p>
-        </div>
-
-
-             <div class="field">
-            <label for="name">${data['f32'].title}</label>
-            <p id="name">${data['f32'].value}</p>
-        </div>
+//              <div class="field ">
+//             <label for="name">${data['f31'].title}</label>
+//             <p id="name">${data['f31'].value}</p>
+//         </div>
 
 
-             <div class="field">
-            <label for="name">${data['yesNoOption'].title}</label>
-            <p  >${data['yesNoOption'].value}</p>
-        </div>
+//              <div class="field">
+//             <label for="name">${data['f32'].title}</label>
+//             <p id="name">${data['f32'].value}</p>
+//         </div>
 
 
-
-        <div class="field">
-        <label for="name">${data['yesNoOption2'].title}</label>
-        <p  >${data['yesNoOption2'].value}</p>
-    </div>
+//              <div class="field">
+//             <label for="name">${data['yesNoOption'].title}</label>
+//             <p  >${data['yesNoOption'].value}</p>
+//         </div>
 
 
 
-    <div class="field">
-    <label for="name">${data['yesNoOption3'].title}</label>
-    <p  >${data['yesNoOption3'].value}</p>
-</div>
+//         <div class="field">
+//         <label for="name">${data['yesNoOption2'].title}</label>
+//         <p  >${data['yesNoOption2'].value}</p>
+//     </div>
 
 
 
-             <div class="field">
-            <label for="name">${data['f33'].title}</label>
-            <p id="name">${data['f33'].value}</p>
-        </div>
-
-
-             <div class="field">
-            <label for="name">${data['f34'].title}</label>
-            <p id="name">${data['f34'].value}</p>
-        </div>
-
-
-    <br> 
-     <br>
-
-
-    <div class="field">
-    <label for="name">${data['date'].title}</label>
-    <p id="name">${data['date'].value}</p>
-</div>
+//     <div class="field">
+//     <label for="name">${data['yesNoOption3'].title}</label>
+//     <p  >${data['yesNoOption3'].value}</p>
+// </div>
 
 
 
+//              <div class="field">
+//             <label for="name">${data['f33'].title}</label>
+//             <p id="name">${data['f33'].value}</p>
+//         </div>
 
 
-<div class="field">
-<label for="name">${data['sign'].title}</label>
-<p id="name">
+//              <div class="field">
+//             <label for="name">${data['f34'].title}</label>
+//             <p id="name">${data['f34'].value}</p>
+//         </div>
 
-<img  src="${data['sign'].value2}" alt="sign" width="50px" height="50px"  />
+
+//     <br> 
+//      <br>
+
+
+//     <div class="field">
+//     <label for="name">${data['date'].title}</label>
+//     <p id="name">${data['date'].value}</p>
+// </div>
+
+
+
+
+
+// <div class="field">
+// <label for="name">${data['sign'].title}</label>
+// <p id="name">
+
+// <img  src="${data['sign'].value2}" alt="sign" width="50px" height="50px"  />
  
  
 
-</p>
-</div>
+// </p>
+// </div>
 
 
  
@@ -371,28 +385,28 @@ const prepareEmail = expressAsyncHandler(async (data) => {
  
 
        
-    </div>
-</body>
-</html>
+//     </div>
+// </body>
+// </html>
 
 
 
-    `;
+//     `;
 
-    const emailPdf = await generatePDF(pdfBody)
-    console.log("email                            :", emailPdf)
+//     const emailPdf = await generatePDF(pdfBody)
+//     console.log("email                            :", emailPdf)
 
-    const pdfname= Date.now() + '-' + Math.round(Math.random() * 1E9);
-    const filePath = `${pdfname}.pdf`;
-    // Write the HTML content to the file
-    fs.writeFile(filePath, emailPdf, (err) => {
-        if (err) {
-            console.error('Error writing to file', err);
-        } else {
-            console.log('HTML content successfully saved to', filePath);
-        }
-    });
-  return    emailPdf;
+//     const pdfname= Date.now() + '-' + Math.round(Math.random() * 1E9);
+//     const filePath = `${pdfname}.pdf`;
+//     // Write the HTML content to the file
+//     fs.writeFile(filePath, emailPdf, (err) => {
+//         if (err) {
+//             console.error('Error writing to file', err);
+//         } else {
+//             console.log('HTML content successfully saved to', filePath);
+//         }
+//     });
+//   return    emailPdf;
    
 
 
@@ -561,16 +575,45 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f14'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
                 </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f15'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
-                </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
-                </tr>
+             
+
+                `
+
+
+                for (let index in data["bedDebtList"].value) {
+            
+                    emailBodyHtml += `
+                    
+                            <tr>
+                                <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f15']}</td>
+                                <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f16']}</td>
+                                <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f17']}</td>
+                                <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f18']}</td>`
+            
+                                if(index == 0){
+                                    emailBodyHtml+=`<td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td> `
+                                }
+                                else{
+            
+                                    emailBodyHtml+=`<td class="border px-4 py-2 text-right table-border-gray" rowspan="2"> &nbsp; </td> `
+                                }
+            
+            
+                                emailBodyHtml += `</tr>
+                            
+                              <tr>
+                                <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data["bedDebtList"].value[index]['tx1']}</td>
+                            </tr>
+                            
+                            `;
+                }
+            
+            
+             
+
+    emailBodyHtml += `
+
+
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
@@ -927,16 +970,42 @@ const SubmitEmail = expressAsyncHandler(async (data) => {
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f14'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">סה"כ מחזור מכירות בהתאם למאזנים</td>
                 </tr>
+                
+                   `
+
+
+    for (let index in data["bedDebtList"].value) {
+
+        pdfBody += `
+        
                 <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f15'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f16'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f17'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray">${data['f18'].value}</td>
-                    <td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td>
+                    <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f15']}</td>
+                    <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f16']}</td>
+                    <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f17']}</td>
+                    <td class="border px-4 py-2 text-right table-border-gray">${data["bedDebtList"].value[index]['f18']}</td>`
+
+                    if(index == 0){
+                    pdfBody+=`<td class="border px-4 py-2 text-right table-border-gray" rowspan="2" >חובות אבודים ו/או חובות בטיפול משפטי <strong>(שנוצרו בשנים אלו בלבד)</strong></td> `
+                    }
+                    else{
+
+                    pdfBody+=`<td class="border px-4 py-2 text-right table-border-gray" rowspan="2"> &nbsp; </td> `
+                    }
+
+
+                pdfBody += `</tr>
+                
+                  <tr>
+                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data["bedDebtList"].value[index]['tx1']}</td>
                 </tr>
-                <tr>
-                    <td class="border px-4 py-2 text-right table-border-gray" colspan="4" >${data['tx1'].value}</td>
-                </tr>
+                
+                `;
+    }
+
+
+    pdfBody += `
+                
+
                 <tr>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f19'].value}</td>
                     <td class="border px-4 py-2 text-right table-border-gray">${data['f20'].value}</td>
