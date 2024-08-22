@@ -30,7 +30,7 @@ const DynamicTable = () => {
     setRows(newRows);
     setformData((prevState) => ({ ...prevState, ["list"]: { "value": newRows } }));
 
-    console.log("length   ", rows.length)
+    console.log("formData   ", formData)
   };
 
   const addRow = () => {

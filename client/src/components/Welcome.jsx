@@ -20,6 +20,7 @@ import ModalInput from "./input/ModalInput";
 import DynamicTable from "./input/DynamicTable";
 import SubmitSuccess from "./SubmitSuccess";
 import Txarea from "./input/Txarea"
+import DynamicTable_bedDebt from "./input/DynamicTable_bedDebt";
 
 
 const companyCommonStyles = "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-black";
@@ -474,11 +475,11 @@ const Welcome = () => {
                       <table className="min-w-full bg-transparent text-black teblehorizontal border-collapse  border table-border-black" >
                         <thead class="bg-[#20123a] text-white ">
                           <tr>
-                            <th className="px-4 py-2 border table-border-black">צפי מכירות לשנת 2024            </th>
-                            <th className="px-4 py-2 border able-border-black">2023</th>
-                            <th className="px-4 py-2 border table-border-black">2022</th>
-                            <th className="px-4 py-2 border table-border-black">2021</th>
-                            <th className="px-4 py-2 border table-border-black">שנה</th>
+                            <th className="px-4 py-2 border table-border-black" >צפי מכירות לשנת 2024            </th>
+                            <th className="px-4 py-2 border able-border-black" >2023</th>
+                            <th className="px-4 py-2 border table-border-black" >2022</th>
+                            <th className="px-4 py-2 border table-border-black" >2021</th>
+                            <th className="px-4 py-2 border table-border-black" >שנה</th>
                           </tr>
                         </thead>
                         <tbody className="table-border-black">
@@ -592,6 +593,10 @@ const Welcome = () => {
                             <td className="border px-2 md:px-4 py-2 text-right table-border-black"     >סה"כ מחזור מכירות בהתאם למאזנים</td>
                           </tr>
 
+
+
+
+{/* // start 
                           <tr>
                             <td className="border px-2 md:px-4 py-2 text-right table-border-black">
 
@@ -730,6 +735,17 @@ const Welcome = () => {
                               handleChange={handleChange}
                             />
                           </td></tr>
+
+// end  */}
+
+
+
+
+
+<DynamicTable_bedDebt/>
+
+
+
 
                           <tr>
                             <td className="border px-2 md:px-4 py-2 text-right table-border-black">
@@ -966,12 +982,13 @@ const Welcome = () => {
 
 
 
-              <h4 className="text-right pt-[30px] pb-[10px] w-full font-bold text-black">
+              <h4 className="text-right pt-[30px]  w-full font-bold text-black">
 
                 רשימת חייבים לבדיקה
-
-
               </h4>
+              <p className="text-right  pb-[20px] w-full">
+              מומלץ להכניס פרטים של לפחות 10 לקוחות (רצוי לקוחות גדולים).
+              </p>
 
 
               <div className="flex w-full justify-center items-center p-0 m-0">

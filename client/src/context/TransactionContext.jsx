@@ -202,6 +202,9 @@ export const TransactionsProvider = ({ children }) => {
 
             "list": {
                 "value": [], 
+            }, 
+            "bedDebtList": {
+                "value": [], 
             },
             
              
